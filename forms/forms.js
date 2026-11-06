@@ -6,7 +6,9 @@
 
   // Agent details come from SITE in js/site.js.
   var AGENT = typeof SITE !== "undefined" ? SITE : { agentName: "Bill Temple" };
-  var AGENT_LINE = AGENT.agentName + ", Realtor" + (AGENT.brokerage ? " \u00b7 " + AGENT.brokerage : "");
+  var AGENT_LICENSE = AGENT.license || AGENT.licenseNumber || "";
+  var AGENT_LINE = AGENT.agentName + ", Realtor" + (AGENT.brokerage ? " \u00b7 " + AGENT.brokerage : "") +
+    (AGENT_LICENSE ? " \u00b7 License #" + AGENT_LICENSE : "");
 
   var $ = function (id) { return document.getElementById(id); };
   document.title = "Client Forms | " + AGENT.agentName + ", Realtor";
