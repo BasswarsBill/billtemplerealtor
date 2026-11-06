@@ -49,7 +49,7 @@ const SITE = {
           ${SITE.brokerageLogo ? `<img class="brokerage-logo" src="${SITE.brokerageLogo}" alt="${SITE.brokerage}">` : ""}
           <div>${SITE.agentName}, Realtor · MS License #${SITE.license} · Cell <a href="tel:${SITE.phone.replace(/[^0-9+]/g, "")}">${SITE.phone}</a> · <a href="mailto:${SITE.email}">${SITE.email}</a></div>
           <div>${SITE.brokerage} · ${SITE.brokerageAddress} · Office <a href="tel:${SITE.officePhone.replace(/[^0-9+]/g, "")}">${SITE.officePhone}</a></div>
-          <p class="mls-disclaimer">Listing information is deemed reliable but not guaranteed. Listings shown are currently sample data until the MLS feed is connected. The final MLS disclaimer and logo required by your MLS will go here.</p>
+          <p class="mls-disclaimer">Listing information is deemed reliable but not guaranteed. <span class="sample-only">Listings shown are currently sample data until the MLS feed is connected.</span> Listing data provided courtesy of the Mississippi Gulf Coast MLS (final required disclaimer to be confirmed with the MLS).</p>
           <div>© ${new Date().getFullYear()} ${SITE.agentName}</div>
         </div>
       </footer>`;

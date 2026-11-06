@@ -42,6 +42,7 @@
             <div class="price">${formatPrice(l.price)}</div>
             <h1 style="font-size:1.4rem;margin:4px 0">${escapeHtml(addr)}</h1>
             <div class="facts">${factsLine(l)}</div>
+            ${l.listOffice ? `<p class="facts">Listed by ${escapeHtml(l.listOffice)}</p>` : ""}
             <ul class="specs">
               ${spec("Type", l.type)}
               ${spec("Bedrooms", l.beds)}

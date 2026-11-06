@@ -1,15 +1,29 @@
 // One place that loads listings. Every page asks this file for houses.
 //
-// TODAY: reads sample houses from data/listings.json.
-// LATER: once MLS/IDX feed access is approved, switch LISTINGS_SOURCE to "/api/listings"
-// (a small Vercel function that pulls from the MLS and returns the same shape of data).
-// Nothing else on the site needs to change.
-const LISTINGS_SOURCE = "data/listings.json";
+// It first asks /api/listings (live Flexmls listings via the Spark API).
+// If that isn't set up yet or fails, it falls back to the sample houses in
+// data/listings.json, and LISTINGS_ARE_SAMPLE stays true so pages can say so.
+let LISTINGS_ARE_SAMPLE = true;
+let listingsPromise;
 
-async function getListings() {
-  const res = await fetch(LISTINGS_SOURCE);
-  if (!res.ok) throw new Error("Could not load listings");
+async function loadJson(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Could not load ${url}`);
   return res.json();
+}
+
+function getListings() {
+  if (!listingsPromise) {
+    listingsPromise = loadJson("/api/listings")
+      .then((live) => {
+        if (!Array.isArray(live) || !live.length) throw new Error("No live listings");
+        LISTINGS_ARE_SAMPLE = false;
+        document.documentElement.classList.add("live-listings");
+        return live;
+      })
+      .catch(() => loadJson("data/listings.json"));
+  }
+  return listingsPromise;
 }
 
 async function getListing(id) {

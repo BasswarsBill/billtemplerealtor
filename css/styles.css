@@ -166,3 +166,4 @@ section { padding: 64px 0; }
 img.portrait { width: 100%; height: auto; object-fit: cover; }
 @media (max-width: 760px) { .stats.stats-3 { grid-template-columns: 1fr; } .stats.stats-3 div { border-right: 0; border-bottom: 1px solid var(--border); } .stats.stats-3 div:last-child { border-bottom: 0; } }
 .brokerage-logo { height: 44px; width: auto; margin-bottom: 14px; }
+.live-listings .sample-only { display: none; }
