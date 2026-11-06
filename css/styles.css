@@ -161,3 +161,7 @@ section { padding: 64px 0; }
   .nav a { font-size: .68rem; letter-spacing: .12em; }
   .logo { font-size: 1.25rem; }
 }
+.stats.stats-3 { grid-template-columns: repeat(3, 1fr); }
+.stats.stats-3 strong { font-size: clamp(2rem, 4vw, 3rem); }
+img.portrait { width: 100%; height: auto; object-fit: cover; }
+@media (max-width: 760px) { .stats.stats-3 { grid-template-columns: 1fr; } .stats.stats-3 div { border-right: 0; border-bottom: 1px solid var(--border); } .stats.stats-3 div:last-child { border-bottom: 0; } }
