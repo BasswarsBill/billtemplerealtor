@@ -7,7 +7,7 @@ const SITE = {
   brokerageAddress: "520 Pass Rd, Ste L, Gulfport, MS 39507",
   officePhone: "(888) 893-3537",
   phone: "(601) 953-6504", // Bill's cell
-  email: "bill@example.com", // TODO: Bill's email for the site
+  email: "billtemplerealtor@gmail.com",
   license: "61942", // Mississippi license number
 };
 
