@@ -3,7 +3,10 @@
 // then load this script. Edit agent details in SITE below.
 const SITE = {
   agentName: "Bill Temple",
+  // Brokerage: if Bill changes brokerages, update these lines and replace media/brokerage-logo.png
+  // (a white or light logo on a transparent background works best on the black footer).
   brokerage: "Epique Realty",
+  brokerageLogo: "media/brokerage-logo.png",
   brokerageAddress: "520 Pass Rd, Ste L, Gulfport, MS 39507",
   officePhone: "(888) 893-3537",
   phone: "(601) 953-6504", // Bill's cell
@@ -43,6 +46,7 @@ const SITE = {
     footer.outerHTML = `
       <footer class="site-footer">
         <div class="container">
+          ${SITE.brokerageLogo ? `<img class="brokerage-logo" src="${SITE.brokerageLogo}" alt="${SITE.brokerage}">` : ""}
           <div>${SITE.agentName}, Realtor · MS License #${SITE.license} · Cell <a href="tel:${SITE.phone.replace(/[^0-9+]/g, "")}">${SITE.phone}</a> · <a href="mailto:${SITE.email}">${SITE.email}</a></div>
           <div>${SITE.brokerage} · ${SITE.brokerageAddress} · Office <a href="tel:${SITE.officePhone.replace(/[^0-9+]/g, "")}">${SITE.officePhone}</a></div>
           <p class="mls-disclaimer">Listing information is deemed reliable but not guaranteed. Listings shown are currently sample data until the MLS feed is connected. The final MLS disclaimer and logo required by your MLS will go here.</p>

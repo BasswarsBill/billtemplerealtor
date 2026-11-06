@@ -28,3 +28,7 @@ Colors and fonts are the variables at the top of `css/styles.css`.
   replace both files with the same names. Keep new clips short (15 to 30 seconds) and under ~10 MB.
 - `media/hood-*.jpg` are the neighborhood tiles on the home page.
 - Home page: bio in `index.html` is a DRAFT for Bill to edit; neighborhood names are placeholders.
+
+## Changing brokerages
+Edit the brokerage lines in `SITE` at the top of `js/site.js` (name, address, office phone) and
+replace `media/brokerage-logo.png` with the new brokerage's logo. Every page and the signed form PDFs update from there.
