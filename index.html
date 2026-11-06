@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bill Temple, Realtor</title>
+  <meta name="description" content="Search homes for sale and work with Bill Temple, Realtor.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="hero">
+    <div class="container">
+      <h1>Find your next home</h1>
+      <p>Browse current listings and get personal help from a local Realtor.</p>
+      <a class="btn" href="listings.html">Search homes for sale</a>
+    </div>
+  </div>
+
+  <main class="container">
+    <section>
+      <h2>Newest listings</h2>
+      <div id="featured" class="grid"></div>
+      <p style="margin-top:20px"><a class="btn secondary" href="listings.html">See all homes</a></p>
+    </section>
+
+    <section>
+      <h2>Ready to get started?</h2>
+      <p>Buying or selling, the paperwork can be done right here. Pick the form you need, fill it out, sign, and send it straight to me.</p>
+      <a class="btn secondary" href="forms.html">Go to forms</a>
+    </section>
+
+    <section id="contact">
+      <h2>Contact me</h2>
+      <p>Call or email any time. I'm happy to set up a showing or answer questions about a home.</p>
+      <p id="contact-info"></p>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/site.js"></script>
+  <script src="js/listings-data.js"></script>
+  <script>
+    document.getElementById("contact-info").innerHTML =
+      `<strong>${SITE.phone}</strong> · <a href="mailto:${SITE.email}">${SITE.email}</a>`;
+    getListings().then((all) => {
+      const newest = all
+        .filter((l) => l.status === "Active")
+        .sort((a, b) => b.listDate.localeCompare(a.listDate))
+        .slice(0, 3);
+      document.getElementById("featured").innerHTML = newest.map(listingCard).join("");
+    });
+  </script>
+</body>
+</html>

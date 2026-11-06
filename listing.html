@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home details | Bill Temple, Realtor</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <section>
+      <p><a href="listings.html">&larr; Back to all homes</a></p>
+      <div id="detail"><p>Loading…</p></div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/site.js"></script>
+  <script src="js/listings-data.js"></script>
+  <script>
+    const id = new URLSearchParams(location.search).get("id");
+    const el = document.getElementById("detail");
+
+    getListing(id).then((l) => {
+      if (!l) { el.innerHTML = "<p>Sorry, that home could not be found. It may have sold.</p>"; return; }
+      document.title = `${l.address} | Bill Temple, Realtor`;
+      const addr = `${l.address}, ${l.city}, ${l.state} ${l.zip}`;
+      const subject = encodeURIComponent(`Question about ${l.address} (${l.id})`);
+      const spec = (label, value) => value ? `<li><strong>${label}</strong>${escapeHtml(value)}</li>` : "";
+
+      el.innerHTML = `
+        <div class="detail">
+          <div>
+            <div class="gallery">
+              <img id="main-photo" src="${escapeHtml(l.photos[0])}" alt="Photo of ${escapeHtml(l.address)}">
+              <div class="thumbs">${l.photos.map((p) => `<img src="${escapeHtml(p)}" alt="" data-src="${escapeHtml(p)}">`).join("")}</div>
+            </div>
+            <span class="badge ${l.status === "Pending" ? "pending" : ""}" style="margin-top:16px">${escapeHtml(l.status)}</span>
+            <div class="price">${formatPrice(l.price)}</div>
+            <h1 style="font-size:1.4rem;margin:4px 0">${escapeHtml(addr)}</h1>
+            <div class="facts">${factsLine(l)}</div>
+            <ul class="specs">
+              ${spec("Type", l.type)}
+              ${spec("Bedrooms", l.beds)}
+              ${spec("Bathrooms", l.baths)}
+              ${spec("Square feet", l.sqft ? Number(l.sqft).toLocaleString() : "")}
+              ${spec("Lot size", l.lotAcres ? `${l.lotAcres} acres` : "")}
+              ${spec("Year built", l.yearBuilt)}
+              ${spec("MLS #", l.id)}
+            </ul>
+            <h2>About this home</h2>
+            <p>${escapeHtml(l.description)}</p>
+          </div>
+          <aside>
+            <div class="panel">
+              <h2 style="font-size:1.2rem">Interested in this home?</h2>
+              <p>Ask a question or schedule a showing with ${SITE.agentName}.</p>
+              <p><a class="btn" href="mailto:${SITE.email}?subject=${subject}">Email me about this home</a></p>
+              <p>Or call <a href="tel:${SITE.phone.replace(/[^0-9+]/g, "")}">${SITE.phone}</a></p>
+              <p><a href="forms.html">Ready to make an offer? Go to forms</a></p>
+            </div>
+          </aside>
+        </div>`;
+
+      el.querySelectorAll(".thumbs img").forEach((t) =>
+        t.addEventListener("click", () => (document.getElementById("main-photo").src = t.dataset.src)));
+    });
+  </script>
+</body>
+</html>

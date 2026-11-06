@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Homes for Sale | Bill Temple, Realtor</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <section>
+      <h1>Homes for sale</h1>
+      <p class="notice">These are sample listings for now. Real MLS listings will appear here once the MLS feed is connected.</p>
+
+      <form class="filters" id="filters" onsubmit="return false">
+        <label>City or address
+          <input type="search" name="q" placeholder="e.g. Springfield">
+        </label>
+        <label>Min price
+          <select name="min">
+            <option value="">Any</option>
+            <option>100000</option><option>200000</option><option>300000</option>
+            <option>400000</option><option>500000</option><option>750000</option>
+          </select>
+        </label>
+        <label>Max price
+          <select name="max">
+            <option value="">Any</option>
+            <option>200000</option><option>300000</option><option>400000</option>
+            <option>500000</option><option>750000</option><option>1000000</option>
+          </select>
+        </label>
+        <label>Beds
+          <select name="beds">
+            <option value="">Any</option><option value="1">1+</option><option value="2">2+</option>
+            <option value="3">3+</option><option value="4">4+</option><option value="5">5+</option>
+          </select>
+        </label>
+        <label>Type
+          <select name="type">
+            <option value="">Any</option><option>Single Family</option><option>Condo</option>
+            <option>Townhouse</option><option>Land</option>
+          </select>
+        </label>
+        <label>Sort
+          <select name="sort">
+            <option value="new">Newest</option>
+            <option value="low">Price: low to high</option>
+            <option value="high">Price: high to low</option>
+          </select>
+        </label>
+      </form>
+
+      <div class="result-count" id="count"></div>
+      <div class="grid" id="results"></div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/site.js"></script>
+  <script src="js/listings-data.js"></script>
+  <script>
+    const form = document.getElementById("filters");
+    let all = [];
+
+    // Pre-fill filters from the URL so searches can be shared/bookmarked.
+    const params = new URLSearchParams(location.search);
+    for (const [k, v] of params) if (form.elements[k]) form.elements[k].value = v;
+
+    function render() {
+      const f = Object.fromEntries(new FormData(form));
+      const q = f.q.trim().toLowerCase();
+      let list = all.filter((l) =>
+        (!q || `${l.address} ${l.city} ${l.zip}`.toLowerCase().includes(q)) &&
+        (!f.min || l.price >= +f.min) &&
+        (!f.max || l.price <= +f.max) &&
+        (!f.beds || l.beds >= +f.beds) &&
+        (!f.type || l.type === f.type)
+      );
+      const sorters = {
+        new: (a, b) => b.listDate.localeCompare(a.listDate),
+        low: (a, b) => a.price - b.price,
+        high: (a, b) => b.price - a.price,
+      };
+      list.sort(sorters[f.sort]);
+      document.getElementById("count").textContent = `${list.length} home${list.length === 1 ? "" : "s"} found`;
+      document.getElementById("results").innerHTML =
+        list.map(listingCard).join("") || "<p>No homes match those filters. Try widening your search.</p>";
+
+      const keep = new URLSearchParams(Object.entries(f).filter(([, v]) => v && v !== "new"));
+      history.replaceState(null, "", keep.toString() ? `?${keep}` : location.pathname);
+    }
+
+    form.addEventListener("input", render);
+    getListings().then((data) => { all = data; render(); });
+  </script>
+</body>
+</html>
