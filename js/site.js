@@ -12,6 +12,7 @@ const SITE = {
   const path = location.pathname.split("/").pop() || "index.html";
   const links = [
     ["index.html", "Home"],
+    ["index.html#about", "Meet Bill"],
     ["listings.html", "Homes for Sale"],
     ["forms.html", "Forms"],
     ["index.html#contact", "Contact"],
