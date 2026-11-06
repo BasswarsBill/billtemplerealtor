@@ -3,9 +3,12 @@
 // then load this script. Edit agent details in SITE below.
 const SITE = {
   agentName: "Bill Temple",
-  brokerage: "Your Brokerage Name",
-  phone: "(555) 555-5555",
-  email: "bill@example.com",
+  brokerage: "Epique Realty",
+  brokerageAddress: "520 Pass Rd, Ste L, Gulfport, MS 39507",
+  officePhone: "(888) 893-3537",
+  phone: "(601) 953-6504", // Bill's cell
+  email: "bill@example.com", // TODO: Bill's email for the site
+  license: "MS License #61942",
 };
 
 (function () {
@@ -40,7 +43,8 @@ const SITE = {
     footer.outerHTML = `
       <footer class="site-footer">
         <div class="container">
-          <div>${SITE.agentName}, ${SITE.brokerage} · <a href="tel:${SITE.phone.replace(/[^0-9+]/g, "")}">${SITE.phone}</a> · <a href="mailto:${SITE.email}">${SITE.email}</a></div>
+          <div>${SITE.agentName}, Realtor · ${SITE.license} · Cell <a href="tel:${SITE.phone.replace(/[^0-9+]/g, "")}">${SITE.phone}</a> · <a href="mailto:${SITE.email}">${SITE.email}</a></div>
+          <div>${SITE.brokerage} · ${SITE.brokerageAddress} · Office <a href="tel:${SITE.officePhone.replace(/[^0-9+]/g, "")}">${SITE.officePhone}</a></div>
           <p class="mls-disclaimer">Listing information is deemed reliable but not guaranteed. Listings shown are currently sample data until the MLS feed is connected. The final MLS disclaimer and logo required by your MLS will go here.</p>
           <div>© ${new Date().getFullYear()} ${SITE.agentName}</div>
         </div>

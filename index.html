@@ -121,7 +121,7 @@
   <script src="js/listings-data.js"></script>
   <script>
     document.getElementById("contact-info").innerHTML =
-      `${SITE.phone}<br><a href="mailto:${SITE.email}">${SITE.email}</a>`;
+      `Cell ${SITE.phone}<br><a href="mailto:${SITE.email}">${SITE.email}</a><br>${SITE.brokerage}, ${SITE.brokerageAddress}`;
 
     // Until a form-sending service is set up, the contact form opens the visitor's email app.
     document.getElementById("contact-form").addEventListener("submit", (e) => {
