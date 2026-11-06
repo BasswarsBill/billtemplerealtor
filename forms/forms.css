@@ -1,0 +1,78 @@
+/* Styles for forms.html. Uses the shared site variables from css/styles.css
+   when they exist, with fallbacks so the page still looks right on its own. */
+
+.forms-page {
+  max-width: 760px;
+  padding-top: 32px;
+  padding-bottom: 64px;
+  color: var(--text, #222);
+}
+.forms-page h1 { margin: 0 0 8px; }
+.forms-intro > p, .form-summary { color: var(--muted, #667); margin: 0 0 24px; }
+
+.form-cards { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.form-card {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 20px; border-radius: 10px;
+  border: 1px solid var(--border, #e2e0da);
+  background: var(--card, #fff);
+  color: inherit; text-decoration: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.form-card:hover, .form-card:focus-visible {
+  border-color: var(--brand, #1f4e5f);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .08);
+}
+.form-card h2 { font-size: 1.1rem; margin: 0; }
+.form-card p { margin: 0; color: var(--muted, #667); flex: 1; }
+.form-card-cta { color: var(--brand, #1f4e5f); font-weight: 600; }
+
+.back-link { display: inline-block; margin-bottom: 16px; color: var(--brand, #1f4e5f); }
+
+.form-section {
+  border: 1px solid var(--border, #e2e0da);
+  border-radius: 10px; padding: 16px 20px 8px; margin: 0 0 20px;
+  background: var(--card, #fff);
+}
+.form-section > legend { font-weight: 700; padding: 0 6px; font-size: 1.05rem; }
+
+.field { margin-bottom: 16px; }
+.field > label, .radio-group > legend { display: block; font-weight: 600; margin-bottom: 6px; }
+.field input[type=text], .field input[type=email], .field input[type=tel],
+.field input[type=number], .field input[type=date], .field select, .field textarea {
+  width: 100%; box-sizing: border-box;
+  padding: 10px 12px; font: inherit; font-size: 16px; /* 16px stops iPhone zooming in */
+  border: 1px solid var(--border, #e2e0da); border-radius: 6px;
+  background: #fff; color: #1d2430;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: 2px solid var(--brand, #1f4e5f); outline-offset: 1px;
+}
+.radio-group { border: 0; padding: 0; margin: 0; }
+.check, .field > label.check { display: flex; gap: 10px; align-items: flex-start; margin: 6px 0; font-weight: 400; cursor: pointer; }
+.check input { margin-top: 3px; width: 18px; height: 18px; flex: none; }
+.req { color: #b42318; }
+
+.sig-wrap { position: relative; }
+#sig-pad {
+  display: block; width: 100%; height: 160px;
+  border: 1px dashed #8a94a3; border-radius: 6px;
+  background: #fff; touch-action: none; cursor: crosshair;
+}
+.btn-link {
+  position: absolute; top: 6px; right: 8px;
+  background: none; border: 0; color: var(--brand, #1f4e5f);
+  font: inherit; cursor: pointer; text-decoration: underline;
+}
+.sig-date { color: var(--muted, #667); }
+
+.form-error {
+  background: #fdecea; color: #8a1c12; border: 1px solid #f5c2bd;
+  padding: 10px 14px; border-radius: 6px;
+}
+.form-actions { margin-top: 8px; }
+.forms-page .btn:disabled { opacity: .6; cursor: wait; }
+.form-done { text-align: center; padding: 32px 0; }
+
+/* Spam-bot trap: hidden from people */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Client Forms</title>
+  <meta name="description" content="Fill out and sign client forms online and send them straight to Bill.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="forms/forms.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container forms-page">
+    <!-- List of forms -->
+    <section id="form-list" class="forms-intro">
+      <h1>Client Forms</h1>
+      <p>Choose a form below, fill it out, and sign it right on your phone or computer. It comes straight to me, and you can download a copy for your records.</p>
+      <div id="form-cards" class="form-cards"></div>
+    </section>
+
+    <!-- A single form (filled in by forms.js) -->
+    <section id="form-view" hidden>
+      <a href="forms.html" class="back-link">&larr; All forms</a>
+      <h1 id="form-title"></h1>
+      <p id="form-summary" class="form-summary"></p>
+
+      <form id="client-form" novalidate>
+        <div id="form-fields"></div>
+
+        <!-- Honeypot field to catch spam bots. Real people never see it. -->
+        <div class="hp" aria-hidden="true">
+          <label>Leave this empty <input type="text" name="_company" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <fieldset class="form-section signature-section">
+          <legend>Sign</legend>
+          <label class="check">
+            <input type="checkbox" id="esign-consent" required>
+            <span>I agree to sign this form electronically, and I understand my electronic signature has the same effect as signing on paper.</span>
+          </label>
+          <div class="field">
+            <label for="signer-name">Type your full legal name <span class="req">*</span></label>
+            <input type="text" id="signer-name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label>Draw your signature <span class="req">*</span></label>
+            <div class="sig-wrap">
+              <canvas id="sig-pad" aria-label="Signature pad. Draw your signature with your finger or mouse."></canvas>
+              <button type="button" id="sig-clear" class="btn-link">Clear</button>
+            </div>
+          </div>
+          <p class="sig-date">Date: <span id="sig-date"></span></p>
+        </fieldset>
+
+        <p id="form-error" class="form-error" role="alert" hidden></p>
+        <div class="form-actions">
+          <button type="submit" id="submit-btn" class="btn">Sign and send to Bill</button>
+        </div>
+      </form>
+
+      <!-- Shown for official agreements that are sent by e-signature -->
+      <form id="request-form" hidden novalidate>
+        <fieldset class="form-section">
+          <legend>Request this form</legend>
+          <div class="field"><label for="req-name">Full name <span class="req">*</span></label><input id="req-name" name="full_name" required autocomplete="name"></div>
+          <div class="field"><label for="req-email">Email <span class="req">*</span></label><input id="req-email" name="email" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="req-phone">Phone</label><input id="req-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="req-notes">Notes</label><textarea id="req-notes" name="notes" rows="3"></textarea></div>
+        </fieldset>
+        <div class="hp" aria-hidden="true"><input type="text" name="_company" tabindex="-1" autocomplete="off"></div>
+        <p id="request-error" class="form-error" role="alert" hidden></p>
+        <div class="form-actions"><button type="submit" class="btn">Request this form</button></div>
+      </form>
+
+      <div id="form-done" class="form-done" hidden>
+        <h2>Thank you!</h2>
+        <p id="done-message">I've received your form and will be in touch soon.</p>
+        <p><button type="button" id="download-copy" class="btn secondary" hidden>Download my signed copy (PDF)</button></p>
+        <p><a href="forms.html">Back to all forms</a></p>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/site.js"></script>
+  <script src="forms/vendor/jspdf.umd.min.js" defer></script>
+  <script src="forms/forms-data.js" defer></script>
+  <script src="forms/forms.js" defer></script>
+</body>
+</html>
