@@ -27,7 +27,7 @@ their own signed copy.
 2. Create an API key in Resend.
 3. In Vercel, open the project, then **Settings → Environment Variables**, and add:
    - `RESEND_API_KEY` – the key from step 2
-   - `FORMS_TO_EMAIL` – where forms should go (several addresses can be separated with commas)
+   - `FORMS_TO_EMAIL` – where forms should go: `billtemplerealtor@gmail.com` (several addresses can be separated with commas)
    - `FORMS_FROM_EMAIL` – the sender, on the verified domain, e.g. `Website Forms <forms@yourdomain.com>`
 4. Redeploy. Until these are set, the form shows the client a friendly "couldn't send" message.
 
