@@ -7,34 +7,111 @@
   <meta name="description" content="Search homes for sale and work with Bill Temple, Realtor.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="home">
   <div id="site-header"></div>
 
+  <!-- Hero video. To change it, replace media/hero.mp4 (and media/hero-poster.jpg, a still from it). -->
   <div class="hero">
+    <video class="hero-media" src="media/hero.mp4" poster="media/hero-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
     <div class="container">
-      <h1>Find your next home</h1>
-      <p>Browse current listings and get personal help from a local Realtor.</p>
-      <a class="btn" href="listings.html">Search homes for sale</a>
+      <p class="eyebrow">Real estate on the Gulf Coast</p>
+      <h1>Find a home worth coming back to</h1>
+      <p>Every home for sale in the area, with a Realtor who knows every street.</p>
+      <form class="hero-search" action="listings.html" method="get">
+        <input type="search" name="q" placeholder="City, ZIP, or address" aria-label="City, ZIP, or address">
+        <select name="max" aria-label="Max price">
+          <option value="">Any price</option>
+          <option value="300000">Up to $300k</option>
+          <option value="500000">Up to $500k</option>
+          <option value="750000">Up to $750k</option>
+          <option value="1000000">Up to $1M</option>
+        </select>
+        <select name="beds" aria-label="Bedrooms">
+          <option value="">Any beds</option>
+          <option value="2">2+ beds</option>
+          <option value="3">3+ beds</option>
+          <option value="4">4+ beds</option>
+        </select>
+        <button class="btn" type="submit">Search homes</button>
+      </form>
     </div>
   </div>
 
-  <main class="container">
+  <main>
+    <div class="container">
+      <div class="stats stats-3">
+        <div><strong>15+</strong><span>Years investing in real estate</span></div>
+        <div><strong>Investor</strong><span>Eye for value, repairs and resale</span></div>
+        <div><strong>Local</strong><span>Gulf Coast homes and neighborhoods</span></div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="container meet">
+        <img class="portrait" src="media/bill.jpg" alt="Bill Temple, Realtor" width="900" height="1125">
+        <div>
+          <p class="eyebrow">Meet Bill</p>
+          <h2>Bill Temple</h2>
+          <!-- DRAFT bio: Bill to review and edit -->
+          <p>I've been investing in real estate for more than 15 years: buying, fixing up, renting and selling homes here on the Gulf Coast. Now, as a licensed Realtor, I put that experience to work for you.</p>
+          <p>Because I've been on the investor's side of the table, I look at a home the way you should: what it's really worth, what it will cost to own, and what it could be worth down the road. Whether you're buying your first home, selling, or adding to your portfolio, you'll get straight answers and someone who picks up the phone.</p>
+          <a class="btn secondary" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <p class="eyebrow">Just listed</p>
+        <h2>Featured properties</h2>
+        <div id="featured" class="grid"></div>
+        <p style="margin-top:32px"><a class="btn secondary" href="listings.html">View all homes</a></p>
+      </div>
+    </section>
+
+    <!-- PLACEHOLDER area names: swap for Bill's real neighborhoods -->
     <section>
-      <h2>Newest listings</h2>
-      <div id="featured" class="grid"></div>
-      <p style="margin-top:20px"><a class="btn secondary" href="listings.html">See all homes</a></p>
+      <div class="container">
+        <p class="eyebrow">Explore</p>
+        <h2>Neighborhoods</h2>
+        <div class="hoods">
+          <a class="hood" href="listings.html?q=Long+Beach" style="background-image:url('media/hood-1.jpg')"><span>Long Beach</span></a>
+          <a class="hood" href="listings.html" style="background-image:url('media/hood-2.jpg')"><span>On the Water</span></a>
+          <a class="hood" href="listings.html" style="background-image:url('media/hood-3.jpg')"><span>In Town</span></a>
+          <a class="hood" href="listings.html" style="background-image:url('media/hood-4.jpg')"><span>Downtown</span></a>
+        </div>
+      </div>
     </section>
 
     <section>
-      <h2>Ready to get started?</h2>
-      <p>Buying or selling, the paperwork can be done right here. Pick the form you need, fill it out, sign, and send it straight to me.</p>
-      <a class="btn secondary" href="forms.html">Go to forms</a>
+      <div class="container">
+        <p class="eyebrow">For clients</p>
+        <h2>Paperwork, without the paper</h2>
+        <p style="color:var(--muted);max-width:60ch">Pick a form, fill it in on your phone or computer, sign with your finger or mouse, and it comes straight to me.</p>
+        <div class="form-links">
+          <a href="forms.html"><strong>Buyer questionnaire</strong><span>Tell me what you're looking for</span><b>Begin</b></a>
+          <a href="forms.html"><strong>Seller intake</strong><span>Start the process of listing your home</span><b>Begin</b></a>
+          <a href="forms.html"><strong>Showing request</strong><span>Pick a home and a time to see it</span><b>Begin</b></a>
+          <a href="forms.html"><strong>All forms</strong><span>See every form you can fill and sign</span><b>View</b></a>
+        </div>
+      </div>
     </section>
 
     <section id="contact">
-      <h2>Contact me</h2>
-      <p>Call or email any time. I'm happy to set up a showing or answer questions about a home.</p>
-      <p id="contact-info"></p>
+      <div class="container connect">
+        <div>
+          <p class="eyebrow">Let's connect</p>
+          <h2>Questions about a home, or ready to sell?</h2>
+          <p id="contact-info" style="color:#c8c8c8"></p>
+        </div>
+        <form id="contact-form">
+          <input id="c-name" name="name" placeholder="Name" aria-label="Name" required>
+          <input id="c-phone" name="phone" type="tel" placeholder="Phone" aria-label="Phone">
+          <input id="c-email" class="full" name="email" type="email" placeholder="Email" aria-label="Email" required>
+          <textarea id="c-msg" name="message" rows="3" placeholder="How can I help?" aria-label="Message"></textarea>
+          <button class="btn" type="submit">Send message</button>
+        </form>
+      </div>
     </section>
   </main>
 
@@ -44,7 +121,16 @@
   <script src="js/listings-data.js"></script>
   <script>
     document.getElementById("contact-info").innerHTML =
-      `<strong>${SITE.phone}</strong> · <a href="mailto:${SITE.email}">${SITE.email}</a>`;
+      `Cell ${SITE.phone}<br><a href="mailto:${SITE.email}">${SITE.email}</a><br>${SITE.brokerage}, ${SITE.brokerageAddress}`;
+
+    // Until a form-sending service is set up, the contact form opens the visitor's email app.
+    document.getElementById("contact-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const f = Object.fromEntries(new FormData(e.target));
+      const body = `${f.message}\n\n${f.name}\n${f.phone}\n${f.email}`;
+      location.href = `mailto:${SITE.email}?subject=${encodeURIComponent("Website message from " + f.name)}&body=${encodeURIComponent(body)}`;
+    });
+
     getListings().then((all) => {
       const newest = all
         .filter((l) => l.status === "Active")
