@@ -343,7 +343,7 @@
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "",
       esignConsent: $("esign-consent").checked,
       pdfBase64: pdfBase64,
-      _company: formEl.elements._company.value,
+      _hp: formEl.elements.hp_check.value,
     };
 
     send(payload, $("submit-btn"), errEl, function () {
@@ -378,7 +378,7 @@
         { section: "Request", label: "Notes", value: formEl.elements.notes.value.trim() },
       ],
       replyTo: formEl.elements.email.value.trim(),
-      _company: formEl.elements._company.value,
+      _hp: formEl.elements.hp_check.value,
     };
     $("done-message").textContent = "Thanks! I'll email you the " + current.title + " to sign electronically.";
     send(payload, formEl.querySelector("button[type=submit]"), errEl);
