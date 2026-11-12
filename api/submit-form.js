@@ -32,7 +32,11 @@ module.exports = async function handler(req, res) {
   }
 
   // Spam bots fill in the hidden field. Pretend it worked and drop it.
-  if (body._company) return res.status(200).json({ ok: true });
+  // (The field has a nonsense name so browser autofill leaves it alone.)
+  if (body._hp) {
+    console.warn("submit-form: hidden spam-trap field was filled; dropped");
+    return res.status(200).json({ ok: true });
+  }
 
   const kind = body.kind === "request" ? "request" : body.kind === "signed" ? "signed" : null;
   const formTitle = clean(body.formTitle, 200);
