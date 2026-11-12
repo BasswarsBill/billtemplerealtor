@@ -32,3 +32,8 @@ Colors and fonts are the variables at the top of `css/styles.css`.
 ## Changing brokerages
 Edit the brokerage lines in `SITE` at the top of `js/site.js` (name, address, office phone) and
 replace `media/brokerage-logo.png` with the new brokerage's logo. Every page and the signed form PDFs update from there.
+
+## Publishing
+The Vercel project `bill-temple-realtor` is linked to this repo. Any change merged into the
+default branch (`claude/project-thread-r7mqe8`) goes live automatically within a minute or two.
+No more uploads from a PC are needed.
