@@ -135,7 +135,7 @@ SITE.brokerageAddress = `${SITE.brokerageStreet}, ${SITE.brokerageCity}, ${SITE.
           ${SITE.facebook ? `<div><a class="follow-fb" href="${SITE.facebook}" target="_blank" rel="noopener">Follow on Facebook</a></div>` : ""}
           <div>${SITE.brokerage} · ${SITE.brokerageAddress} · Office <a href="tel:${SITE.officePhone.replace(/[^0-9+]/g, "")}">${SITE.officePhone}</a></div>
           <p class="mls-disclaimer">Listing information is deemed reliable but not guaranteed. Listing data provided courtesy of the Mississippi Gulf Coast MLS (final required disclaimer to be confirmed with the MLS).</p>
-          <div>© ${new Date().getFullYear()} ${SITE.agentName}</div>
+          <div>© ${new Date().getFullYear()} ${SITE.agentName} · <a href="privacy.html">Privacy</a></div>
         </div>
       </footer>`;
   }
