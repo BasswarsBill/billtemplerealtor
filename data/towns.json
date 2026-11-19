@@ -1,5 +1,5 @@
 {
-  "_readme": "Neighborhood guide content. Edit the words here, then the guide pages rebuild themselves (GitHub runs scripts/update-neighborhoods.mjs). Numbers (Census and homes for sale) are filled in automatically; do not type them here. To give a town a video or photo, put the file in media/towns/ and set media.video / media.poster / media.photo to its path. Fair housing: describe places, homes and amenities, never the people who live there or who a place is 'good for'.",
+  "_readme": "Neighborhood guide content. Edit the words here, then the guide pages rebuild themselves (GitHub runs scripts/update-neighborhoods.mjs). Numbers (Census and homes for sale) are filled in automatically; do not type them here. To give a town a video or photo, put the file in media/towns/ and set media.video / media.poster / media.photo to its path. Bill's tall drone clips go in media.clips (video, poster, title) and show in a 'from the air' section. Fair housing: describe places, homes and amenities, never the people who live there or who a place is 'good for'.",
   "schoolGradesNote": "Mississippi Department of Education 2025-26 district accountability grades, released October 2026. Grades are for the district as a whole; individual schools can differ. Attendance zones change, so confirm the school for any address with the district.",
   "schoolGradesSources": [
     {
@@ -234,7 +234,19 @@
       "media": {
         "video": null,
         "poster": null,
-        "photo": null
+        "photo": null,
+        "clips": [
+          {
+            "video": "media/towns/clips/pass-harbor.mp4",
+            "poster": "media/towns/clips/pass-harbor.jpg",
+            "title": "Pass Christian Harbor"
+          },
+          {
+            "video": "media/towns/clips/pass-christian-hwy90.mp4",
+            "poster": "media/towns/clips/pass-christian-hwy90.jpg",
+            "title": "The beach along US 90"
+          }
+        ]
       },
       "nearby": [
         "long-beach",
@@ -294,7 +306,19 @@
       "media": {
         "video": null,
         "poster": null,
-        "photo": null
+        "photo": null,
+        "clips": [
+          {
+            "video": "media/towns/clips/bay-st-louis.mp4",
+            "poster": "media/towns/clips/bay-st-louis.jpg",
+            "title": "Old Town and the beach"
+          },
+          {
+            "video": "media/towns/clips/bay-st-louis-2.mp4",
+            "poster": "media/towns/clips/bay-st-louis-2.jpg",
+            "title": "Bay St. Louis Harbor and the bridge"
+          }
+        ]
       },
       "nearby": [
         "pass-christian",
@@ -349,7 +373,29 @@
       "media": {
         "video": null,
         "poster": null,
-        "photo": null
+        "photo": null,
+        "clips": [
+          {
+            "video": "media/towns/clips/ocean-springs-boardwalk.mp4",
+            "poster": "media/towns/clips/ocean-springs-boardwalk.jpg",
+            "title": "Front Beach and the boardwalk"
+          },
+          {
+            "video": "media/towns/clips/ocean-springs-harbor.mp4",
+            "poster": "media/towns/clips/ocean-springs-harbor.jpg",
+            "title": "Ocean Springs Harbor"
+          },
+          {
+            "video": "media/towns/clips/ocean-springs-beach-rd.mp4",
+            "poster": "media/towns/clips/ocean-springs-beach-rd.jpg",
+            "title": "Along Beach Boulevard"
+          },
+          {
+            "video": "media/towns/clips/ocean-springs-bridge.mp4",
+            "poster": "media/towns/clips/ocean-springs-bridge.jpg",
+            "title": "By the bridge"
+          }
+        ]
       },
       "nearby": [
         "biloxi",

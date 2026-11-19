@@ -446,7 +446,19 @@
       "media": {
         "video": null,
         "poster": null,
-        "photo": null
+        "photo": null,
+        "clips": [
+          {
+            "video": "media/towns/clips/pass-harbor.mp4",
+            "poster": "media/towns/clips/pass-harbor.jpg",
+            "title": "Pass Christian Harbor"
+          },
+          {
+            "video": "media/towns/clips/pass-christian-hwy90.mp4",
+            "poster": "media/towns/clips/pass-christian-hwy90.jpg",
+            "title": "The beach along US 90"
+          }
+        ]
       },
       "nearby": [
         "long-beach",
@@ -513,7 +525,19 @@
       "media": {
         "video": null,
         "poster": null,
-        "photo": null
+        "photo": null,
+        "clips": [
+          {
+            "video": "media/towns/clips/bay-st-louis.mp4",
+            "poster": "media/towns/clips/bay-st-louis.jpg",
+            "title": "Old Town and the beach"
+          },
+          {
+            "video": "media/towns/clips/bay-st-louis-2.mp4",
+            "poster": "media/towns/clips/bay-st-louis-2.jpg",
+            "title": "Bay St. Louis Harbor and the bridge"
+          }
+        ]
       },
       "nearby": [
         "pass-christian",
@@ -575,7 +599,29 @@
       "media": {
         "video": null,
         "poster": null,
-        "photo": null
+        "photo": null,
+        "clips": [
+          {
+            "video": "media/towns/clips/ocean-springs-boardwalk.mp4",
+            "poster": "media/towns/clips/ocean-springs-boardwalk.jpg",
+            "title": "Front Beach and the boardwalk"
+          },
+          {
+            "video": "media/towns/clips/ocean-springs-harbor.mp4",
+            "poster": "media/towns/clips/ocean-springs-harbor.jpg",
+            "title": "Ocean Springs Harbor"
+          },
+          {
+            "video": "media/towns/clips/ocean-springs-beach-rd.mp4",
+            "poster": "media/towns/clips/ocean-springs-beach-rd.jpg",
+            "title": "Along Beach Boulevard"
+          },
+          {
+            "video": "media/towns/clips/ocean-springs-bridge.mp4",
+            "poster": "media/towns/clips/ocean-springs-bridge.jpg",
+            "title": "By the bridge"
+          }
+        ]
       },
       "nearby": [
         "biloxi",
