@@ -1,0 +1,45 @@
+{
+  "_readme": "Extra Facebook posts that don't come from another page: reminders about what Bill offers. Edit the words here. scripts/social/facebook.py mixes these in with the market, rates, town, guide and investor posts. Each post needs a unique id; changing an id makes it count as a new post. Keep wording about homes, places and services, never about the people who live somewhere, and no sales claims.",
+  "posts": [
+    {
+      "id": "promo-home-value",
+      "eyebrow": "THINKING ABOUT SELLING?",
+      "title": "What is your home worth today?",
+      "line": "A free, no-pressure price opinion from a local agent.",
+      "url": "https://www.billtemplerealtor.com/home-value.html",
+      "socialPost": "Curious what your home would sell for in today's Gulf Coast market? Online estimates can miss by a lot here, because flood zone, elevation, roof age and insurance all move the price. Send me the address and I'll put together a free price opinion based on recent sales nearby. No pressure, no obligation.\n\nStart here: https://www.billtemplerealtor.com/home-value.html"
+    },
+    {
+      "id": "promo-drone-tours",
+      "eyebrow": "SELLING WITH BILL",
+      "title": "Drone video and 3D tours, shot by me",
+      "line": "Your home, shown the way buyers want to see it.",
+      "url": "https://www.billtemplerealtor.com/home-value.html",
+      "socialPost": "Most buyers see a home online long before they see it in person. When I list a home, I fly the drone and shoot the 3D walkthrough tour myself, so buyers can see the house, the lot and the neighborhood from their couch.\n\nThinking about selling? Let's talk: https://www.billtemplerealtor.com/home-value.html"
+    },
+    {
+      "id": "promo-find-a-home",
+      "eyebrow": "BUYING ON THE COAST?",
+      "title": "Tell me what you're looking for",
+      "line": "I'll watch the market and send you the homes that fit.",
+      "url": "https://www.billtemplerealtor.com/find-a-home.html",
+      "socialPost": "Looking for a home on the Mississippi Gulf Coast? Tell me your budget, the towns you like and the must-haves, and I'll keep an eye on the market for you and send the homes that fit, including ones that just came on.\n\nFill out the wish list here: https://www.billtemplerealtor.com/find-a-home.html"
+    },
+    {
+      "id": "promo-investor-agent",
+      "eyebrow": "MEET BILL",
+      "title": "15 years investing in Gulf Coast real estate",
+      "line": "I look at every house the way an investor does.",
+      "url": "https://www.billtemplerealtor.com/index.html#about",
+      "socialPost": "Before I was a Realtor, I spent 15 years buying and owning real estate as an investor. That means I look at a house the way you should: the roof, the flood zone, the insurance bill, the repairs, and what it will really cost to own. Happy to help you run the numbers on your next move.\n\nMore about me: https://www.billtemplerealtor.com/index.html#about"
+    },
+    {
+      "id": "promo-forms",
+      "eyebrow": "MAKE IT EASY",
+      "title": "Start online, any time",
+      "line": "Buyer and seller questionnaires you can fill out and sign from your phone.",
+      "url": "https://www.billtemplerealtor.com/forms.html",
+      "socialPost": "Getting started with a real estate move shouldn't mean a pile of paperwork. My buyer and seller questionnaires are online: fill them out and sign from your phone, and they come straight to me.\n\nFind them here: https://www.billtemplerealtor.com/forms.html"
+    }
+  ]
+}

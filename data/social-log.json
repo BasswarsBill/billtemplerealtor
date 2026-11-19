@@ -1,0 +1,5 @@
+{
+    "_readme": "Every post that went to Facebook, newest last. scripts/social/facebook.py reads this so nothing repeats. Written by the Post to Facebook action; no need to edit.",
+    "posts": [],
+    "rotation": 0
+}

@@ -1,0 +1,4 @@
+{
+    "_readme": "preview = make the picture and caption but do not post. live = post to the Facebook Page. Claude switches this to live once Bill OKs the first posts.",
+    "mode": "preview"
+}
