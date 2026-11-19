@@ -3,7 +3,8 @@
 Plain static site (HTML, CSS, vanilla JavaScript). No build step. Deploys to Vercel as-is.
 
 ## Pages
-- `index.html` home page with newest listings
+- `index.html` home page (newest listings once the MLS feed is on; "coming soon" until then)
+- `find-a-home.html` "Tell me what you're looking for" buyer wish list. Emails Bill as a lead through `api/submit-form.js`.
 - `listings.html` search and filter homes for sale
 - `listing.html?id=...` one home's details
 - `forms.html` client forms (built separately in `forms/`)
@@ -13,10 +14,15 @@ Plain static site (HTML, CSS, vanilla JavaScript). No build step. Deploys to Ver
 - `investors.html` Investor Corner with a deal calculator (see below)
 
 ## Listings
-All pages load houses through `js/listings-data.js`. Right now it reads sample data from
-`data/listings.json`. When MLS/IDX feed access is approved, a Vercel function at
-`api/listings.js` will fetch from the MLS and return the same shape, and `LISTINGS_SOURCE`
-switches to `/api/listings`.
+Homes are switched off until the MLS feed is connected: `SITE.showListings` is `false` in
+`js/site.js`. While off, no homes appear anywhere, `listings.html` and `listing.html` send
+visitors to `find-a-home.html` (keeping any town, price or beds they searched), the nav says
+"Find a Home", and the home page shows "New listings coming soon".
+
+To turn homes on: set `SPARK_ACCESS_TOKEN` in Vercel (see `api/listings.js`), then change
+`showListings` to `true`. All pages load houses through `js/listings-data.js`, which asks
+`/api/listings`. The made-up houses in `data/listings.json` are only used when
+`SITE.sampleListings` is also `true`, for testing; never on the public site.
 
 ## Editing contact details
 Agent name, brokerage, phone and email are in `js/site.js` (`SITE`).

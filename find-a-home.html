@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Find a Home on the Gulf Coast | Bill Temple, Realtor</title>
+  <meta name="description" content="Tell Bill Temple what you're looking for in a Mississippi Gulf Coast home: towns, price range, bedrooms and timeline. He'll search for you and send homes that fit.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="forms/forms.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <!-- Buyer wish list. Answers are emailed to Bill by api/submit-form.js (same as the home value form).
+       The town list comes from data/towns.json (the neighborhood guides). -->
+  <main class="container forms-page">
+    <section id="fh-intro" class="forms-intro">
+      <p class="eyebrow">New listings coming soon</p>
+      <h1>Tell me what you're looking for</h1>
+      <p>Homes for sale are coming to this site soon. Until then, tell me what you want and I'll do the searching for you. I'll send you homes on the Gulf Coast that fit, including new ones as soon as they come on the market. It's free, and there's no obligation.</p>
+    </section>
+
+    <form id="fh-form" novalidate>
+      <fieldset class="form-section">
+        <legend>Where</legend>
+        <fieldset class="field radio-group">
+          <legend>Towns you'd consider</legend>
+          <div class="check-grid" id="fh-towns"></div>
+        </fieldset>
+        <div class="field">
+          <label for="fh-area">Neighborhood, street or school area you have in mind (optional)</label>
+          <input type="text" id="fh-area" name="area" placeholder="Near the beach, close to the base, a certain subdivision...">
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>The home</legend>
+        <div class="hv-row">
+          <div class="field">
+            <label for="fh-min">Lowest price</label>
+            <select id="fh-min" name="min">
+              <option value="">No minimum</option>
+              <option value="100000">$100,000</option>
+              <option value="150000">$150,000</option>
+              <option value="200000">$200,000</option>
+              <option value="250000">$250,000</option>
+              <option value="300000">$300,000</option>
+              <option value="400000">$400,000</option>
+              <option value="500000">$500,000</option>
+              <option value="750000">$750,000</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fh-max">Highest price</label>
+            <select id="fh-max" name="max">
+              <option value="">No maximum</option>
+              <option value="150000">$150,000</option>
+              <option value="200000">$200,000</option>
+              <option value="250000">$250,000</option>
+              <option value="300000">$300,000</option>
+              <option value="400000">$400,000</option>
+              <option value="500000">$500,000</option>
+              <option value="750000">$750,000</option>
+              <option value="1000000">$1,000,000</option>
+              <option value="1500000">$1,500,000 or more</option>
+            </select>
+          </div>
+        </div>
+        <div class="hv-row">
+          <div class="field">
+            <label for="fh-beds">Bedrooms</label>
+            <select id="fh-beds" name="beds">
+              <option value="">Any</option>
+              <option value="1">1 or more</option>
+              <option value="2">2 or more</option>
+              <option value="3">3 or more</option>
+              <option value="4">4 or more</option>
+              <option value="5">5 or more</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fh-baths">Bathrooms</label>
+            <select id="fh-baths" name="baths">
+              <option value="">Any</option>
+              <option value="1">1 or more</option>
+              <option value="1.5">1.5 or more</option>
+              <option value="2">2 or more</option>
+              <option value="3">3 or more</option>
+            </select>
+          </div>
+        </div>
+        <fieldset class="field radio-group">
+          <legend>Type of home</legend>
+          <div class="check-grid">
+            <label class="check"><input type="checkbox" name="type" value="House"> House</label>
+            <label class="check"><input type="checkbox" name="type" value="Condo or townhome"> Condo or townhome</label>
+            <label class="check"><input type="checkbox" name="type" value="Land or lot"> Land or lot</label>
+            <label class="check"><input type="checkbox" name="type" value="Investment property"> Investment property</label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="fh-musts">Must-haves and deal-breakers (optional)</label>
+          <textarea id="fh-musts" name="musts" rows="3" placeholder="Garage, big yard, pool, single story, not in a flood zone, room for a boat..."></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Your timing</legend>
+        <div class="field">
+          <label for="fh-timeline">When would you like to move?</label>
+          <select id="fh-timeline" name="timeline">
+            <option value="">Choose one</option>
+            <option>As soon as possible</option>
+            <option>In 1 to 3 months</option>
+            <option>In 3 to 6 months</option>
+            <option>In 6 to 12 months</option>
+            <option>Just starting to look</option>
+          </select>
+        </div>
+        <fieldset class="field radio-group">
+          <legend>Are you pre-approved for a mortgage?</legend>
+          <label class="check"><input type="radio" name="preapproved" value="Yes"> Yes</label>
+          <label class="check"><input type="radio" name="preapproved" value="Not yet"> Not yet</label>
+          <label class="check"><input type="radio" name="preapproved" value="Paying cash"> I'm paying cash</label>
+        </fieldset>
+        <fieldset class="field radio-group">
+          <legend>Do you need to sell a home first?</legend>
+          <label class="check"><input type="radio" name="sellfirst" value="Yes"> Yes</label>
+          <label class="check"><input type="radio" name="sellfirst" value="No"> No</label>
+        </fieldset>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Where should I send homes?</legend>
+        <div class="field">
+          <label for="fh-name">Your name <span class="req">*</span></label>
+          <input type="text" id="fh-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="hv-row">
+          <div class="field">
+            <label for="fh-email">Email <span class="req">*</span></label>
+            <input type="email" id="fh-email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="fh-phone">Phone</label>
+            <input type="tel" id="fh-phone" name="phone" autocomplete="tel">
+          </div>
+        </div>
+        <fieldset class="field radio-group">
+          <legend>Best way to reach you</legend>
+          <label class="check"><input type="radio" name="contact" value="Email" checked> Email</label>
+          <label class="check"><input type="radio" name="contact" value="Phone call"> Phone call</label>
+          <label class="check"><input type="radio" name="contact" value="Text"> Text</label>
+        </fieldset>
+      </fieldset>
+
+      <div class="hp" aria-hidden="true"><input type="text" name="hp_check" tabindex="-1" autocomplete="off"></div>
+      <p id="fh-error" class="form-error" role="alert" hidden></p>
+      <div class="form-actions"><button class="btn" type="submit">Send me homes</button></div>
+      <p class="hv-fine">Your information goes only to me. I won't share it or add you to a mailing list.</p>
+    </form>
+
+    <section id="fh-done" class="form-done" hidden>
+      <h2>Thank you, I've got it.</h2>
+      <p>I'll start looking and get back to you, usually within one business day. If you'd rather talk now, call or text me at <a id="fh-phone-link" href="#"></a>.</p>
+      <p><a class="btn secondary" href="neighborhoods.html">Explore the neighborhood guides</a> <a class="btn secondary" href="guides/buying.html">Read the buying guide</a></p>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/site.js"></script>
+  <script src="js/find-a-home.js"></script>
+</body>
+</html>
