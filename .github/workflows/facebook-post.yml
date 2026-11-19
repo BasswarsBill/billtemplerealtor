@@ -1,0 +1,70 @@
+# Posts to Bill's Facebook Page: Monday, Wednesday and Friday mornings.
+# Each run picks one post that hasn't gone out yet (market numbers, mortgage rates,
+# town spotlights, buyer/seller tips, investor tips, reminders about Bill's services),
+# draws its picture in the site's look, and posts it. See scripts/social/facebook.py.
+#
+# Nothing is posted while data/social-settings.json says "mode": "preview".
+# The picture and caption from every run are saved under the run's "Artifacts".
+#
+# Needs the GitHub secret FB_PAGE_TOKEN (a Facebook Page access token).
+# To run by hand: GitHub > Actions > "Post to Facebook" > Run workflow.
+name: Post to Facebook
+
+on:
+  schedule:
+    - cron: "30 15 * * 1,3,5" # Mon/Wed/Fri around 9:30 AM Central
+  workflow_dispatch:
+    inputs:
+      task:
+        description: "next = post the next one (or preview it) · check = test the Facebook key · preview = show the next 6"
+        required: true
+        default: next
+        type: choice
+        options: [next, check, preview]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: facebook-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - name: Run
+        env:
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: |
+          TASK="${{ github.event.inputs.task || 'next' }}"
+          if [ "$TASK" = "preview" ]; then
+            python3 scripts/social/facebook.py preview 6
+          else
+            python3 scripts/social/facebook.py "$TASK"
+          fi
+      - name: Keep the picture and caption with this run
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: facebook-post
+          path: social-preview/
+          if-no-files-found: ignore
+      - name: Remember what was posted
+        run: |
+          if git diff --quiet -- data/social-log.json 2>/dev/null && [ -z "$(git status --porcelain data/social-log.json)" ]; then
+            echo "Nothing new to record."
+            exit 0
+          fi
+          git config user.name "facebook-post-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/social-log.json
+          git commit -m "Record Facebook post"
+          for i in 1 2 3; do git pull --rebase --quiet && git push && exit 0; sleep 5; done
+          exit 1
