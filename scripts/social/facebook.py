@@ -455,6 +455,15 @@ def fb_check():
     if "error" in data:
         sys.exit(f"Facebook said no: {data['error'].get('message')}")
     print(f"Connected to the Facebook Page: {data.get('name')} (id {data.get('id')})")
+    page = requests.get(f"{GRAPH}/me", params={"fields": "is_published,is_permanently_closed,link,fan_count,followers_count",
+                                                 "access_token": token()}, timeout=30).json()
+    print(f"Page details: {json.dumps(page)}")
+    last = (get_log().get("posts") or [None])[-1]
+    if last and last.get("facebookId"):
+        info = requests.get(f"{GRAPH}/{last['facebookId']}", params={
+            "fields": "is_published,is_hidden,privacy,permalink_url,status_type,created_time",
+            "access_token": token()}, timeout=30).json()
+        print(f"Latest post: {json.dumps(info)}")
     return data
 
 
