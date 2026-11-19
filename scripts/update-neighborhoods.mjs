@@ -45,7 +45,7 @@ const count = (n) => Math.round(n).toLocaleString("en-US");
 
 async function get(url) {
   const r = await fetch(url, { headers: { "User-Agent": "realtor-site-neighborhood-guides" } });
-  if (!r.ok) throw new Error(`${url} answered ${r.status}`);
+  if (!r.ok) throw new Error(`${url.split("?")[0]} answered ${r.status}: ${(await r.text()).slice(0, 200)}`);
   return r;
 }
 
@@ -73,7 +73,7 @@ async function censusData(towns) {
     try {
       places = await (await get(`${CENSUS(year)}?get=NAME,${vars}&for=place:*&in=state:28`)).json();
       state = await (await get(`${CENSUS(year)}?get=NAME,${vars}&for=state:28`)).json();
-    } catch { continue; } // that year is not published yet
+    } catch (e) { console.log(`Census ${year}: ${e.message}`); continue; } // that year may not be published yet
     const rows = (table) => table.slice(1).map((r) => Object.fromEntries(table[0].map((h, i) => [h, r[i]])));
     const shape = (r) => {
       const v = Object.fromEntries(Object.entries(CENSUS_VARS).map(([k, id]) => [k, num(r[id])]));
