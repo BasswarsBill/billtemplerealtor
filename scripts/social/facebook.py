@@ -455,22 +455,50 @@ def fb_check():
     if "error" in data:
         sys.exit(f"Facebook said no: {data['error'].get('message')}")
     print(f"Connected to the Facebook Page: {data.get('name')} (id {data.get('id')})")
+    page = requests.get(f"{GRAPH}/me", params={"fields": "is_published,is_permanently_closed,link,fan_count,followers_count",
+                                                 "access_token": token()}, timeout=30).json()
+    print(f"Page details: {json.dumps(page)}")
+    last = (get_log().get("posts") or [None])[-1]
+    if last and last.get("facebookId"):
+        info = requests.get(f"{GRAPH}/{last['facebookId']}", params={
+            "fields": "is_published,is_hidden,privacy,permalink_url,status_type,created_time",
+            "access_token": token()}, timeout=30).json()
+        print(f"Latest post: {json.dumps(info)}")
     return data
 
 
 def fb_post(post, image_path):
+    """Upload the picture without a story, then make a normal Page post with it attached.
+    (Posting straight to /photos can land the picture in the Photos tab without a feed post
+    on newer Pages, so we go through /feed.)"""
     import requests
     with open(image_path, "rb") as fh:
         r = requests.post(
             f"{GRAPH}/me/photos",
-            data={"message": caption(post), "access_token": token()},
+            data={"published": "false", "access_token": token()},
             files={"source": (Path(image_path).name, fh, "image/jpeg")},
             timeout=120,
         )
+    photo = r.json()
+    if "error" in photo:
+        sys.exit(f"Facebook said no (photo upload): {photo['error'].get('message')}")
+    r = requests.post(
+        f"{GRAPH}/me/feed",
+        data={
+            "message": caption(post),
+            "attached_media": json.dumps([{"media_fbid": photo["id"]}]),
+            "access_token": token(),
+        },
+        timeout=60,
+    )
     data = r.json()
     if "error" in data:
-        sys.exit(f"Facebook said no: {data['error'].get('message')}")
-    return data.get("post_id") or data.get("id")
+        sys.exit(f"Facebook said no (post): {data['error'].get('message')}")
+    link = requests.get(f"{GRAPH}/{data['id']}", params={"fields": "permalink_url", "access_token": token()},
+                        timeout=30).json().get("permalink_url")
+    if link:
+        print(f"Link: {link}")
+    return data["id"]
 
 
 def fb_delete(fb_id):
