@@ -17,6 +17,10 @@ const SITE = {
   license: "61942", // Mississippi license number
   facebook: "https://www.facebook.com/924921870709801", // Bill Temple Realtor Facebook Page (posts go out Mon/Wed/Fri)
 
+  // 3D walkthrough tour shown on the Sell with Bill page (sell.html). Paste a Kuula or Matterport
+  // share link between the quotes; leave it empty to hide that part of the page.
+  tour3d: "https://kuula.co/share/collection/7MHY5?logo=0&info=0&fs=1&vr=1&initload=0&theme=000000ff&thumbs=1",
+
   // For Google: the site's main address, the towns Bill focuses on, and the state he works in.
   siteUrl: "https://www.billtemplerealtor.com",
   photo: "media/bill.jpg",
@@ -44,6 +48,7 @@ SITE.brokerageAddress = `${SITE.brokerageStreet}, ${SITE.brokerageCity}, ${SITE.
     ["index.html", "Home"],
     ["index.html#about", "Meet Bill"],
     SITE.showListings ? ["listings.html", "Homes for Sale"] : ["find-a-home.html", "Find a Home"],
+    ["sell.html", "Sell"],
     ["neighborhoods.html", "Neighborhoods"],
     ["guides.html", "Guides"],
     ["investors.html", "Investors"],
