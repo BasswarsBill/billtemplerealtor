@@ -254,14 +254,14 @@ function page(data, rate, hoods) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/">
-  <title>${esc(p.title)} | Bill Temple, Realtor</title>
+  <title>${esc(p.title)} | Bill Temple, REALTOR®</title>
   <meta name="description" content="${esc(p.description)}">
   <link rel="canonical" href="${SITE_URL}/${PAGE}">
-  <meta property="og:title" content="${esc(p.title)} | Bill Temple, Realtor">
+  <meta property="og:title" content="${esc(p.title)} | Bill Temple, REALTOR®">
   <meta property="og:description" content="${esc(p.description)}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="${SITE_URL}/${PAGE}">
-  <meta property="og:site_name" content="Bill Temple, Realtor">
+  <meta property="og:site_name" content="Bill Temple, REALTOR®">
   <meta property="og:image" content="${SITE_URL}/media/hero-poster.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="css/styles.css">
@@ -276,7 +276,7 @@ function page(data, rate, hoods) {
         <p class="eyebrow">${esc(p.eyebrow)}</p>
         <h1>${esc(p.heading)}</h1>
         <p class="market-lede">${esc(p.lede)}</p>
-        <blockquote class="guide-take"><p>${esc(p.billsTake)}</p><footer>Bill Temple, Realtor and investor</footer></blockquote>
+        <blockquote class="guide-take"><p>${esc(p.billsTake)}</p><footer>Bill Temple, REALTOR® and investor</footer></blockquote>
         <div class="actions"><a class="btn" href="${PAGE}#calculator">Run the numbers</a><a class="btn secondary" href="${PAGE}#ask">Ask Bill about a deal</a></div>
       </div>
     </section>

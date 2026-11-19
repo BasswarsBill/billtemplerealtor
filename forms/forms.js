@@ -7,11 +7,12 @@
   // Agent details come from SITE in js/site.js.
   var AGENT = typeof SITE !== "undefined" ? SITE : { agentName: "Bill Temple" };
   var AGENT_LICENSE = AGENT.license || AGENT.licenseNumber || "";
-  var AGENT_LINE = AGENT.agentName + ", Realtor" + (AGENT.brokerage ? " \u00b7 " + AGENT.brokerage : "") +
+  var AGENT_TITLE = AGENT.agentTitle || "REALTOR\u00ae";
+  var AGENT_LINE = AGENT.agentName + ", " + AGENT_TITLE + (AGENT.brokerage ? " \u00b7 " + AGENT.brokerage : "") +
     (AGENT_LICENSE ? " \u00b7 License #" + AGENT_LICENSE : "");
 
   var $ = function (id) { return document.getElementById(id); };
-  document.title = "Client Forms | " + AGENT.agentName + ", Realtor";
+  document.title = "Client Forms | " + AGENT.agentName + ", REALTOR\u00ae";
 
   var sig = { canvas: null, ctx: null, drawing: false, hasInk: false, last: null };
 
@@ -50,7 +51,7 @@
   // ---------- A single form ----------
 
   function renderForm(def) {
-    document.title = def.title + " | " + AGENT.agentName + ", Realtor";
+    document.title = def.title + " | " + AGENT.agentName + ", REALTOR\u00ae";
     $("form-list").hidden = true;
     $("form-view").hidden = false;
     $("form-title").textContent = def.title;

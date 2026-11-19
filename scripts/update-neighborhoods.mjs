@@ -233,7 +233,7 @@ function head(title, description, path) {
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${SITE_URL}/${path}">
-  <meta property="og:site_name" content="Bill Temple, Realtor">
+  <meta property="og:site_name" content="Bill Temple, REALTOR®">
   <meta property="og:image" content="${SITE_URL}/media/hero-poster.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="css/styles.css">
@@ -287,7 +287,7 @@ function townPage(t, all, data) {
 
   const nearby = (t.nearby || []).map((slug) => all.find((x) => x.slug === slug)).filter(Boolean);
 
-  return `${head(`${t.name}, MS Neighborhood Guide | Bill Temple, Realtor`, description, `neighborhoods/${t.slug}.html`)}
+  return `${head(`${t.name}, MS Neighborhood Guide | Bill Temple, REALTOR®`, description, `neighborhoods/${t.slug}.html`)}
 <body class="home town">
   <div id="site-header"></div>
 
@@ -422,7 +422,7 @@ function indexPage(all, data) {
           <span class="town-card-body"><small>${esc(t.county)}</small><strong>${esc(t.name)}</strong><span>${esc(t.tagline)}</span>${facts ? `<em>${facts}</em>` : ""}</span>
         </a>`;
   }).join("\n        ");
-  return `${head("Mississippi Gulf Coast Neighborhood Guides | Bill Temple, Realtor", "Guides to Gulfport, Biloxi, Long Beach, Pass Christian, Bay St. Louis, Ocean Springs and D'Iberville: homes for sale, prices, schools, commute and places to know.", "neighborhoods.html")}
+  return `${head("Mississippi Gulf Coast Neighborhood Guides | Bill Temple, REALTOR®", "Guides to Gulfport, Biloxi, Long Beach, Pass Christian, Bay St. Louis, Ocean Springs and D'Iberville: homes for sale, prices, schools, commute and places to know.", "neighborhoods.html")}
 <body>
   <div id="site-header"></div>
 

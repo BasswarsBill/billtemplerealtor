@@ -3,12 +3,19 @@
 // then load this script. Edit agent details in SITE below.
 const SITE = {
   agentName: "Bill Temple",
+  // Bill's title, shown after his name in the footer, forms, Google listing and Facebook posts.
+  // When the broker license comes through, change it to e.g. "Associate Broker, REALTOR®".
+  // (Only use REALTOR® while Bill is a member of the National Association of REALTORS®.)
+  agentTitle: "REALTOR®",
   // Brokerage: if Bill changes brokerages, update these lines and replace media/brokerage-logo.png
   // (a white or light logo on a transparent background works best on the black footer).
   brokerage: "Epique Realty",
   brokerageLogo: "media/brokerage-logo.png",
   // Equal Housing Opportunity logo shown in every page footer (required for real estate advertising).
   equalHousingLogo: "media/equal-housing.svg",
+  // Official REALTOR® block-R logo from NAR (nar.realtor). Leave empty to hide it.
+  // Use NAR's artwork exactly as downloaded; don't redraw or recolor it.
+  realtorLogo: "",
   brokerageStreet: "520 Pass Rd, Ste L",
   brokerageCity: "Gulfport",
   brokerageState: "MS",
@@ -71,7 +78,7 @@ SITE.brokerageAddress = `${SITE.brokerageStreet}, ${SITE.brokerageCity}, ${SITE.
     header.outerHTML = `
       <header class="site-header">
         <div class="container">
-          <a class="logo" href="index.html">${SITE.agentName} <span>Realtor</span></a>
+          <a class="logo" href="index.html">${SITE.agentName} <span>REALTOR®</span></a>
           <nav class="nav">${nav}</nav>
         </div>
       </header>`;
@@ -97,7 +104,7 @@ SITE.brokerageAddress = `${SITE.brokerageStreet}, ${SITE.brokerageCity}, ${SITE.
       "@context": "https://schema.org",
       "@type": "RealEstateAgent",
       "@id": `${SITE.siteUrl}/#bill-temple`,
-      name: `${SITE.agentName}, Realtor`,
+      name: `${SITE.agentName}, ${SITE.agentTitle}`,
       url: `${SITE.siteUrl}/`,
       image: `${SITE.siteUrl}/${SITE.photo}`,
       telephone: SITE.phone,
@@ -139,9 +146,10 @@ SITE.brokerageAddress = `${SITE.brokerageStreet}, ${SITE.brokerageCity}, ${SITE.
         <div class="container">
           <div class="footer-logos">
             ${SITE.brokerageLogo ? `<img class="brokerage-logo" src="${SITE.brokerageLogo}" alt="${SITE.brokerage}">` : ""}
+            ${SITE.realtorLogo ? `<img class="realtor-logo" src="${SITE.realtorLogo}" alt="REALTOR®">` : ""}
             <a href="fair-housing.html"><img class="eho-logo" src="${SITE.equalHousingLogo}" alt="Equal Housing Opportunity" width="60" height="66"></a>
           </div>
-          <div>${SITE.agentName}, Realtor · MS License #${SITE.license} · Cell <a href="tel:${SITE.phone.replace(/[^0-9+]/g, "")}">${SITE.phone}</a> · <a href="mailto:${SITE.email}">${SITE.email}</a></div>
+          <div>${SITE.agentName}, ${SITE.agentTitle} · MS License #${SITE.license} · Cell <a href="tel:${SITE.phone.replace(/[^0-9+]/g, "")}">${SITE.phone}</a> · <a href="mailto:${SITE.email}">${SITE.email}</a></div>
           ${SITE.facebook ? `<div><a class="follow-fb" href="${SITE.facebook}" target="_blank" rel="noopener">Follow on Facebook</a></div>` : ""}
           <div>${SITE.brokerage} · ${SITE.brokerageAddress} · Office <a href="tel:${SITE.officePhone.replace(/[^0-9+]/g, "")}">${SITE.officePhone}</a></div>
           <p class="fair-housing-note">Equal Housing Opportunity. ${SITE.agentName} and ${SITE.brokerage} follow the federal Fair Housing Act and do not discriminate on the basis of race, color, religion, sex, disability, familial status, or national origin.</p>

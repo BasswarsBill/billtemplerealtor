@@ -29,14 +29,14 @@ function head(title, description, path) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/">
-  <title>${esc(title)} | Bill Temple, Realtor</title>
+  <title>${esc(title)} | Bill Temple, REALTOR®</title>
   <meta name="description" content="${esc(description)}">
   <link rel="canonical" href="${SITE_URL}/${path}">
-  <meta property="og:title" content="${esc(title)} | Bill Temple, Realtor">
+  <meta property="og:title" content="${esc(title)} | Bill Temple, REALTOR®">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="${SITE_URL}/${path}">
-  <meta property="og:site_name" content="Bill Temple, Realtor">
+  <meta property="og:site_name" content="Bill Temple, REALTOR®">
   <meta property="og:image" content="${SITE_URL}/media/hero-poster.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="css/styles.css">
@@ -138,7 +138,7 @@ function guidePage(g, data) {
         <p class="eyebrow"><a href="guides.html">Buyer and seller guides</a> · ${esc(g.short)}</p>
         <h1>${esc(g.heading)}</h1>
         <p class="market-lede">${esc(g.lede)}</p>
-        <blockquote class="guide-take"><p>${esc(g.billsTake)}</p><footer>Bill Temple, Realtor</footer></blockquote>
+        <blockquote class="guide-take"><p>${esc(g.billsTake)}</p><footer>Bill Temple, REALTOR®</footer></blockquote>
         <div class="actions"><a class="btn" href="guides/${g.slug}.html#ask">Ask Bill a question</a><a class="btn secondary" href="guides/${g.slug}.html#${esc(g.steps[0].id)}">Start with step 1</a></div>
       </div>
     </section>
