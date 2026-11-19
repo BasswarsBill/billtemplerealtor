@@ -24,6 +24,7 @@ Usage:
   python3 scripts/social/facebook.py preview N # save the next N posts to social-preview/ (never posts)
   python3 scripts/social/facebook.py check     # test the Facebook key: prints the Page name
   python3 scripts/social/facebook.py post ID   # post one specific post now (live mode only)
+  python3 scripts/social/facebook.py repost    # delete the most recent post on Facebook and post it again
 
 Needs: pip install pillow requests. Secret: FB_PAGE_TOKEN (a Page access token).
 """
@@ -472,6 +473,16 @@ def fb_post(post, image_path):
     return data.get("post_id") or data.get("id")
 
 
+def fb_delete(fb_id):
+    import requests
+    r = requests.delete(f"{GRAPH}/{fb_id}", params={"access_token": token()}, timeout=30)
+    data = r.json()
+    if isinstance(data, dict) and "error" in data:
+        print(f"Couldn't delete the old post ({data['error'].get('message')}). Posting again anyway.")
+    else:
+        print(f"Deleted the old post {fb_id}.")
+
+
 def caption(post):
     return post["text"].strip() + sign_off()
 
@@ -529,11 +540,25 @@ def main():
             day += dt.timedelta(days=2 if day.weekday() != 4 else 3)  # Mon / Wed / Fri
         return
 
-    if cmd == "post":
+    if cmd == "repost":
+        if not live:
+            sys.exit("Preview mode: nothing to repost.")
+        if not log["posts"]:
+            sys.exit("Nothing has been posted yet.")
+        last = log["posts"].pop()
+        if last.get("facebookId"):
+            fb_delete(last["facebookId"])
+        if last["kind"] in ROTATION:
+            log["rotation"] = (log.get("rotation", 0) - 1) % len(ROTATION)
+        cmd, want = "post", last["id"]
+    elif cmd == "post":
         want = sys.argv[2]
+    if cmd == "post":
         p = next((p for p in posts if p["id"] == want), None)
         if not p:
             sys.exit(f"No post with id {want}")
+        if not live:
+            sys.exit("Preview mode: not posting.")
     else:
         p = pick(posts, log, today)
         if not p:
