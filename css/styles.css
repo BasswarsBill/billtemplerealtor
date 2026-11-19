@@ -1,47 +1,51 @@
 /* Bill Temple, Realtor: shared site styles.
-   Look: black and white with a soft ocean-blue accent (chosen by Bill, 2026-11-06).
+   Look: "Sand & Sea": warm sand background, navy text, ocean-blue accent (chosen by Bill, 2026-11-19).
    Headings and prices use Cormorant Garamond; everything else uses Jost.
    Other parts of the site (forms/, listings) read these variables, so keep the names. */
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap");
 
 :root {
   /* ---- Site colors: change the whole look here ---- */
-  --bg: #000000;        /* page background */
-  --alt: #0c0c0c;       /* every other section */
-  --card: #0c0c0c;      /* boxes and cards */
-  --text: #f5f5f3;      /* main text */
-  --strong: #ffffff;    /* big numbers, highlighted words */
-  --soft: #c8c8c8;      /* paragraph text a little lighter than headings */
-  --muted: #9a9a9a;     /* small print, labels */
-  --border: #262626;    /* thin lines */
-  --field: #000000;     /* inside of form boxes */
-  --field-line: #444444;/* edge of form boxes */
-  --brand: #9cc9e2;     /* accent: links, prices, labels */
-  --brand-dark: #f5f5f3;
-  --accent: #9cc9e2;
-  --btn-bg: #ffffff;    /* main buttons */
-  --btn-text: #000000;
-  --btn-hover: #9cc9e2;
-  --btn-hover-text: #000000;
-  --shade: 0, 0, 0;     /* tint laid over videos and maps so white words stay readable (r, g, b) */
-  --footer-bg: #000000; /* footer (keep dark: the brokerage logo is white) */
-  --footer-text: #9a9a9a;
-  --footer-link: #dddddd;
-  --note-bg: #07131b;   /* "local tip" and notice boxes */
-  --note-line: #1f3a4d;
-  --note-text: #d8e6ee;
+  --bg: #faf6ee;        /* page background */
+  --alt: #f2eadb;       /* every other section */
+  --card: #ffffff;      /* boxes and cards */
+  --text: #1f3242;      /* main text */
+  --strong: #13283a;    /* big numbers, highlighted words */
+  --soft: #45576a;      /* paragraph text a little lighter than headings */
+  --muted: #76818c;     /* small print, labels */
+  --border: #e3d8c4;    /* thin lines */
+  --field: #ffffff;     /* inside of form boxes */
+  --field-line: #cbbfa8;/* edge of form boxes */
+  --brand: #2c6e94;     /* accent: links, prices, labels */
+  --brand-dark: #13283a;
+  --accent: #2c6e94;
+  --btn-bg: #1f4e6e;    /* main buttons */
+  --btn-text: #ffffff;
+  --btn-hover: #2c6e94;
+  --btn-hover-text: #ffffff;
+  --shade: 19, 40, 58;     /* tint laid over videos and maps so white words stay readable (r, g, b) */
+  --footer-bg: #13283a; /* footer (keep dark: the brokerage logo is white) */
+  --footer-text: #a9b8c4;
+  --footer-link: #e8eef2;
+  --note-bg: #e8f1f6;   /* "local tip" and notice boxes */
+  --note-line: #bcd5e3;
+  --note-text: #1f3242;
+  --required: #a8322a;  /* "required" star and form error messages */
+  --error-bg: #fbeceb;
+  --error-text: #8a2a23;
+  --error-line: #e5b7b2;
   /* Maps on the neighborhood pages */
-  --map-water: #03080b;
-  --map-land: #151515;
-  --map-edge: #3a3a3a;
-  --map-dot: #5d7f92;
-  --map-label: #c8c8c8;
-  --map-label-on: #ffffff;
+  --map-water: #a3cfe3;
+  --map-land: #f1e5cb;
+  --map-edge: #d3c09a;
+  --map-dot: #4f7690;
+  --map-label: #2b3f50;
+  --map-label-on: #13283a;
   --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   --sans: "Jost", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --radius: 0px;
   --max: 1150px;
-  color-scheme: dark;
+  color-scheme: light;
 }
 * { box-sizing: border-box; }
 html { background: var(--bg); }
@@ -395,7 +399,7 @@ img.portrait { width: 100%; height: auto; object-fit: cover; }
 .ask-ways a:hover { color: var(--brand); }
 .connect .ask-form { display: block; }
 .connect .ask-form .btn { width: auto; }
-.ask-form select, .ask-form input, .ask-form textarea { color-scheme: dark; }
+.ask-form select, .ask-form input, .ask-form textarea { color-scheme: inherit; }
 .ask-done { border: 1px solid var(--border); background: var(--card); padding: 28px; }
 .ask-done h3 { font-size: 1.6rem; margin: 0 0 8px; }
 .ask-done p { color: var(--soft); margin: 0; }
@@ -427,7 +431,7 @@ img.portrait { width: 100%; height: auto; object-fit: cover; }
 .calc-box { display: flex; align-items: center; border-bottom: 1px solid var(--field-line); }
 .calc-box:focus-within { border-bottom-color: var(--brand); }
 .calc-box i { font-style: normal; color: var(--muted); font-size: .85rem; padding: 0 4px; }
-.calc-box input { flex: 1; min-width: 0; font: inherit; font-size: 16px; font-weight: 300; color: var(--text); background: transparent; border: 0; padding: 8px 2px; font-variant-numeric: tabular-nums; color-scheme: dark; }
+.calc-box input { flex: 1; min-width: 0; font: inherit; font-size: 16px; font-weight: 300; color: var(--text); background: transparent; border: 0; padding: 8px 2px; font-variant-numeric: tabular-nums; color-scheme: inherit; }
 .calc-box input:focus { outline: none; }
 .calc-field small { color: var(--muted); font-size: .76rem; line-height: 1.35; }
 .calc-results { padding: 24px; background: var(--alt); position: sticky; top: 0; align-self: start; }
