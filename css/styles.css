@@ -147,6 +147,7 @@ section { padding: 64px 0; }
 /* Footer */
 .site-footer { background: var(--bg); color: var(--muted); padding: 36px 0; font-size: .85rem; border-top: 1px solid var(--border); }
 .site-footer a { color: #ddd; }
+.site-footer .follow-fb { color: var(--brand); text-transform: uppercase; letter-spacing: .14em; font-size: .8rem; text-decoration: none; border-bottom: 1px solid currentColor; }
 .mls-disclaimer { margin-top: 12px; font-size: .75rem; color: #777; }
 
 @media (max-width: 800px) {
