@@ -72,7 +72,7 @@ def site_details():
     def val(key):
         m = re.search(rf'\b{key}:\s*"([^"]*)"', js)
         return m.group(1) if m else ""
-    site = {k: val(k) for k in ["agentName", "brokerage", "phone", "siteUrl", "brokerageLogo"]}
+    site = {k: val(k) for k in ["agentName", "agentTitle", "brokerage", "phone", "siteUrl", "brokerageLogo"]}
     site["showListings"] = bool(re.search(r"\bshowListings:\s*true", js))
     site["domain"] = re.sub(r"^https?://(www\.)?", "", site["siteUrl"]).rstrip("/")
     return site
@@ -82,7 +82,7 @@ SITE = site_details()
 
 
 def sign_off():
-    return f"\n\n{SITE['agentName']}, Realtor | {SITE['brokerage']}\n{SITE['phone']} | {SITE['domain']}"
+    return f"\n\n{SITE['agentName']}, {SITE['agentTitle'] or 'REALTOR®'} | {SITE['brokerage']}\n{SITE['phone']} | {SITE['domain']}"
 
 
 # ---------- Collect every post the site can make ----------
@@ -338,7 +338,7 @@ def footer(img, d):
     except OSError:
         tx = M
     spaced(d, (tx, y + 40), SITE["agentName"].upper(), font("serif", 34), WHITE, 6)
-    spaced(d, (tx, y + 88), f"REALTOR  ·  {SITE['brokerage'].upper()}", font("regular", 19), DIM, 3.5)
+    spaced(d, (tx, y + 88), f"REALTOR®  ·  {SITE['brokerage'].upper()}", font("regular", 19), DIM, 3.5)
     f = font("regular", 22)
     dom = SITE["domain"]
     d.text((W - M - d.textlength(dom, font=f), y + 46), dom, font=f, fill=BLUE)

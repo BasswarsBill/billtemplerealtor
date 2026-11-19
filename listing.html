@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home details | Bill Temple, Realtor</title>
+  <title>Home details | Bill Temple, REALTOR®</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -27,7 +27,7 @@
 
     getListing(id).then((l) => {
       if (!l) { el.innerHTML = "<p>Sorry, that home could not be found. It may have sold.</p>"; return; }
-      document.title = `${l.address} | Bill Temple, Realtor`;
+      document.title = `${l.address} | Bill Temple, REALTOR®`;
       const addr = `${l.address}, ${l.city}, ${l.state} ${l.zip}`;
       const subject = encodeURIComponent(`Question about ${l.address} (${l.id})`);
       const spec = (label, value) => value ? `<li><strong>${label}</strong>${escapeHtml(value)}</li>` : "";
