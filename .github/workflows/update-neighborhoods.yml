@@ -1,0 +1,46 @@
+# Rebuilds the neighborhood guides (neighborhoods.html, neighborhoods/*.html, data/neighborhoods.json)
+# with fresh Census and Realtor.com numbers every week, and right away whenever data/towns.json changes.
+# When anything changes it commits the files, and Vercel republishes the site.
+# To run it right away: GitHub > Actions > "Update neighborhood guides" > Run workflow.
+name: Update neighborhood guides
+
+on:
+  schedule:
+    - cron: "30 19 * * 4" # Thursdays, half an hour after the market update
+  workflow_dispatch:
+  push:
+    paths:
+      - data/towns.json
+      - data/coast-outline.json
+      - scripts/update-neighborhoods.mjs
+      - .github/workflows/update-neighborhoods.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-neighborhoods
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/update-neighborhoods.mjs
+      - name: Save updated guides
+        run: |
+          git add -A data/neighborhoods.json neighborhoods.html neighborhoods media/towns
+          if git diff --cached --quiet; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "market-data-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update neighborhood guides"
+          git pull --rebase
+          git push

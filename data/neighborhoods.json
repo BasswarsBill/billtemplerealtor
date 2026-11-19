@@ -1,0 +1,563 @@
+{
+  "updated": "2026-11-19",
+  "siteUrl": "https://bill-temple-realtor.vercel.app",
+  "schoolGradesNote": "Mississippi Department of Education 2025-26 district accountability grades, released October 2026. Grades are for the district as a whole; individual schools can differ. Attendance zones change, so confirm the school for any address with the district.",
+  "schoolGradesSources": [
+    {
+      "label": "Mississippi Department of Education, Mississippi Succeeds Report Card",
+      "url": "https://msrc.mdek12.org/"
+    },
+    {
+      "label": "WLOX, \"South Mississippi schools earn top grades under new MDE standards\" (Oct. 15, 2026)",
+      "url": "https://www.wlox.com/2026/10/15/south-mississippi-schools-earn-top-grades-under-new-mde-standards/"
+    }
+  ],
+  "census": null,
+  "zips": {
+    "month": "2026-10",
+    "monthLabel": "October 2026",
+    "zips": {
+      "39501": {
+        "area": "Gulfport",
+        "medianListPrice": 217500,
+        "medianListPriceYoY": 25,
+        "activeListings": 118,
+        "daysOnMarket": 107,
+        "pricePerSqft": 132,
+        "lowVolume": false
+      },
+      "39503": {
+        "area": "Gulfport",
+        "medianListPrice": 264875,
+        "medianListPriceYoY": 3,
+        "activeListings": 248,
+        "daysOnMarket": 72,
+        "pricePerSqft": 150,
+        "lowVolume": false
+      },
+      "39507": {
+        "area": "Gulfport",
+        "medianListPrice": 249950,
+        "medianListPriceYoY": -14,
+        "activeListings": 143,
+        "daysOnMarket": 100,
+        "pricePerSqft": 162,
+        "lowVolume": true
+      },
+      "39520": {
+        "area": "Bay St. Louis",
+        "medianListPrice": 403500,
+        "medianListPriceYoY": 1.1,
+        "activeListings": 170,
+        "daysOnMarket": 87,
+        "pricePerSqft": 299,
+        "lowVolume": false
+      },
+      "39530": {
+        "area": "Biloxi",
+        "medianListPrice": 290000,
+        "medianListPriceYoY": 2.2,
+        "activeListings": 47,
+        "daysOnMarket": 89,
+        "pricePerSqft": 193,
+        "lowVolume": true
+      },
+      "39531": {
+        "area": "Biloxi",
+        "medianListPrice": 250000,
+        "medianListPriceYoY": -26.5,
+        "activeListings": 115,
+        "daysOnMarket": 95,
+        "pricePerSqft": 173,
+        "lowVolume": true
+      },
+      "39532": {
+        "area": "Biloxi",
+        "medianListPrice": 327500,
+        "medianListPriceYoY": 0.5,
+        "activeListings": 124,
+        "daysOnMarket": 65,
+        "pricePerSqft": 162,
+        "lowVolume": false
+      },
+      "39540": {
+        "area": "D'Iberville",
+        "medianListPrice": 289000,
+        "medianListPriceYoY": -11.3,
+        "activeListings": 48,
+        "daysOnMarket": 99,
+        "pricePerSqft": 146,
+        "lowVolume": true
+      },
+      "39560": {
+        "area": "Long Beach",
+        "medianListPrice": 310000,
+        "medianListPriceYoY": -2.9,
+        "activeListings": 99,
+        "daysOnMarket": 75,
+        "pricePerSqft": 176,
+        "lowVolume": false
+      },
+      "39564": {
+        "area": "Ocean Springs",
+        "medianListPrice": 333000,
+        "medianListPriceYoY": 3.7,
+        "activeListings": 268,
+        "daysOnMarket": 75,
+        "pricePerSqft": 172,
+        "lowVolume": false
+      },
+      "39571": {
+        "area": "Pass Christian",
+        "medianListPrice": 448000,
+        "medianListPriceYoY": -0.2,
+        "activeListings": 100,
+        "daysOnMarket": 105,
+        "pricePerSqft": 247,
+        "lowVolume": false
+      }
+    }
+  },
+  "towns": [
+    {
+      "slug": "gulfport",
+      "name": "Gulfport",
+      "county": "Harrison County",
+      "censusName": "Gulfport city, Mississippi",
+      "lat": 30.3674,
+      "lon": -89.0928,
+      "zips": [
+        "39501",
+        "39503",
+        "39507"
+      ],
+      "tagline": "The Coast's largest city, built around a working port and a long stretch of beach.",
+      "intro": [
+        "Gulfport is the largest city on the Mississippi Gulf Coast and shares the job of Harrison County seat with Biloxi. It was founded at the end of the 1800s as a railroad and shipping town, and the Port of Gulfport is still a big part of the local economy.",
+        "Homes range from older cottages and bungalows near downtown and the beach to newer subdivisions north of Interstate 10. The city covers a lot of ground, so it is worth narrowing a search by ZIP code and commute."
+      ],
+      "highlights": [
+        {
+          "name": "Jones Park and the Gulfport harbor",
+          "text": "Waterfront park, marina and event space where US 90 meets US 49."
+        },
+        {
+          "name": "Mississippi Aquarium",
+          "text": "Downtown aquarium with indoor and outdoor exhibits, opened in 2020."
+        },
+        {
+          "name": "Ship Island excursions",
+          "text": "Seasonal ferry from the Gulfport harbor to West Ship Island in Gulf Islands National Seashore."
+        },
+        {
+          "name": "Downtown Gulfport",
+          "text": "Restaurants, bars and shops a few blocks from the beach."
+        },
+        {
+          "name": "Gulfport-Biloxi International Airport",
+          "text": "The Coast's main commercial airport, inside Gulfport city limits."
+        },
+        {
+          "name": "Gulfport Premium Outlets",
+          "text": "Outlet shopping at Interstate 10 and US 49."
+        }
+      ],
+      "gettingAround": "US 90 runs along the beach, Interstate 10 crosses the north side of the city, and US 49 heads north toward Hattiesburg. The Naval Construction Battalion Center (the Seabee base) is in Gulfport, and Keesler Air Force Base in Biloxi is a short drive east.",
+      "schools": [
+        {
+          "district": "Gulfport School District",
+          "grade": "A"
+        },
+        {
+          "district": "Harrison County School District (some areas, mostly north)",
+          "grade": "A"
+        }
+      ],
+      "media": {
+        "video": null,
+        "poster": null,
+        "photo": null
+      },
+      "nearby": [
+        "long-beach",
+        "biloxi",
+        "diberville"
+      ],
+      "url": "https://bill-temple-realtor.vercel.app/neighborhoods/gulfport.html",
+      "summary": {
+        "activeListings": 509,
+        "priceLow": 217500,
+        "priceHigh": 264875
+      },
+      "socialPost": "Neighborhood spotlight: Gulfport, Mississippi\nThe Coast's largest city, built around a working port and a long stretch of beach.\n🏠 Homes for sale: 509 (October 2026)\n🏷️ Typical list price: $217,500 to $264,875 depending on ZIP code\n📍 Don't miss: Jones Park and the Gulfport harbor\nFull guide: https://bill-temple-realtor.vercel.app/neighborhoods/gulfport.html"
+    },
+    {
+      "slug": "biloxi",
+      "name": "Biloxi",
+      "county": "Harrison County",
+      "censusName": "Biloxi city, Mississippi",
+      "lat": 30.396,
+      "lon": -88.8853,
+      "zips": [
+        "39530",
+        "39531",
+        "39532"
+      ],
+      "tagline": "French colonial roots, a seafood heritage, and the Coast's casino and entertainment hub.",
+      "intro": [
+        "Biloxi sits on a peninsula between the Mississippi Sound and the Back Bay of Biloxi. It has French colonial roots and a long history as a seafood and shipbuilding town, and today it is also home to Keesler Air Force Base and most of the Coast's large casino resorts.",
+        "Housing runs from historic homes in east Biloxi to newer neighborhoods north of the Back Bay in the Woolmarket area. Being close to the water is part of daily life here, so flood zones and insurance are worth checking early."
+      ],
+      "highlights": [
+        {
+          "name": "Biloxi Lighthouse",
+          "text": "Cast-iron lighthouse from 1848, standing in the median of US 90."
+        },
+        {
+          "name": "Ohr-O'Keefe Museum of Art",
+          "text": "Museum campus designed by architect Frank Gehry, honoring potter George Ohr."
+        },
+        {
+          "name": "Maritime & Seafood Industry Museum",
+          "text": "The story of Biloxi's fishing and boatbuilding history, at Point Cadet."
+        },
+        {
+          "name": "MGM Park",
+          "text": "Minor league baseball stadium on the Back Bay side of downtown."
+        },
+        {
+          "name": "Mississippi Coast Coliseum",
+          "text": "Concerts, shows and the convention center on the beach."
+        },
+        {
+          "name": "Biloxi Bay Bridge",
+          "text": "US 90 bridge to Ocean Springs with a walking and biking path."
+        }
+      ],
+      "gettingAround": "US 90 follows the beach, Interstate 110 connects downtown to Interstate 10 across the Back Bay, and the Biloxi Bay Bridge leads east to Ocean Springs. Keesler Air Force Base is in the middle of the city.",
+      "schools": [
+        {
+          "district": "Biloxi Public School District",
+          "grade": "A"
+        }
+      ],
+      "media": {
+        "video": null,
+        "poster": null,
+        "photo": null
+      },
+      "nearby": [
+        "diberville",
+        "ocean-springs",
+        "gulfport"
+      ],
+      "url": "https://bill-temple-realtor.vercel.app/neighborhoods/biloxi.html",
+      "summary": {
+        "activeListings": 286,
+        "priceLow": 250000,
+        "priceHigh": 327500
+      },
+      "socialPost": "Neighborhood spotlight: Biloxi, Mississippi\nFrench colonial roots, a seafood heritage, and the Coast's casino and entertainment hub.\n🏠 Homes for sale: 286 (October 2026)\n🏷️ Typical list price: $250,000 to $327,500 depending on ZIP code\n📍 Don't miss: Biloxi Lighthouse\nFull guide: https://bill-temple-realtor.vercel.app/neighborhoods/biloxi.html"
+    },
+    {
+      "slug": "long-beach",
+      "name": "Long Beach",
+      "county": "Harrison County",
+      "censusName": "Long Beach city, Mississippi",
+      "lat": 30.3505,
+      "lon": -89.1528,
+      "zips": [
+        "39560"
+      ],
+      "tagline": "A beach town between Gulfport and Pass Christian, with a harbor and a 500-year-old oak.",
+      "intro": [
+        "Long Beach is a smaller city on the beach between Gulfport and Pass Christian. In the early 1900s it was known for radish farming; today it is mostly homes, a small-town downtown, and the Long Beach Harbor.",
+        "Streets south of the railroad sit close to the water under big live oaks, and neighborhoods north of the tracks run up toward Interstate 10."
+      ],
+      "highlights": [
+        {
+          "name": "Long Beach Harbor",
+          "text": "Marina, boat launch and harbor front on US 90."
+        },
+        {
+          "name": "Friendship Oak",
+          "text": "Live oak estimated at about 500 years old, on the University of Southern Mississippi Gulf Park campus."
+        },
+        {
+          "name": "USM Gulf Park",
+          "text": "The University of Southern Mississippi's coastal campus."
+        },
+        {
+          "name": "The beach",
+          "text": "A long sand beach with a walking path along US 90."
+        }
+      ],
+      "gettingAround": "US 90 runs along the beach, and Interstate 10 is a few miles north. Gulfport-Biloxi International Airport is a short drive east.",
+      "schools": [
+        {
+          "district": "Long Beach School District",
+          "grade": "A",
+          "note": "Among the five highest point totals in the state in 2025-26."
+        }
+      ],
+      "media": {
+        "video": "media/hero.mp4",
+        "poster": "media/hero-poster.jpg",
+        "photo": "media/hood-1.jpg",
+        "credit": "Drone video by Bill Temple"
+      },
+      "nearby": [
+        "pass-christian",
+        "gulfport",
+        "bay-st-louis"
+      ],
+      "url": "https://bill-temple-realtor.vercel.app/neighborhoods/long-beach.html",
+      "summary": {
+        "activeListings": 99,
+        "priceLow": 310000,
+        "priceHigh": 310000
+      },
+      "socialPost": "Neighborhood spotlight: Long Beach, Mississippi\nA beach town between Gulfport and Pass Christian, with a harbor and a 500-year-old oak.\n🏠 Homes for sale: 99 (October 2026)\n🏷️ Typical list price: $310,000\n📍 Don't miss: Long Beach Harbor\nFull guide: https://bill-temple-realtor.vercel.app/neighborhoods/long-beach.html"
+    },
+    {
+      "slug": "pass-christian",
+      "name": "Pass Christian",
+      "county": "Harrison County",
+      "censusName": "Pass Christian city, Mississippi",
+      "lat": 30.3158,
+      "lon": -89.2475,
+      "zips": [
+        "39571"
+      ],
+      "tagline": "Historic homes on Scenic Drive, a working harbor, and the bridge to Bay St. Louis.",
+      "intro": [
+        "Pass Christian sits at the western end of Harrison County, where the Bay of St. Louis meets the Mississippi Sound. It has been a summer destination since the 1800s, and Scenic Drive along the beach is lined with historic homes and live oaks.",
+        "The ZIP code also covers land outside city limits, including Henderson Point and areas to the north, so lot sizes and home styles vary a lot."
+      ],
+      "highlights": [
+        {
+          "name": "Scenic Drive",
+          "text": "Historic homes facing the beach under a canopy of live oaks."
+        },
+        {
+          "name": "Pass Christian Harbor",
+          "text": "Harbor with an oyster and shrimp fleet, a yacht club and waterfront restaurants."
+        },
+        {
+          "name": "Pass Christian Yacht Club",
+          "text": "A sailing club with roots in the 1800s."
+        },
+        {
+          "name": "Downtown Pass Christian",
+          "text": "A small downtown of shops and restaurants near the harbor."
+        }
+      ],
+      "gettingAround": "US 90 runs along the beach and crosses the Bay St. Louis Bridge to Hancock County. Interstate 10 is reached by Menge Avenue and other roads to the north.",
+      "schools": [
+        {
+          "district": "Pass Christian Public School District",
+          "grade": "A"
+        }
+      ],
+      "media": {
+        "video": null,
+        "poster": null,
+        "photo": null
+      },
+      "nearby": [
+        "long-beach",
+        "bay-st-louis",
+        "gulfport"
+      ],
+      "url": "https://bill-temple-realtor.vercel.app/neighborhoods/pass-christian.html",
+      "summary": {
+        "activeListings": 100,
+        "priceLow": 448000,
+        "priceHigh": 448000
+      },
+      "socialPost": "Neighborhood spotlight: Pass Christian, Mississippi\nHistoric homes on Scenic Drive, a working harbor, and the bridge to Bay St. Louis.\n🏠 Homes for sale: 100 (October 2026)\n🏷️ Typical list price: $448,000\n📍 Don't miss: Scenic Drive\nFull guide: https://bill-temple-realtor.vercel.app/neighborhoods/pass-christian.html"
+    },
+    {
+      "slug": "bay-st-louis",
+      "name": "Bay St. Louis",
+      "county": "Hancock County",
+      "censusName": "Bay St. Louis city, Mississippi",
+      "lat": 30.3088,
+      "lon": -89.33,
+      "zips": [
+        "39520"
+      ],
+      "tagline": "Old Town shops and galleries on a bluff over the water, and the Hancock County seat.",
+      "intro": [
+        "Bay St. Louis is the seat of Hancock County, on the west side of the Bay of St. Louis. Old Town, its walkable downtown on a bluff above the beach, is known for galleries, restaurants and a monthly art walk.",
+        "Homes range from cottages in Old Town to larger lots and newer houses out toward Interstate 10. NASA's Stennis Space Center is in Hancock County, north of town."
+      ],
+      "highlights": [
+        {
+          "name": "Old Town Bay St. Louis",
+          "text": "Shops, galleries and restaurants above the beach, with a Second Saturday art walk."
+        },
+        {
+          "name": "Bay St. Louis Municipal Harbor",
+          "text": "Marina and boardwalk at the foot of Old Town."
+        },
+        {
+          "name": "Historic L&N train depot",
+          "text": "Restored depot that houses the Alice Moseley Folk Art and Antique Museum and a Mardi Gras museum."
+        },
+        {
+          "name": "Stennis Space Center",
+          "text": "NASA's rocket engine test center, with the INFINITY Science Center visitor center at I-10."
+        },
+        {
+          "name": "Bay St. Louis Bridge",
+          "text": "US 90 bridge to Pass Christian with a walking path."
+        }
+      ],
+      "gettingAround": "US 90 crosses the Bay St. Louis Bridge east to Harrison County and runs west to Waveland. Interstate 10 is north of town, and New Orleans is about an hour west.",
+      "schools": [
+        {
+          "district": "Bay St. Louis-Waveland School District",
+          "grade": "A",
+          "note": "Highest point total of Mississippi's 148 districts in 2025-26."
+        },
+        {
+          "district": "Hancock County School District (some areas)",
+          "grade": "A"
+        }
+      ],
+      "media": {
+        "video": null,
+        "poster": null,
+        "photo": null
+      },
+      "nearby": [
+        "pass-christian",
+        "long-beach"
+      ],
+      "url": "https://bill-temple-realtor.vercel.app/neighborhoods/bay-st-louis.html",
+      "summary": {
+        "activeListings": 170,
+        "priceLow": 403500,
+        "priceHigh": 403500
+      },
+      "socialPost": "Neighborhood spotlight: Bay St. Louis, Mississippi\nOld Town shops and galleries on a bluff over the water, and the Hancock County seat.\n🏠 Homes for sale: 170 (October 2026)\n🏷️ Typical list price: $403,500\n📍 Don't miss: Old Town Bay St. Louis\nFull guide: https://bill-temple-realtor.vercel.app/neighborhoods/bay-st-louis.html"
+    },
+    {
+      "slug": "ocean-springs",
+      "name": "Ocean Springs",
+      "county": "Jackson County",
+      "censusName": "Ocean Springs city, Mississippi",
+      "lat": 30.4113,
+      "lon": -88.8278,
+      "zips": [
+        "39564"
+      ],
+      "tagline": "A walkable, art-filled downtown across the bay from Biloxi.",
+      "intro": [
+        "Ocean Springs is across Biloxi Bay from Biloxi, in Jackson County. The French built Fort Maurepas here in 1699, one of the first European settlements on the Gulf Coast. Today the downtown along Washington Avenue and Government Street is known for restaurants, shops and the arts.",
+        "Neighborhoods range from older streets near downtown and Front Beach to newer subdivisions toward Interstate 10 and the Gulf Park Estates area."
+      ],
+      "highlights": [
+        {
+          "name": "Downtown Ocean Springs",
+          "text": "Restaurants, shops and live music along Washington Avenue and Government Street."
+        },
+        {
+          "name": "Walter Anderson Museum of Art",
+          "text": "Museum dedicated to the Ocean Springs artist Walter Anderson."
+        },
+        {
+          "name": "Peter Anderson Arts & Crafts Festival",
+          "text": "Large outdoor arts festival held downtown each November."
+        },
+        {
+          "name": "Gulf Islands National Seashore, Davis Bayou",
+          "text": "National park area with trails, a visitor center and a boat launch."
+        },
+        {
+          "name": "Front Beach",
+          "text": "Beach and harbor along Biloxi Bay."
+        }
+      ],
+      "gettingAround": "US 90 crosses the Biloxi Bay Bridge west to Biloxi, Interstate 10 runs north of town, and Keesler Air Force Base and the Ingalls shipyard in Pascagoula are both a short drive.",
+      "schools": [
+        {
+          "district": "Ocean Springs School District",
+          "grade": "A",
+          "note": "Among the five highest point totals in the state in 2025-26."
+        }
+      ],
+      "media": {
+        "video": null,
+        "poster": null,
+        "photo": null
+      },
+      "nearby": [
+        "biloxi",
+        "diberville"
+      ],
+      "url": "https://bill-temple-realtor.vercel.app/neighborhoods/ocean-springs.html",
+      "summary": {
+        "activeListings": 268,
+        "priceLow": 333000,
+        "priceHigh": 333000
+      },
+      "socialPost": "Neighborhood spotlight: Ocean Springs, Mississippi\nA walkable, art-filled downtown across the bay from Biloxi.\n🏠 Homes for sale: 268 (October 2026)\n🏷️ Typical list price: $333,000\n📍 Don't miss: Downtown Ocean Springs\nFull guide: https://bill-temple-realtor.vercel.app/neighborhoods/ocean-springs.html"
+    },
+    {
+      "slug": "diberville",
+      "name": "D'Iberville",
+      "county": "Harrison County",
+      "censusName": "D'Iberville city, Mississippi",
+      "lat": 30.4263,
+      "lon": -88.9081,
+      "zips": [
+        "39540"
+      ],
+      "tagline": "On the Back Bay of Biloxi, where Interstate 10 meets Interstate 110.",
+      "intro": [
+        "D'Iberville sits on the north shore of the Back Bay of Biloxi and is named for the French explorer Pierre Le Moyne d'Iberville. It became a city in 1988 and has grown quickly around the Interstate 10 and Interstate 110 interchange.",
+        "Much of the housing is newer, with subdivisions north of the interstate and older homes along the bay. Shopping, restaurants and quick access to Biloxi make it a central spot on the Coast."
+      ],
+      "highlights": [
+        {
+          "name": "The Promenade",
+          "text": "Large open-air shopping center at Interstate 10."
+        },
+        {
+          "name": "Back Bay of Biloxi",
+          "text": "Waterfront, boat launches and fishing along the bay."
+        },
+        {
+          "name": "Scarlet Pearl Casino Resort",
+          "text": "Casino resort with a golf course, on the Back Bay."
+        }
+      ],
+      "gettingAround": "Interstate 10 and Interstate 110 meet here, and I-110 crosses the Back Bay straight into downtown Biloxi and the beach. Keesler Air Force Base is a few minutes south.",
+      "schools": [
+        {
+          "district": "Harrison County School District",
+          "grade": "A"
+        }
+      ],
+      "media": {
+        "video": null,
+        "poster": null,
+        "photo": null
+      },
+      "nearby": [
+        "biloxi",
+        "ocean-springs",
+        "gulfport"
+      ],
+      "url": "https://bill-temple-realtor.vercel.app/neighborhoods/diberville.html",
+      "summary": {
+        "activeListings": 48,
+        "priceLow": 289000,
+        "priceHigh": 289000
+      },
+      "socialPost": "Neighborhood spotlight: D'Iberville, Mississippi\nOn the Back Bay of Biloxi, where Interstate 10 meets Interstate 110.\n🏠 Homes for sale: 48 (October 2026)\n🏷️ Typical list price: $289,000\n📍 Don't miss: The Promenade\nFull guide: https://bill-temple-realtor.vercel.app/neighborhoods/diberville.html"
+    }
+  ]
+}
