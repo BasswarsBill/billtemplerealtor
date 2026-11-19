@@ -20,8 +20,7 @@ const file = (p) => new URL(p, ROOT);
 const OFFLINE = process.argv.includes("--offline");
 
 // The address people use to reach the site. Used in social posts and page links.
-// Change to https://billtemplerealtor.com once the domain points at the site.
-const SITE_URL = "https://bill-temple-realtor.vercel.app";
+const SITE_URL = "https://www.billtemplerealtor.com";
 
 const ZIP_CSV = "https://econdata.s3-us-west-2.amazonaws.com/Reports/Core/RDC_Inventory_Core_Metrics_Zip.csv";
 // Census summary files: one file per table, covering every place in the country. Read once a year
@@ -221,6 +220,11 @@ function head(title, description, path) {
   <link rel="canonical" href="${SITE_URL}/${path}">
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${SITE_URL}/${path}">
+  <meta property="og:site_name" content="Bill Temple, Realtor">
+  <meta property="og:image" content="${SITE_URL}/media/hero-poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="css/styles.css">
 </head>`;
 }

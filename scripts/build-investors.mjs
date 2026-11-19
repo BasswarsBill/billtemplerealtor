@@ -261,6 +261,9 @@ function page(data, rate, hoods) {
   <meta property="og:description" content="${esc(p.description)}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="${SITE_URL}/${PAGE}">
+  <meta property="og:site_name" content="Bill Temple, Realtor">
+  <meta property="og:image" content="${SITE_URL}/media/hero-poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="forms/forms.css">
 </head>

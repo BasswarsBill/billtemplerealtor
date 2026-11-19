@@ -7,11 +7,19 @@ const SITE = {
   // (a white or light logo on a transparent background works best on the black footer).
   brokerage: "Epique Realty",
   brokerageLogo: "media/brokerage-logo.png",
-  brokerageAddress: "520 Pass Rd, Ste L, Gulfport, MS 39507",
+  brokerageStreet: "520 Pass Rd, Ste L",
+  brokerageCity: "Gulfport",
+  brokerageState: "MS",
+  brokerageZip: "39507",
   officePhone: "(888) 893-3537",
   phone: "(601) 953-6504", // Bill's cell
   email: "bill@billtemplerealtor.com",
   license: "61942", // Mississippi license number
+
+  // For Google: the site's main address and the towns Bill serves.
+  siteUrl: "https://www.billtemplerealtor.com",
+  photo: "media/bill.jpg",
+  areaServed: ["Gulfport", "Biloxi", "Long Beach", "Pass Christian", "Bay St. Louis", "Ocean Springs", "D'Iberville"],
 
   // Homes for sale. Leave this false until the MLS feed (Flexmls / Spark API) is connected.
   // While false, the site shows no homes at all: "Homes for Sale" pages send visitors to the
@@ -22,6 +30,8 @@ const SITE = {
   // when the live feed isn't answering. Never turn this on for the public site.
   sampleListings: false,
 };
+
+SITE.brokerageAddress = `${SITE.brokerageStreet}, ${SITE.brokerageCity}, ${SITE.brokerageState} ${SITE.brokerageZip}`;
 
 (function () {
   let path = location.pathname.split("/").pop() || "index.html";
@@ -70,6 +80,44 @@ const SITE = {
     el.textContent = v;
     el.href = el.dataset.siteLink === "email" ? `mailto:${v}` : `tel:${v.replace(/[^0-9+]/g, "")}`;
   });
+
+  // Business details for Google (schema.org RealEstateAgent), built from SITE so a brokerage
+  // change only needs the lines at the top. Added on the home page only.
+  if (path === "index.html") {
+    const ld = {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "@id": `${SITE.siteUrl}/#bill-temple`,
+      name: `${SITE.agentName}, Realtor`,
+      url: `${SITE.siteUrl}/`,
+      image: `${SITE.siteUrl}/${SITE.photo}`,
+      telephone: SITE.phone,
+      email: SITE.email,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: SITE.brokerageStreet,
+        addressLocality: SITE.brokerageCity,
+        addressRegion: SITE.brokerageState,
+        postalCode: SITE.brokerageZip,
+        addressCountry: "US",
+      },
+      areaServed: SITE.areaServed.map((name) => ({ "@type": "City", name: `${name}, ${SITE.brokerageState}` })),
+      parentOrganization: {
+        "@type": "RealEstateAgent",
+        name: SITE.brokerage,
+        telephone: SITE.officePhone,
+      },
+      hasCredential: {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "Mississippi real estate license",
+        identifier: SITE.license,
+      },
+    };
+    const tag = document.createElement("script");
+    tag.type = "application/ld+json";
+    tag.textContent = JSON.stringify(ld);
+    document.head.appendChild(tag);
+  }
 
   const footer = document.getElementById("site-footer");
   if (footer) {
