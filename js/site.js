@@ -15,11 +15,14 @@ const SITE = {
 };
 
 (function () {
-  const path = location.pathname.split("/").pop() || "index.html";
+  let path = location.pathname.split("/").pop() || "index.html";
+  if (location.pathname.includes("/neighborhoods/")) path = "neighborhoods.html";
+  path = path.replace(/^([^.]+)$/, "$1.html"); // pages served without ".html"
   const links = [
     ["index.html", "Home"],
     ["index.html#about", "Meet Bill"],
     ["listings.html", "Homes for Sale"],
+    ["neighborhoods.html", "Neighborhoods"],
     ["home-value.html", "Home Value"],
     ["market.html", "Market"],
     ["forms.html", "Forms"],

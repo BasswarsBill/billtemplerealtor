@@ -28,8 +28,8 @@ Colors and fonts are the variables at the top of `css/styles.css`.
 - `media/hero.mp4` plays silently behind the home page header (20-second loop, about 8 MB).
   `media/hero-poster.jpg` is a still from it that shows while it loads. To change the video,
   replace both files with the same names. Keep new clips short (15 to 30 seconds) and under ~10 MB.
-- `media/hood-*.jpg` are the neighborhood tiles on the home page.
-- Home page: bio in `index.html` is a DRAFT for Bill to edit; neighborhood names are placeholders.
+- `media/hood-1.jpg` is the Long Beach tile on the home page; the other home page tiles are town maps (see Neighborhood guides).
+- Home page: bio in `index.html` is a DRAFT for Bill to edit.
 
 ## Changing brokerages
 Edit the brokerage lines in `SITE` at the top of `js/site.js` (name, address, office phone) and
@@ -48,3 +48,20 @@ mortgage rates from FRED), and commits the file if the numbers changed. Vercel t
 To refresh right away: GitHub > Actions > Update market data > Run workflow.
 `data/market.json` also holds ready-made plain-English `headlines` and a `socialPost`, for reuse in Facebook posts later.
 To add a personal comment on the market page, type it inside `<p class="market-take" id="mk-take"></p>` in `market.html`.
+
+## Neighborhood guides (update themselves)
+`neighborhoods.html` lists the town guides, and each town has its own page in `neighborhoods/` (Gulfport, Biloxi,
+Long Beach, Pass Christian, Bay St. Louis, Ocean Springs, D'Iberville). These pages are built by
+`scripts/update-neighborhoods.mjs`, so don't edit them by hand:
+- The words (intro, places to know, schools, roads) are in `data/towns.json`. Edit them there.
+- The numbers fill in automatically every Thursday (`.github/workflows/update-neighborhoods.yml`) from the U.S. Census
+  Bureau (home values, rents, commute) and Realtor.com (homes for sale by ZIP code). Saving `data/towns.json` on GitHub
+  also rebuilds the pages within a couple of minutes.
+- `data/neighborhoods.json` holds everything in one place, including a ready-made `socialPost` for each town, for
+  Facebook posts later.
+- Photos and video: until a town has its own, its page shows a map. To use Bill's drone footage, put the file in
+  `media/towns/` (videos 15 to 30 seconds, under ~10 MB) and fill in that town's `media` in `data/towns.json`:
+  `"video": "media/towns/biloxi.mp4", "poster": "media/towns/biloxi.jpg", "photo": "media/towns/biloxi.jpg"`.
+- Fair housing: describe places, homes and amenities. Don't describe the people who live somewhere or who an area is "good for".
+- To add a town, copy one town's block in `data/towns.json` and change it (`censusName` must match the Census name,
+  for example "Waveland city, Mississippi").
