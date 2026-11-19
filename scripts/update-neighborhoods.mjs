@@ -14,6 +14,7 @@
 // Add --offline to rebuild the pages from the numbers already saved, without fetching anything.
 
 import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { readFileSync } from "node:fs";
 
 const ROOT = new URL("../", import.meta.url);
 const file = (p) => new URL(p, ROOT);
@@ -167,6 +168,17 @@ function projector(view, width) {
 function landPath(rings, p) {
   return rings.map((r) => "M" + r.map((pt) => p(pt).join(" ")).join("L") + "Z").join("");
 }
+// Map tile colors come from the --map-* (and --brand) values at the top of css/styles.css,
+// so changing the site colors there also recolors these stand-alone map pictures.
+let tileStyle;
+function mapTileStyle() {
+  if (tileStyle) return tileStyle;
+  const css = readFileSync(file("css/styles.css"), "utf8");
+  const v = (name, fallback) => (css.match(new RegExp(`--${name}:\\s*([^;]+);`)) || [])[1]?.trim() || fallback;
+  const brand = v("brand", "#9cc9e2");
+  tileStyle = `<style>.map-land{fill:${v("map-land", "#151515")};stroke:${v("map-edge", "#3a3a3a")};stroke-width:1.2}.map-dot{fill:${v("map-dot", "#5d7f92")}}.map-dot.on{fill:${brand}}.map-ring{fill:none;stroke:${brand};stroke-width:1.5;opacity:.6}.map-water{fill:${v("map-water", "#03080b")}}</style>`;
+  return tileStyle;
+}
 // view = [west, south, east, north]
 function mapSvg(coast, towns, view, width, opts = {}) {
   const { p, height } = projector(view, width);
@@ -180,8 +192,7 @@ function mapSvg(coast, towns, view, width, opts = {}) {
       : `<circle cx="${x}" cy="${y}" r="${opts.small ? 3.5 : 6}" class="map-dot"/>`;
     return opts.link ? `<a href="neighborhoods/${t.slug}.html" aria-label="${esc(t.name)} neighborhood guide">${dot}${label}</a>` : dot + label;
   }).join("");
-  const style = opts.inline ? "" :
-    `<style>.map-land{fill:#151515;stroke:#3a3a3a;stroke-width:1.2}.map-dot{fill:#5d7f92}.map-dot.on{fill:#9cc9e2}.map-ring{fill:none;stroke:#9cc9e2;stroke-width:1.5;opacity:.6}.map-water{fill:#03080b}</style>`;
+  const style = opts.inline ? "" : mapTileStyle();
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"${opts.attrs || ""}>${style}<rect class="map-water" width="100%" height="100%"/><path class="map-land" fill-rule="evenodd" d="${landPath(coast.rings, p)}"/>${dots}</svg>`;
 }
 const around = (t, wDeg, hDeg) => [t.lon - wDeg / 2, t.lat - hDeg / 2, t.lon + wDeg / 2, t.lat + hDeg / 2];
