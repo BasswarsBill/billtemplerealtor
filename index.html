@@ -60,7 +60,26 @@
       </div>
     </section>
 
+    <!-- Home value form + market snapshot (numbers come from data/market.json, refreshed weekly) -->
     <section class="alt">
+      <div class="container value-band">
+        <div>
+          <p class="eyebrow">Thinking of selling?</p>
+          <h2>What's your home worth?</h2>
+          <p style="color:#c8c8c8;max-width:52ch">Get a free, personal estimate from someone who has bought, fixed up and sold homes on the Gulf Coast for more than 15 years. No cost, no obligation.</p>
+          <div class="actions">
+            <a class="btn" href="home-value.html">Get my home value</a>
+            <a class="btn secondary" href="market.html">Market update</a>
+          </div>
+        </div>
+        <div id="home-snapshot" hidden>
+          <p class="eyebrow" id="snapshot-label">Gulf Coast market</p>
+          <ul class="snapshot" id="snapshot-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
       <div class="container">
         <p class="eyebrow">Just listed</p>
         <h2>Featured properties</h2>
@@ -130,6 +149,26 @@
       const body = `${f.message}\n\n${f.name}\n${f.phone}\n${f.email}`;
       location.href = `mailto:${SITE.email}?subject=${encodeURIComponent("Website message from " + f.name)}&body=${encodeURIComponent(body)}`;
     });
+
+    fetch("data/market.json").then((r) => (r.ok ? r.json() : null)).then((m) => {
+      if (!m || !m.listings) return;
+      const l = m.listings;
+      const rows = [
+        ["Typical list price", "$" + Math.round(l.medianListPrice).toLocaleString("en-US")],
+        ["Homes for sale", l.activeListings.toLocaleString("en-US")],
+        ["Days on market", String(l.daysOnMarket)],
+      ];
+      if (m.rates) rows.push(["30-year rate", m.rates.thirtyYear.toFixed(2) + "%"]);
+      const ul = document.getElementById("snapshot-list");
+      rows.forEach(([k, v]) => {
+        const li = document.createElement("li");
+        const a = document.createElement("span"); a.textContent = k;
+        const b = document.createElement("strong"); b.textContent = v;
+        li.append(a, b); ul.append(li);
+      });
+      document.getElementById("snapshot-label").textContent = "Gulf Coast market · " + l.monthLabel;
+      document.getElementById("home-snapshot").hidden = false;
+    }).catch(() => {});
 
     getListings().then((all) => {
       const newest = all

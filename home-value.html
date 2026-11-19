@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What's My Home Worth? | Bill Temple, Realtor</title>
+  <meta name="description" content="Find out what your Mississippi Gulf Coast home is worth. Tell Bill Temple about your home and get a free, personal value estimate.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="forms/forms.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container forms-page">
+    <section id="hv-intro" class="forms-intro">
+      <p class="eyebrow">Free home value estimate</p>
+      <h1>What's my home worth?</h1>
+      <p>Online estimates guess from a computer. I look at your actual home, recent sales on your street, and what buyers are paying right now. Tell me a little about the house and I'll send you my estimate, usually within one business day. No cost, and no obligation to sell.</p>
+      <p id="hv-market" class="hv-market" hidden></p>
+    </section>
+
+    <form id="hv-form" novalidate>
+      <fieldset class="form-section">
+        <legend>Your home</legend>
+        <div class="field">
+          <label for="hv-address">Street address <span class="req">*</span></label>
+          <input type="text" id="hv-address" name="address" autocomplete="street-address" required>
+        </div>
+        <div class="hv-row">
+          <div class="field">
+            <label for="hv-city">City <span class="req">*</span></label>
+            <input type="text" id="hv-city" name="city" autocomplete="address-level2" required>
+          </div>
+          <div class="field">
+            <label for="hv-zip">ZIP <span class="req">*</span></label>
+            <input type="text" id="hv-zip" name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="10" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="hv-type">Type of home</label>
+          <select id="hv-type" name="type">
+            <option value="">Choose one</option>
+            <option>Single-family house</option>
+            <option>Condo or townhome</option>
+            <option>Mobile or manufactured home</option>
+            <option>Duplex or multi-family</option>
+            <option>Land or lot</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="hv-row hv-row-4">
+          <div class="field">
+            <label for="hv-beds">Bedrooms</label>
+            <input type="number" id="hv-beds" name="beds" min="0" max="20" inputmode="numeric">
+          </div>
+          <div class="field">
+            <label for="hv-baths">Bathrooms</label>
+            <input type="number" id="hv-baths" name="baths" min="0" max="20" step="0.5" inputmode="decimal">
+          </div>
+          <div class="field">
+            <label for="hv-sqft">Square feet (about)</label>
+            <input type="number" id="hv-sqft" name="sqft" min="0" max="50000" inputmode="numeric">
+          </div>
+          <div class="field">
+            <label for="hv-year">Year built (about)</label>
+            <input type="number" id="hv-year" name="year" min="1800" max="2100" inputmode="numeric">
+          </div>
+        </div>
+        <fieldset class="field radio-group">
+          <legend>Condition</legend>
+          <label class="check"><input type="radio" name="condition" value="Move-in ready, recently updated"> Move-in ready, recently updated</label>
+          <label class="check"><input type="radio" name="condition" value="Good, normal wear"> Good, normal wear</label>
+          <label class="check"><input type="radio" name="condition" value="Needs some work"> Needs some work</label>
+          <label class="check"><input type="radio" name="condition" value="Needs major repairs"> Needs major repairs</label>
+        </fieldset>
+        <div class="field">
+          <label for="hv-updates">Updates or features I should know about</label>
+          <textarea id="hv-updates" name="updates" rows="3" placeholder="New roof in 2022, renovated kitchen, pool, flood zone, etc."></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Your plans</legend>
+        <div class="field">
+          <label for="hv-timeline">When might you sell?</label>
+          <select id="hv-timeline" name="timeline">
+            <option value="">Choose one</option>
+            <option>As soon as possible</option>
+            <option>In 1 to 3 months</option>
+            <option>In 3 to 6 months</option>
+            <option>In 6 to 12 months</option>
+            <option>Just curious for now</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="hv-reason">Anything else? (optional)</label>
+          <textarea id="hv-reason" name="notes" rows="2" placeholder="Moving, downsizing, refinancing, rental property..."></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Where should I send your estimate?</legend>
+        <div class="field">
+          <label for="hv-name">Your name <span class="req">*</span></label>
+          <input type="text" id="hv-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="hv-row">
+          <div class="field">
+            <label for="hv-email">Email <span class="req">*</span></label>
+            <input type="email" id="hv-email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="hv-phone">Phone</label>
+            <input type="tel" id="hv-phone" name="phone" autocomplete="tel">
+          </div>
+        </div>
+        <fieldset class="field radio-group">
+          <legend>Best way to reach you</legend>
+          <label class="check"><input type="radio" name="contact" value="Email" checked> Email</label>
+          <label class="check"><input type="radio" name="contact" value="Phone call"> Phone call</label>
+          <label class="check"><input type="radio" name="contact" value="Text"> Text</label>
+        </fieldset>
+      </fieldset>
+
+      <div class="hp" aria-hidden="true"><input type="text" name="hp_check" tabindex="-1" autocomplete="off"></div>
+      <p id="hv-error" class="form-error" role="alert" hidden></p>
+      <div class="form-actions"><button class="btn" type="submit">Get my home value</button></div>
+      <p class="hv-fine">Your information goes only to me. I won't share it or add you to a mailing list.</p>
+    </form>
+
+    <section id="hv-done" class="form-done" hidden>
+      <h2>Thank you, I've got it.</h2>
+      <p>I'll look over your home and recent sales nearby and get back to you, usually within one business day. If you'd rather talk now, call or text me at <a id="hv-phone-link" href="#"></a>.</p>
+      <p><a class="btn secondary" href="market.html">See the latest market update</a></p>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/site.js"></script>
+  <script src="js/home-value.js"></script>
+</body>
+</html>

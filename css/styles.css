@@ -167,3 +167,64 @@ img.portrait { width: 100%; height: auto; object-fit: cover; }
 @media (max-width: 760px) { .stats.stats-3 { grid-template-columns: 1fr; } .stats.stats-3 div { border-right: 0; border-bottom: 1px solid var(--border); } .stats.stats-3 div:last-child { border-bottom: 0; } }
 .brokerage-logo { height: 44px; width: auto; margin-bottom: 14px; }
 .live-listings .sample-only { display: none; }
+
+/* Market update page (market.html) and home page market snapshot */
+.market-top { padding: 48px 0 32px; }
+.market-top h1 { margin: 0 0 12px; max-width: 20ch; }
+.market-lede { color: #c8c8c8; max-width: 62ch; margin: 0 0 8px; }
+.market-updated { color: var(--muted); font-size: .85rem; margin: 0; }
+.stats em { display: block; font-style: normal; color: var(--muted); font-size: .85rem; margin-top: 6px; }
+.market-cols { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(24px, 5vw, 64px); align-items: start; }
+.market-headlines { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--border); }
+.market-headlines li { padding: 14px 0; border-bottom: 1px solid var(--border); color: #d8d8d6; }
+.market-take { font-family: var(--serif); font-size: 1.35rem; line-height: 1.4; margin: 24px 0 0; }
+.market-take:empty { display: none; }
+.market-cta { border: 1px solid var(--border); background: var(--card); padding: 28px; }
+.market-cta h3 { font-size: 1.6rem; margin: 0 0 10px; }
+.market-cta p:not(.eyebrow) { color: #c8c8c8; }
+@media (max-width: 860px) { .market-cols { grid-template-columns: 1fr; } }
+
+.chart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+.chart { margin: 0; min-width: 0; }
+.chart figcaption h3 { font-size: 1.35rem; margin: 0; }
+.chart figcaption p { color: var(--muted); font-size: .85rem; margin: 2px 0 10px; }
+.chart-plot { position: relative; }
+.chart svg { width: 100%; height: auto; display: block; overflow: visible; touch-action: pan-y; }
+.chart svg:focus-visible { outline: 1px solid var(--brand); outline-offset: 4px; }
+.chart .grid { stroke: #222; stroke-width: 1; }
+.chart .tick { fill: var(--muted); font-family: var(--sans); font-size: 14px; font-variant-numeric: tabular-nums; }
+.chart .line { fill: none; stroke: var(--brand); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.chart .dot { fill: var(--brand); stroke: var(--bg); stroke-width: 2; }
+.chart .hair { stroke: #666; stroke-width: 1; }
+.chart-tip { position: absolute; pointer-events: none; background: #111; border: 1px solid #333; padding: 6px 10px; white-space: nowrap; font-size: .8rem; }
+.chart-tip strong { display: block; font-weight: 500; font-size: .95rem; color: var(--text); font-variant-numeric: tabular-nums; }
+.chart-tip span { color: var(--muted); }
+.chart details { margin-top: 8px; font-size: .85rem; color: var(--muted); }
+.chart summary { cursor: pointer; color: var(--brand); }
+
+.table-wrap { overflow-x: auto; }
+.mk-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.mk-table th, .mk-table td { padding: 12px 10px; border-bottom: 1px solid var(--border); text-align: right; white-space: nowrap; }
+.mk-table th:first-child { text-align: left; }
+.mk-table thead th { font-size: .7rem; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.mk-table tbody th { font-weight: 400; color: var(--text); }
+.mk-table.small th, .mk-table.small td { padding: 4px 8px; }
+.market-sources p, .market-sources li { color: var(--muted); font-size: .9rem; max-width: 75ch; }
+.market-sources h2 { font-size: 1.5rem; }
+
+/* Home value form (home-value.html) */
+.hv-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+.hv-row-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 640px) { .hv-row-4 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 420px) { .hv-row { grid-template-columns: 1fr; } .hv-row-4 { grid-template-columns: 1fr 1fr; } }
+.hv-market { border-left: 2px solid var(--brand); padding-left: 14px; color: #d8d8d6 !important; }
+.hv-fine { color: var(--muted); font-size: .85rem; }
+
+/* Home page: home value + market snapshot */
+.value-band { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(24px, 5vw, 64px); align-items: center; }
+.value-band .snapshot { border-top: 1px solid var(--border); margin: 0; padding: 0; list-style: none; }
+.value-band .snapshot li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+.value-band .snapshot span { color: var(--muted); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; }
+.value-band .snapshot strong { font-family: var(--serif); font-weight: 500; font-size: 1.5rem; color: var(--text); font-variant-numeric: lining-nums tabular-nums; }
+.value-band .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+@media (max-width: 760px) { .value-band { grid-template-columns: 1fr; } }

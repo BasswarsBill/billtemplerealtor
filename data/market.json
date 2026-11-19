@@ -1,0 +1,152 @@
+{
+  "updated": "2026-11-19",
+  "area": "Mississippi Gulf Coast (Gulfport-Biloxi metro: Harrison, Hancock, Jackson and Stone counties)",
+  "headlines": [
+    "The typical home for sale on the Mississippi Gulf Coast was listed at $295,500 in October 2026, down 1.3% from a year earlier.",
+    "There were 2,059 homes for sale, 7.6% more than a year ago.",
+    "Homes sat on the market for a typical 80 days, compared with 73 days a year ago.",
+    "About 19% of listings had a price cut during the month."
+  ],
+  "socialPost": "Mississippi Gulf Coast market update (October 2026)\n🏠 Typical list price: $295,500 (-1.3% vs last year)\n📋 Homes for sale: 2,059 (+7.6%)\n⏱️ Typical days on market: 80\nThinking about buying or selling? Ask me what your home is worth.",
+  "listings": {
+    "area": "Gulfport-Biloxi metro",
+    "month": "2026-10",
+    "monthLabel": "October 2026",
+    "medianListPrice": 295500,
+    "medianListPriceYoY": -1.3,
+    "activeListings": 2059,
+    "activeListingsYoY": 7.6,
+    "newListings": 504,
+    "pendingListings": 628,
+    "daysOnMarket": 80,
+    "daysOnMarketYearAgo": 73,
+    "priceReducedShare": 19.2,
+    "pricePerSqft": 164,
+    "medianSqft": 1715,
+    "history": [
+      {
+        "month": "2025-10",
+        "medianListPrice": 299450,
+        "activeListings": 1913,
+        "daysOnMarket": 73
+      },
+      {
+        "month": "2025-11",
+        "medianListPrice": 299000,
+        "activeListings": 1905,
+        "daysOnMarket": 75
+      },
+      {
+        "month": "2025-12",
+        "medianListPrice": 298450,
+        "activeListings": 1854,
+        "daysOnMarket": 84
+      },
+      {
+        "month": "2026-01",
+        "medianListPrice": 297900,
+        "activeListings": 1817,
+        "daysOnMarket": 86
+      },
+      {
+        "month": "2026-02",
+        "medianListPrice": 299900,
+        "activeListings": 1837,
+        "daysOnMarket": 82
+      },
+      {
+        "month": "2026-03",
+        "medianListPrice": 304350,
+        "activeListings": 1907,
+        "daysOnMarket": 72
+      },
+      {
+        "month": "2026-04",
+        "medianListPrice": 302500,
+        "activeListings": 1929,
+        "daysOnMarket": 74
+      },
+      {
+        "month": "2026-05",
+        "medianListPrice": 308500,
+        "activeListings": 1993,
+        "daysOnMarket": 71
+      },
+      {
+        "month": "2026-06",
+        "medianListPrice": 309900,
+        "activeListings": 2027,
+        "daysOnMarket": 69
+      },
+      {
+        "month": "2026-07",
+        "medianListPrice": 299473,
+        "activeListings": 2071,
+        "daysOnMarket": 73
+      },
+      {
+        "month": "2026-08",
+        "medianListPrice": 296000,
+        "activeListings": 2058,
+        "daysOnMarket": 74
+      },
+      {
+        "month": "2026-09",
+        "medianListPrice": 298000,
+        "activeListings": 2053,
+        "daysOnMarket": 75
+      },
+      {
+        "month": "2026-10",
+        "medianListPrice": 295500,
+        "activeListings": 2059,
+        "daysOnMarket": 80
+      }
+    ],
+    "counties": [
+      {
+        "name": "Harrison County",
+        "medianListPrice": 284950,
+        "medianListPriceYoY": -5.8,
+        "activeListings": 1053,
+        "daysOnMarket": 87,
+        "pricePerSqft": 163
+      },
+      {
+        "name": "Hancock County",
+        "medianListPrice": 349900,
+        "medianListPriceYoY": 2.7,
+        "activeListings": 399,
+        "daysOnMarket": 85,
+        "pricePerSqft": 202
+      },
+      {
+        "name": "Jackson County",
+        "medianListPrice": 294000,
+        "medianListPriceYoY": 9.1,
+        "activeListings": 563,
+        "daysOnMarket": 66,
+        "pricePerSqft": 152
+      },
+      {
+        "name": "Stone County",
+        "medianListPrice": 263750,
+        "medianListPriceYoY": -10.7,
+        "activeListings": 43,
+        "daysOnMarket": 72,
+        "pricePerSqft": 163
+      }
+    ]
+  },
+  "rates": null,
+  "sources": [
+    {
+      "name": "Realtor.com Economic Research, monthly housing inventory data",
+      "url": "https://www.realtor.com/research/data/"
+    },
+    {
+      "name": "Freddie Mac Primary Mortgage Market Survey, via FRED (Federal Reserve Bank of St. Louis)",
+      "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+    }
+  ]
+}
