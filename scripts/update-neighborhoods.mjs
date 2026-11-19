@@ -49,6 +49,14 @@ async function get(url) {
   return r;
 }
 
+// The Census API answers with a web page instead of data when something is wrong (for example a bad key).
+async function getJson(url) {
+  const key = process.env.CENSUS_API_KEY ? `&key=${process.env.CENSUS_API_KEY}` : "";
+  const text = await (await get(url + key)).text();
+  try { return JSON.parse(text); }
+  catch { throw new Error("not data: " + text.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 300)); }
+}
+
 function parseCsv(text) {
   const lines = text.split(/\r?\n/).filter(Boolean);
   const split = (line) => {
@@ -71,8 +79,8 @@ async function censusData(towns) {
   for (let year = thisYear - 1; year >= thisYear - 4; year--) {
     let places, state;
     try {
-      places = await (await get(`${CENSUS(year)}?get=NAME,${vars}&for=place:*&in=state:28`)).json();
-      state = await (await get(`${CENSUS(year)}?get=NAME,${vars}&for=state:28`)).json();
+      places = await getJson(`${CENSUS(year)}?get=NAME,${vars}&for=place:*&in=state:28`);
+      state = await getJson(`${CENSUS(year)}?get=NAME,${vars}&for=state:28`);
     } catch (e) { console.log(`Census ${year}: ${e.message}`); continue; } // that year may not be published yet
     const rows = (table) => table.slice(1).map((r) => Object.fromEntries(table[0].map((h, i) => [h, r[i]])));
     const shape = (r) => {
