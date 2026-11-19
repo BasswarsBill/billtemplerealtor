@@ -16,8 +16,8 @@
     <div class="container">
       <p class="eyebrow">Real estate on the Gulf Coast</p>
       <h1>Find a home worth coming back to</h1>
-      <p>Every home for sale in the area, with a Realtor who knows every street.</p>
-      <form class="hero-search" action="listings.html" method="get">
+      <p>Tell me what you're looking for, and work with a Realtor who knows the Gulf Coast.</p>
+      <form class="hero-search" id="hero-search" action="listings.html" method="get">
         <input type="search" name="q" placeholder="City, ZIP, or address" aria-label="City, ZIP, or address">
         <select name="max" aria-label="Max price">
           <option value="">Any price</option>
@@ -32,7 +32,7 @@
           <option value="3">3+ beds</option>
           <option value="4">4+ beds</option>
         </select>
-        <button class="btn" type="submit">Search homes</button>
+        <button class="btn" type="submit" id="hero-search-btn">Search homes</button>
       </form>
     </div>
   </div>
@@ -79,12 +79,28 @@
       </div>
     </section>
 
+    <!-- Until the MLS feed is connected (SITE.showListings in js/site.js), this shows "coming soon"
+         and the buyer wish-list form. Once it's on, the newest homes show here instead. -->
     <section>
       <div class="container">
-        <p class="eyebrow">Just listed</p>
-        <h2>Featured properties</h2>
-        <div id="featured" class="grid"></div>
-        <p style="margin-top:32px"><a class="btn secondary" href="listings.html">View all homes</a></p>
+        <div id="listings-soon">
+          <p class="eyebrow">Homes for sale</p>
+          <div class="coming-soon">
+            <div>
+              <h2>New listings coming soon</h2>
+              <p>Gulf Coast homes for sale are on their way to this site. In the meantime, tell me what you're looking for: the towns you like, your price range and how many bedrooms. I'll search for you and send you homes that fit, including new ones as soon as they hit the market.</p>
+            </div>
+            <div class="actions">
+              <a class="btn" href="find-a-home.html">Tell me what you're looking for</a>
+            </div>
+          </div>
+        </div>
+        <div id="listings-live" hidden>
+          <p class="eyebrow">Just listed</p>
+          <h2>Featured properties</h2>
+          <div id="featured" class="grid"></div>
+          <p style="margin-top:32px"><a class="btn secondary" href="listings.html">View all homes</a></p>
+        </div>
       </div>
     </section>
 
@@ -199,7 +215,15 @@
       document.getElementById("home-snapshot").hidden = false;
     }).catch(() => {});
 
+    if (!SITE.showListings) {
+      // No homes on the site yet: the hero search fills in the wish-list form instead.
+      document.getElementById("hero-search").action = "find-a-home.html";
+      document.getElementById("hero-search-btn").textContent = "Start my search";
+    }
     getListings().then((all) => {
+      if (!all.length) return;
+      document.getElementById("listings-soon").hidden = true;
+      document.getElementById("listings-live").hidden = false;
       const newest = all
         .filter((l) => l.status === "Active")
         .sort((a, b) => b.listDate.localeCompare(a.listDate))

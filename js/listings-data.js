@@ -1,9 +1,9 @@
 // One place that loads listings. Every page asks this file for houses.
 //
-// It first asks /api/listings (live Flexmls listings via the Spark API).
-// If that isn't set up yet or fails, it falls back to the sample houses in
-// data/listings.json, and LISTINGS_ARE_SAMPLE stays true so pages can say so.
-let LISTINGS_ARE_SAMPLE = true;
+// Homes only show when SITE.showListings is true (js/site.js). Then it asks
+// /api/listings (live Flexmls listings via the Spark API). The made-up houses in
+// data/listings.json are used only if SITE.sampleListings is also true (testing).
+let LISTINGS_ARE_SAMPLE = false;
 let listingsPromise;
 
 async function loadJson(url) {
@@ -14,6 +14,7 @@ async function loadJson(url) {
 
 function getListings() {
   if (!listingsPromise) {
+    if (!SITE.showListings) return (listingsPromise = Promise.resolve([]));
     listingsPromise = loadJson("/api/listings")
       .then((live) => {
         if (!Array.isArray(live) || !live.length) throw new Error("No live listings");
@@ -21,9 +22,23 @@ function getListings() {
         document.documentElement.classList.add("live-listings");
         return live;
       })
-      .catch(() => loadJson("data/listings.json"));
+      .catch(() => {
+        if (!SITE.sampleListings) return [];
+        LISTINGS_ARE_SAMPLE = true;
+        document.documentElement.classList.add("sample-listings");
+        return loadJson("data/listings.json");
+      });
   }
   return listingsPromise;
+}
+
+// While homes are switched off, the listing pages send visitors to the buyer wish-list form,
+// keeping any search they typed (town, price, beds) so the form starts filled in.
+function sendToWishListIfNoListings() {
+  if (SITE.showListings) return false;
+  document.documentElement.style.visibility = "hidden"; // skip a flash of the empty page
+  location.replace("find-a-home.html" + location.search);
+  return true;
 }
 
 async function getListing(id) {

@@ -166,7 +166,14 @@ section { padding: 64px 0; }
 img.portrait { width: 100%; height: auto; object-fit: cover; }
 @media (max-width: 760px) { .stats.stats-3 { grid-template-columns: 1fr; } .stats.stats-3 div { border-right: 0; border-bottom: 1px solid var(--border); } .stats.stats-3 div:last-child { border-bottom: 0; } }
 .brokerage-logo { height: 44px; width: auto; margin-bottom: 14px; }
-.live-listings .sample-only { display: none; }
+.sample-only { display: none; }
+.sample-listings .sample-only { display: block; }
+.coming-soon { border: 1px solid var(--border); background: var(--card); padding: 32px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: center; }
+.coming-soon h2 { margin-top: 0; }
+.coming-soon p { color: #c8c8c8; max-width: 56ch; }
+.coming-soon .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
+@media (max-width: 760px) { .coming-soon { grid-template-columns: 1fr; padding: 24px; } .coming-soon .actions { justify-content: flex-start; } }
+.check-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 0 16px; }
 
 /* Market update page (market.html) and home page market snapshot */
 .market-top { padding: 48px 0 32px; }

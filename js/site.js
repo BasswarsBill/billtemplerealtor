@@ -12,6 +12,15 @@ const SITE = {
   phone: "(601) 953-6504", // Bill's cell
   email: "bill@billtemplerealtor.com",
   license: "61942", // Mississippi license number
+
+  // Homes for sale. Leave this false until the MLS feed (Flexmls / Spark API) is connected.
+  // While false, the site shows no homes at all: "Homes for Sale" pages send visitors to the
+  // "Tell me what you're looking for" form (find-a-home.html) and the home page says new
+  // listings are coming soon. Once SPARK_ACCESS_TOKEN is set in Vercel, change this to true.
+  showListings: false,
+  // Only for testing the listing pages: true shows the made-up homes in data/listings.json
+  // when the live feed isn't answering. Never turn this on for the public site.
+  sampleListings: false,
 };
 
 (function () {
@@ -22,7 +31,7 @@ const SITE = {
   const links = [
     ["index.html", "Home"],
     ["index.html#about", "Meet Bill"],
-    ["listings.html", "Homes for Sale"],
+    SITE.showListings ? ["listings.html", "Homes for Sale"] : ["find-a-home.html", "Find a Home"],
     ["neighborhoods.html", "Neighborhoods"],
     ["guides.html", "Guides"],
     ["investors.html", "Investors"],
@@ -70,7 +79,7 @@ const SITE = {
           ${SITE.brokerageLogo ? `<img class="brokerage-logo" src="${SITE.brokerageLogo}" alt="${SITE.brokerage}">` : ""}
           <div>${SITE.agentName}, Realtor · MS License #${SITE.license} · Cell <a href="tel:${SITE.phone.replace(/[^0-9+]/g, "")}">${SITE.phone}</a> · <a href="mailto:${SITE.email}">${SITE.email}</a></div>
           <div>${SITE.brokerage} · ${SITE.brokerageAddress} · Office <a href="tel:${SITE.officePhone.replace(/[^0-9+]/g, "")}">${SITE.officePhone}</a></div>
-          <p class="mls-disclaimer">Listing information is deemed reliable but not guaranteed. <span class="sample-only">Listings shown are currently sample data until the MLS feed is connected.</span> Listing data provided courtesy of the Mississippi Gulf Coast MLS (final required disclaimer to be confirmed with the MLS).</p>
+          <p class="mls-disclaimer">Listing information is deemed reliable but not guaranteed. Listing data provided courtesy of the Mississippi Gulf Coast MLS (final required disclaimer to be confirmed with the MLS).</p>
           <div>© ${new Date().getFullYear()} ${SITE.agentName}</div>
         </div>
       </footer>`;
