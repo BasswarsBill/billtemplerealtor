@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 132" role="img" aria-label="Equal Housing Opportunity">
+  <title>Equal Housing Opportunity</title>
+  <g fill="#ffffff">
+    <!-- house: roof + walls drawn as one outline, with the equal sign inside -->
+    <path d="M60 4 L4 46 L16 46 L16 98 L104 98 L104 46 L116 46 Z M60 18 L92 42 L92 86 L28 86 L28 42 Z" fill-rule="evenodd"/>
+    <rect x="40" y="50" width="40" height="10"/>
+    <rect x="40" y="68" width="40" height="10"/>
+    <text x="60" y="114" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="700" text-anchor="middle" letter-spacing=".5">EQUAL HOUSING</text>
+    <text x="60" y="128" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="700" text-anchor="middle" letter-spacing=".3">OPPORTUNITY</text>
+  </g>
+</svg>

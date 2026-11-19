@@ -7,6 +7,8 @@ const SITE = {
   // (a white or light logo on a transparent background works best on the black footer).
   brokerage: "Epique Realty",
   brokerageLogo: "media/brokerage-logo.png",
+  // Equal Housing Opportunity logo shown in every page footer (required for real estate advertising).
+  equalHousingLogo: "media/equal-housing.svg",
   brokerageStreet: "520 Pass Rd, Ste L",
   brokerageCity: "Gulfport",
   brokerageState: "MS",
@@ -135,12 +137,16 @@ SITE.brokerageAddress = `${SITE.brokerageStreet}, ${SITE.brokerageCity}, ${SITE.
     footer.outerHTML = `
       <footer class="site-footer">
         <div class="container">
-          ${SITE.brokerageLogo ? `<img class="brokerage-logo" src="${SITE.brokerageLogo}" alt="${SITE.brokerage}">` : ""}
+          <div class="footer-logos">
+            ${SITE.brokerageLogo ? `<img class="brokerage-logo" src="${SITE.brokerageLogo}" alt="${SITE.brokerage}">` : ""}
+            <a href="fair-housing.html"><img class="eho-logo" src="${SITE.equalHousingLogo}" alt="Equal Housing Opportunity" width="60" height="66"></a>
+          </div>
           <div>${SITE.agentName}, Realtor · MS License #${SITE.license} · Cell <a href="tel:${SITE.phone.replace(/[^0-9+]/g, "")}">${SITE.phone}</a> · <a href="mailto:${SITE.email}">${SITE.email}</a></div>
           ${SITE.facebook ? `<div><a class="follow-fb" href="${SITE.facebook}" target="_blank" rel="noopener">Follow on Facebook</a></div>` : ""}
           <div>${SITE.brokerage} · ${SITE.brokerageAddress} · Office <a href="tel:${SITE.officePhone.replace(/[^0-9+]/g, "")}">${SITE.officePhone}</a></div>
+          <p class="fair-housing-note">Equal Housing Opportunity. ${SITE.agentName} and ${SITE.brokerage} follow the federal Fair Housing Act and do not discriminate on the basis of race, color, religion, sex, disability, familial status, or national origin.</p>
           <p class="mls-disclaimer">Listing information is deemed reliable but not guaranteed. Listing data provided courtesy of the Mississippi Gulf Coast MLS (final required disclaimer to be confirmed with the MLS).</p>
-          <div>© ${new Date().getFullYear()} ${SITE.agentName} · <a href="privacy.html">Privacy</a></div>
+          <div>© ${new Date().getFullYear()} ${SITE.agentName} · <a href="fair-housing.html">Fair Housing</a> · <a href="fair-housing.html#accessibility">Accessibility</a> · <a href="privacy.html">Privacy</a></div>
         </div>
       </footer>`;
   }
