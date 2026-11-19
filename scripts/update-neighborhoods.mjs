@@ -323,7 +323,15 @@ function townPage(t, all, data) {
       </div>
     </section>
 
-    <section class="alt">
+    ${(m.clips || []).length ? `<section class="town-air">
+      <div class="container">
+        <p class="eyebrow">Drone video by Bill</p>
+        <h2>${esc(t.name)} from the air</h2>
+        <div class="air-clips">${m.clips.map((v) => `<figure><video src="${esc(v.video)}"${v.poster ? ` poster="${esc(v.poster)}"` : ""} controls muted loop playsinline preload="none"></video><figcaption>${esc(v.title || "")}</figcaption></figure>`).join("")}</div>
+      </div>
+    </section>
+
+    ` : ""}<section class="alt">
       <div class="container">
         <p class="eyebrow">Places to know</p>
         <h2>Around ${esc(t.name)}</h2>
