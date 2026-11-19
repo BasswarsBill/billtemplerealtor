@@ -196,7 +196,10 @@ section { padding: 64px 0; }
 .stats.stats-3 strong { font-size: clamp(2rem, 4vw, 3rem); }
 img.portrait { width: 100%; height: auto; object-fit: cover; }
 @media (max-width: 760px) { .stats.stats-3 { grid-template-columns: 1fr; } .stats.stats-3 div { border-right: 0; border-bottom: 1px solid var(--border); } .stats.stats-3 div:last-child { border-bottom: 0; } }
-.brokerage-logo { height: 44px; width: auto; margin-bottom: 14px; }
+.footer-logos { display: flex; align-items: center; gap: 22px; margin-bottom: 14px; }
+.brokerage-logo { height: 44px; width: auto; }
+.eho-logo { display: block; height: 54px; width: auto; }
+.fair-housing-note { margin-top: 12px; font-size: .78rem; color: var(--footer-text); max-width: 760px; }
 .sample-only { display: none; }
 .sample-listings .sample-only { display: block; }
 .coming-soon { border: 1px solid var(--border); background: var(--card); padding: 32px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: center; }
