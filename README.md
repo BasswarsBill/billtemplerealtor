@@ -9,6 +9,7 @@ Plain static site (HTML, CSS, vanilla JavaScript). No build step. Deploys to Ver
 - `forms.html` client forms (built separately in `forms/`)
 - `home-value.html` "What's my home worth?" form. Emails Bill through `api/submit-form.js` (same Resend setup as the forms).
 - `market.html` Gulf Coast market update (prices, homes for sale, days on market, mortgage rates, by county)
+- `guides.html`, `guides/buying.html`, `guides/selling.html` buyer and seller guides (see below)
 
 ## Listings
 All pages load houses through `js/listings-data.js`. Right now it reads sample data from
@@ -65,3 +66,15 @@ Long Beach, Pass Christian, Bay St. Louis, Ocean Springs, D'Iberville). These pa
 - Fair housing: describe places, homes and amenities. Don't describe the people who live somewhere or who an area is "good for".
 - To add a town, copy one town's block in `data/towns.json` and change it (`censusName` must match the Census name,
   for example "Waveland city, Mississippi").
+
+## Buyer and seller guides
+`guides.html` is the guides hub, and `guides/buying.html` and `guides/selling.html` are the step-by-step guides.
+They are built by `scripts/build-guides.mjs`, so don't edit them by hand:
+- All the words are in `data/guides.json`: each guide's intro, "Bill's take" quote, and each step (title, summary,
+  paragraphs, an optional "On the Coast" note, checklist and links). Saving that file on GitHub rebuilds the pages
+  within a couple of minutes (`.github/workflows/build-guides.yml`).
+- Each step has a `socialPost`. `data/guides-posts.json` collects them all, with a link to the exact step, ready for
+  Facebook posts later.
+- The "Ask Bill" form at the bottom of each guide emails Bill through `api/submit-form.js` (subject "Question from the buyer guide" and so on).
+- Keep it general information, not legal, tax or insurance advice, and update `reviewed` in `data/guides.json` when you check the facts again
+  (Mississippi disclosure law and form, FEMA/NFIP rules, homestead exemption, wind pool).

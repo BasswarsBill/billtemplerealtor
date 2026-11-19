@@ -17,12 +17,14 @@ const SITE = {
 (function () {
   let path = location.pathname.split("/").pop() || "index.html";
   if (location.pathname.includes("/neighborhoods/")) path = "neighborhoods.html";
+  if (location.pathname.includes("/guides/")) path = "guides.html";
   path = path.replace(/^([^.]+)$/, "$1.html"); // pages served without ".html"
   const links = [
     ["index.html", "Home"],
     ["index.html#about", "Meet Bill"],
     ["listings.html", "Homes for Sale"],
     ["neighborhoods.html", "Neighborhoods"],
+    ["guides.html", "Guides"],
     ["home-value.html", "Home Value"],
     ["market.html", "Market"],
     ["forms.html", "Forms"],
@@ -45,6 +47,19 @@ const SITE = {
         </div>
       </header>`;
   }
+
+  // Fill in agent and brokerage details anywhere a page asks for them, so a brokerage change
+  // only needs the SITE lines above. <span data-site="brokerage"></span> shows the text;
+  // <a data-site-link="phone"> or "email" becomes a tap-to-call or email link.
+  document.querySelectorAll("[data-site]").forEach((el) => {
+    if (SITE[el.dataset.site]) el.textContent = SITE[el.dataset.site];
+  });
+  document.querySelectorAll("[data-site-link]").forEach((el) => {
+    const v = SITE[el.dataset.siteLink];
+    if (!v) return;
+    el.textContent = v;
+    el.href = el.dataset.siteLink === "email" ? `mailto:${v}` : `tel:${v.replace(/[^0-9+]/g, "")}`;
+  });
 
   const footer = document.getElementById("site-footer");
   if (footer) {

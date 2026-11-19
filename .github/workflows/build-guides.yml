@@ -1,0 +1,42 @@
+# Rebuilds the buyer and seller guides (guides.html, guides/*.html, data/guides-posts.json)
+# whenever data/guides.json changes, and commits the pages so Vercel republishes the site.
+# To run it right away: GitHub > Actions > "Build buyer and seller guides" > Run workflow.
+name: Build buyer and seller guides
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - data/guides.json
+      - scripts/build-guides.mjs
+      - .github/workflows/build-guides.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-guides
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/build-guides.mjs
+      - name: Save rebuilt guides
+        run: |
+          git add -A guides.html guides data/guides-posts.json
+          if git diff --cached --quiet; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "market-data-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Rebuild buyer and seller guides"
+          git pull --rebase
+          git push
