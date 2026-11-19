@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Every public page, for Google. Add a line here when a new page goes on the site. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.billtemplerealtor.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://www.billtemplerealtor.com/find-a-home.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.billtemplerealtor.com/home-value.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.billtemplerealtor.com/neighborhoods.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.billtemplerealtor.com/neighborhoods/gulfport.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.billtemplerealtor.com/neighborhoods/biloxi.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.billtemplerealtor.com/neighborhoods/long-beach.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.billtemplerealtor.com/neighborhoods/pass-christian.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.billtemplerealtor.com/neighborhoods/bay-st-louis.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.billtemplerealtor.com/neighborhoods/ocean-springs.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.billtemplerealtor.com/neighborhoods/diberville.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.billtemplerealtor.com/guides.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.billtemplerealtor.com/guides/buying.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.billtemplerealtor.com/guides/selling.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.billtemplerealtor.com/investors.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.billtemplerealtor.com/market.html</loc><priority>0.6</priority></url>
+  <url><loc>https://www.billtemplerealtor.com/forms.html</loc><priority>0.5</priority></url>
+</urlset>

@@ -97,3 +97,9 @@ DSCR) and Coast costs like flood and wind insurance, with a deal calculator (`js
   rents-by-town table from `data/neighborhoods.json`. `.github/workflows/build-investors.yml` rebuilds the page
   when `data/investors.json` changes and every Thursday after the market and neighborhood updates.
 - `data/investors-posts.json` has one ready-made Facebook post per section, for auto-posting later.
+
+## Google (search)
+
+- `sitemap.xml` lists every public page and `robots.txt` points Google to it. Add a line to `sitemap.xml` when a new page goes on the site.
+- Each page has a title, description, canonical link (always `https://www.billtemplerealtor.com/...`) and share-preview tags.
+- The home page tells Google who Bill is (schema.org `RealEstateAgent`), built in `js/site.js` from the `SITE` details, so a brokerage change still only needs those lines.

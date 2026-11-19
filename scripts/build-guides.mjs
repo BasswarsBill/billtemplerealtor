@@ -12,8 +12,7 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 const ROOT = new URL("../", import.meta.url);
 const file = (p) => new URL(p, ROOT);
 
-// The address people use to reach the site. Change to https://billtemplerealtor.com once the domain points at it.
-const SITE_URL = "https://bill-temple-realtor.vercel.app";
+const SITE_URL = "https://www.billtemplerealtor.com";
 
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const pad = (n) => String(n).padStart(2, "0");
@@ -37,6 +36,9 @@ function head(title, description, path) {
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="${SITE_URL}/${path}">
+  <meta property="og:site_name" content="Bill Temple, Realtor">
+  <meta property="og:image" content="${SITE_URL}/media/hero-poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="forms/forms.css">
 </head>`;
