@@ -10,7 +10,7 @@ const SITE = {
   brokerageAddress: "520 Pass Rd, Ste L, Gulfport, MS 39507",
   officePhone: "(888) 893-3537",
   phone: "(601) 953-6504", // Bill's cell
-  email: "billtemplerealtor@gmail.com",
+  email: "bill@billtemplerealtor.com",
   license: "61942", // Mississippi license number
 };
 
