@@ -16,11 +16,11 @@ on:
   workflow_dispatch:
     inputs:
       task:
-        description: "next = post the next one (or preview it) · check = test the Facebook key · preview = show the next 6"
+        description: "next = post the next one (or preview it) · check = test the Facebook key · preview = show the next 6 · repost = delete the latest post and post it again"
         required: true
         default: next
         type: choice
-        options: [next, check, preview]
+        options: [next, check, preview, repost]
 
 permissions:
   contents: write

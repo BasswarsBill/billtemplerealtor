@@ -15,6 +15,7 @@ const SITE = {
   phone: "(601) 953-6504", // Bill's cell
   email: "bill@billtemplerealtor.com",
   license: "61942", // Mississippi license number
+  facebook: "https://www.facebook.com/924921870709801", // Bill Temple Realtor Facebook Page (posts go out Mon/Wed/Fri)
 
   // For Google: the site's main address, the towns Bill focuses on, and the state he works in.
   siteUrl: "https://www.billtemplerealtor.com",
@@ -111,6 +112,7 @@ SITE.brokerageAddress = `${SITE.brokerageStreet}, ${SITE.brokerageCity}, ${SITE.
         name: SITE.brokerage,
         telephone: SITE.officePhone,
       },
+      ...(SITE.facebook ? { sameAs: [SITE.facebook] } : {}),
       hasCredential: {
         "@type": "EducationalOccupationalCredential",
         credentialCategory: "Mississippi real estate license",
@@ -130,9 +132,10 @@ SITE.brokerageAddress = `${SITE.brokerageStreet}, ${SITE.brokerageCity}, ${SITE.
         <div class="container">
           ${SITE.brokerageLogo ? `<img class="brokerage-logo" src="${SITE.brokerageLogo}" alt="${SITE.brokerage}">` : ""}
           <div>${SITE.agentName}, Realtor · MS License #${SITE.license} · Cell <a href="tel:${SITE.phone.replace(/[^0-9+]/g, "")}">${SITE.phone}</a> · <a href="mailto:${SITE.email}">${SITE.email}</a></div>
+          ${SITE.facebook ? `<div><a class="follow-fb" href="${SITE.facebook}" target="_blank" rel="noopener">Follow on Facebook</a></div>` : ""}
           <div>${SITE.brokerage} · ${SITE.brokerageAddress} · Office <a href="tel:${SITE.officePhone.replace(/[^0-9+]/g, "")}">${SITE.officePhone}</a></div>
           <p class="mls-disclaimer">Listing information is deemed reliable but not guaranteed. Listing data provided courtesy of the Mississippi Gulf Coast MLS (final required disclaimer to be confirmed with the MLS).</p>
-          <div>© ${new Date().getFullYear()} ${SITE.agentName}</div>
+          <div>© ${new Date().getFullYear()} ${SITE.agentName} · <a href="privacy.html">Privacy</a></div>
         </div>
       </footer>`;
   }

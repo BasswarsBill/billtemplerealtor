@@ -193,7 +193,8 @@
   <script src="js/listings-data.js"></script>
   <script>
     document.getElementById("contact-info").innerHTML =
-      `Cell ${SITE.phone}<br><a href="mailto:${SITE.email}">${SITE.email}</a><br>${SITE.brokerage}, ${SITE.brokerageAddress}`;
+      `Cell ${SITE.phone}<br><a href="mailto:${SITE.email}">${SITE.email}</a><br>${SITE.brokerage}, ${SITE.brokerageAddress}` +
+      (SITE.facebook ? `<br><a href="${SITE.facebook}" target="_blank" rel="noopener">Follow me on Facebook</a>` : "");
 
     // Until a form-sending service is set up, the contact form opens the visitor's email app.
     document.getElementById("contact-form").addEventListener("submit", (e) => {
