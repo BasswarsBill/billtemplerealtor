@@ -1,5 +1,12 @@
 {
-    "_readme": "Every post that went to Facebook, newest last. scripts/social/facebook.py reads this so nothing repeats. Written by the Post to Facebook action; no need to edit.",
-    "posts": [],
-    "rotation": 0
+  "_readme": "Every post that went to Facebook, newest last. scripts/social/facebook.py reads this so nothing repeats. Written by the Post to Facebook action; no need to edit.",
+  "posts": [
+    {
+      "id": "market-2026-10",
+      "kind": "market",
+      "date": "2026-11-19",
+      "facebookId": "924921870709801_122149145241199612"
+    }
+  ],
+  "rotation": 0
 }
