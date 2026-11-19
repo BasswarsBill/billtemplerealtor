@@ -6,7 +6,7 @@
 //
 // The words come from data/towns.json (edit that file, not the pages).
 // The numbers come from free public sources, no keys needed:
-//   U.S. Census Bureau, American Community Survey 5-year estimates (homes, rents, commute)
+//   U.S. Census Bureau, American Community Survey 5-year summary files (homes, rents, commute; new once a year)
 //   Realtor.com Economic Research, monthly listing data by ZIP code
 //
 // Runs automatically from GitHub every week (.github/workflows/update-neighborhoods.yml) and
@@ -24,18 +24,24 @@ const OFFLINE = process.argv.includes("--offline");
 const SITE_URL = "https://bill-temple-realtor.vercel.app";
 
 const ZIP_CSV = "https://econdata.s3-us-west-2.amazonaws.com/Reports/Core/RDC_Inventory_Core_Metrics_Zip.csv";
-const CENSUS = (year) => `https://api.census.gov/data/${year}/acs/acs5`;
+// Census summary files: one file per table, covering every place in the country. Read once a year
+// (when a new 5-year release comes out); the API needs a key, these files don't.
+const SF = (year) => `https://www2.census.gov/programs-surveys/acs/summary_file/${year}/table-based-SF`;
+const SF_TABLE = (year, table) => `${SF(year)}/data/5YRData/acsdt5y${year}-${table.toLowerCase()}.dat`;
+const SF_GEOS = (year) => `${SF(year)}/documentation/Geos${year}5YR.txt`;
 const CENSUS_VARS = {
-  population: "B01003_001E",
-  housingUnits: "B25001_001E",
-  occupiedUnits: "B25003_001E",
-  ownerOccupied: "B25003_002E",
-  medianHomeValue: "B25077_001E",
-  medianRent: "B25064_001E",
-  medianYearBuilt: "B25035_001E",
-  commuteMinutesTotal: "B08013_001E",
-  commuters: "B08303_001E",
+  population: "B01003_E001",
+  housingUnits: "B25001_E001",
+  occupiedUnits: "B25003_E001",
+  ownerOccupied: "B25003_E002",
+  medianHomeValue: "B25077_E001",
+  medianRent: "B25064_E001",
+  medianYearBuilt: "B25035_E001",
+  commuteMinutesTotal: "B08013_E001",
+  commuters: "B08303_E001",
 };
+const MS_STATE = "0400000US28";
+const MS_PLACE = "1600000US28";
 
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const monthLabel = (yyyymm) => `${MONTHS[Number(yyyymm.slice(4, 6)) - 1]} ${yyyymm.slice(0, 4)}`;
@@ -47,14 +53,6 @@ async function get(url) {
   const r = await fetch(url, { headers: { "User-Agent": "realtor-site-neighborhood-guides" } });
   if (!r.ok) throw new Error(`${url.split("?")[0]} answered ${r.status}: ${(await r.text()).slice(0, 200)}`);
   return r;
-}
-
-// The Census API answers with a web page instead of data when something is wrong (for example a bad key).
-async function getJson(url) {
-  const key = process.env.CENSUS_API_KEY ? `&key=${process.env.CENSUS_API_KEY}` : "";
-  const text = await (await get(url + key)).text();
-  try { return JSON.parse(text); }
-  catch { throw new Error("not data: " + text.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 300)); }
 }
 
 function parseCsv(text) {
@@ -73,38 +71,69 @@ function parseCsv(text) {
 }
 
 // ---------- Census ----------
-async function censusData(towns) {
-  const vars = Object.values(CENSUS_VARS).join(",");
+// Streams a big pipe-delimited Census file and keeps only the Mississippi rows we need.
+async function msRows(url, keep) {
+  const r = await get(url);
+  const reader = r.body.pipeThrough(new TextDecoderStream()).getReader();
+  let buf = "", head = null;
+  const rows = [];
+  for (;;) {
+    const { value, done } = await reader.read();
+    buf += value || "";
+    const lines = buf.split(/\r?\n/);
+    buf = done ? "" : lines.pop();
+    for (const line of lines) {
+      if (!line) continue;
+      if (!head) { head = line.split("|"); continue; }
+      if (!keep(line)) continue;
+      const cells = line.split("|");
+      rows.push(Object.fromEntries(head.map((h, i) => [h, cells[i]])));
+    }
+    if (done) break;
+  }
+  return rows;
+}
+
+async function newestCensusYear() {
   const thisYear = new Date().getFullYear();
   for (let year = thisYear - 1; year >= thisYear - 4; year--) {
-    let places, state;
-    try {
-      places = await getJson(`${CENSUS(year)}?get=NAME,${vars}&for=place:*&in=state:28`);
-      state = await getJson(`${CENSUS(year)}?get=NAME,${vars}&for=state:28`);
-    } catch (e) { console.log(`Census ${year}: ${e.message}`); continue; } // that year may not be published yet
-    const rows = (table) => table.slice(1).map((r) => Object.fromEntries(table[0].map((h, i) => [h, r[i]])));
-    const shape = (r) => {
-      const v = Object.fromEntries(Object.entries(CENSUS_VARS).map(([k, id]) => [k, num(r[id])]));
-      return {
-        population: v.population,
-        housingUnits: v.housingUnits,
-        ownerShare: v.occupiedUnits ? Math.round((v.ownerOccupied / v.occupiedUnits) * 100) : null,
-        medianHomeValue: v.medianHomeValue,
-        medianRent: v.medianRent,
-        medianYearBuilt: v.medianYearBuilt,
-        commuteMinutes: v.commuters ? Math.round((v.commuteMinutesTotal / v.commuters) * 10) / 10 : null,
-      };
-    };
-    const byName = Object.fromEntries(rows(places).map((r) => [r.NAME.replace(/[‘’]/g, "'"), r]));
-    const out = { year, survey: `${year - 4}-${year} American Community Survey 5-year estimates`, mississippi: shape(rows(state)[0]), towns: {} };
-    for (const t of towns) {
-      const r = byName[t.censusName];
-      if (!r) { console.warn(`Census: no place named "${t.censusName}"`); continue; }
-      out.towns[t.slug] = { ...shape(r), geoid: "1600000US" + r.state + r.place };
-    }
-    return out;
+    const r = await fetch(SF_TABLE(year, "B01003"), { method: "HEAD" }).catch(() => null);
+    if (r && r.ok) return year;
   }
-  throw new Error("No American Community Survey data could be fetched");
+  throw new Error("No American Community Survey summary files found");
+}
+
+async function censusData(towns, previous) {
+  const year = await newestCensusYear();
+  if (previous && previous.year === year && towns.every((t) => previous.towns[t.slug])) return previous; // nothing new
+  const wanted = (line) => line.startsWith(MS_PLACE) || line.startsWith(MS_STATE);
+  const values = {};
+  for (const table of [...new Set(Object.values(CENSUS_VARS).map((v) => v.split("_")[0]))]) {
+    for (const row of await msRows(SF_TABLE(year, table), wanted)) Object.assign((values[row.GEO_ID] ??= {}), row);
+  }
+  const geoRows = await msRows(SF_GEOS(year), (line) => line.includes(MS_PLACE));
+  const names = Object.fromEntries(geoRows.map((g) => [(g.NAME || "").replace(/[\u2018\u2019]/g, "'"), g.GEO_ID]));
+
+  const shape = (r) => {
+    const v = Object.fromEntries(Object.entries(CENSUS_VARS).map(([k, id]) => [k, num(r?.[id])]));
+    return {
+      population: v.population,
+      housingUnits: v.housingUnits,
+      ownerShare: v.occupiedUnits ? Math.round((v.ownerOccupied / v.occupiedUnits) * 100) : null,
+      medianHomeValue: v.medianHomeValue,
+      medianRent: v.medianRent,
+      medianYearBuilt: v.medianYearBuilt,
+      commuteMinutes: v.commuters ? Math.round((v.commuteMinutesTotal / v.commuters) * 10) / 10 : null,
+    };
+  };
+  const out = { year, survey: `${year - 4}-${year} American Community Survey 5-year estimates`, mississippi: shape(values[MS_STATE]), towns: {} };
+  for (const t of towns) {
+    const id = t.censusGeoId || names[t.censusName];
+    if (!id || !values[id]) { console.warn(`Census: no place named "${t.censusName}"`); continue; }
+    out.towns[t.slug] = { ...shape(values[id]), geoid: id };
+  }
+  if (!Object.keys(out.towns).length) throw new Error(`Census ${year}: none of the towns were found`);
+  return out;
 }
 
 // ---------- Realtor.com listings by ZIP ----------
@@ -426,7 +455,7 @@ async function main() {
   let zips = previous?.zips ?? null;
   if (!OFFLINE) {
     // If a source is down this week, keep last week's numbers for it instead of failing.
-    try { census = await censusData(towns); } catch (e) { console.warn("Kept previous Census numbers: " + e.message); }
+    try { census = await censusData(towns, census); } catch (e) { console.warn("Kept previous Census numbers: " + e.message); }
     try { zips = await zipData(towns); } catch (e) { console.warn("Kept previous ZIP numbers: " + e.message); }
   }
 
