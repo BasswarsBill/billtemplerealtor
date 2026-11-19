@@ -1,0 +1,325 @@
+{
+  "_readme": "Words for the buyer and seller guides. Edit here, not in the pages: scripts/build-guides.mjs turns this file into guides.html, guides/buying.html and guides/selling.html (GitHub does it automatically when this file changes). Each step has a ready-made socialPost for Facebook later. Keep it general information, not legal, tax or insurance advice, and describe homes and places, never the people who live there.",
+  "reviewed": "2026-11-19",
+  "hub": {
+    "title": "Buyer and Seller Guides for the Mississippi Gulf Coast",
+    "description": "Step-by-step guides to buying or selling a home on the Mississippi Gulf Coast, with plain-English notes on flood zones, wind insurance and Mississippi's seller disclosure.",
+    "eyebrow": "Buyer and seller guides",
+    "heading": "Buying or selling on the Coast, step by step",
+    "lede": "Buying or selling a home works about the same way everywhere, but a few things are different on the Mississippi Gulf Coast. Flood zones, wind coverage and the state's disclosure form can change what a home really costs and how long it takes to close. These guides walk through each step in plain English.",
+    "essentials": [
+      {
+        "title": "Flood zones",
+        "text": "Every address has a FEMA flood zone. If a home is in a high-risk zone (one starting with A or V) and you have a federally backed mortgage, your lender will require flood insurance. A regular homeowners policy doesn't cover flooding from rising water.",
+        "link": {
+          "href": "https://msc.fema.gov/portal/search",
+          "label": "Look up a flood zone on FEMA's map"
+        }
+      },
+      {
+        "title": "Wind and hurricane coverage",
+        "text": "Near the water, many homeowners policies carry a separate hurricane or named-storm deductible, often a percentage of the home's insured value instead of a flat dollar amount. When private companies won't cover wind, the state's wind pool (the Mississippi Windstorm Underwriting Association) offers wind and hail coverage in the coastal counties through local insurance agents.",
+        "link": {
+          "href": "https://www.mid.ms.gov/",
+          "label": "Mississippi Insurance Department"
+        }
+      },
+      {
+        "title": "The seller's disclosure",
+        "text": "Mississippi requires most sellers of homes with one to four units to fill out a Property Condition Disclosure Statement. It asks about the roof, water damage, past flooding from rising water and whether the home is in a FEMA flood hazard zone.",
+        "link": {
+          "href": "https://www.mrec.ms.gov/",
+          "label": "Mississippi Real Estate Commission"
+        }
+      }
+    ]
+  },
+  "guides": [
+    {
+      "slug": "buying",
+      "title": "Buying a Home on the Mississippi Gulf Coast",
+      "short": "Buyer guide",
+      "description": "A step-by-step guide to buying a home in Gulfport, Biloxi, Long Beach, Pass Christian, Bay St. Louis, Ocean Springs and nearby, including flood zones, wind insurance and Mississippi's seller disclosure.",
+      "heading": "Buying a home on the Gulf Coast",
+      "lede": "From your first budget to the keys in your hand, here's how buying works on the Mississippi Gulf Coast, with the local steps people tend to learn about too late.",
+      "billsTake": "I've been investing in real estate for 15 years, and the biggest surprise for most buyers here isn't the price of the house. It's the insurance. I'll help you get real flood and wind quotes before you're locked in, so the monthly payment you plan for is the one you actually get.",
+      "card": "Budget, insurance quotes, offers, inspections and closing, with the Gulf Coast details explained.",
+      "steps": [
+        {
+          "id": "budget",
+          "title": "Set your budget and get preapproved",
+          "summary": "Know what you can comfortably pay each month, not just the loan amount.",
+          "body": [
+            "Talk with a mortgage lender before you start touring. A preapproval letter shows sellers you're ready, and it tells you what price range to search.",
+            "When you work out a monthly payment, include more than the loan. Add property taxes, homeowners insurance, flood insurance if the home needs it, and any HOA dues. On the Coast, insurance can change the monthly cost a lot from one house to the next."
+          ],
+          "local": "First-time buyer? Ask your lender about down payment help through Mississippi Home Corporation, the state's housing finance agency. Programs and rules change, so your lender can tell you what's available and whether you qualify.",
+          "links": [
+            {
+              "href": "https://www.mshomecorp.com/",
+              "label": "Mississippi Home Corporation"
+            }
+          ],
+          "socialPost": "Thinking about buying on the Mississippi Gulf Coast? Step one is a preapproval, and a monthly budget that includes taxes, insurance and flood coverage, not just the mortgage. On the Coast, insurance can swing the payment a lot from one house to the next."
+        },
+        {
+          "id": "insurance",
+          "title": "Price insurance early",
+          "summary": "Get flood and wind quotes on homes you like before you make an offer.",
+          "body": [
+            "Find the flood zone for any address on FEMA's Flood Map Service Center. Zones that start with A or V are high-risk areas. If the home is in one and your loan is federally backed, your lender will require flood insurance. Homes outside those zones can still flood, and flood coverage there usually costs less.",
+            "Ask an insurance agent for quotes on the actual address. A standard homeowners policy doesn't cover flooding from rising water, so flood is a separate policy, through the National Flood Insurance Program or a private company. Wind and hail may come with the homeowners policy, or as a separate policy from the state wind pool. Ask what the hurricane or named-storm deductible is. It's often a percentage of the home's insured value, which can be thousands of dollars."
+          ],
+          "local": "Features that help a home stand up to wind, such as a FORTIFIED roof certificate, roof straps, a newer roof or impact-rated windows, can lower insurance costs. Ask the seller for any certificates or reports they have.",
+          "links": [
+            {
+              "href": "https://msc.fema.gov/portal/search",
+              "label": "FEMA flood map lookup"
+            },
+            {
+              "href": "https://www.floodsmart.gov/",
+              "label": "FloodSmart (National Flood Insurance Program)"
+            }
+          ],
+          "socialPost": "Gulf Coast buyers: get flood and wind insurance quotes on the actual address before you make an offer. Look up the flood zone on FEMA's map, and ask about the hurricane deductible. It's often a percentage of the home's value, not a flat amount."
+        },
+        {
+          "id": "agent",
+          "title": "Choose your agent",
+          "summary": "Know who represents you, and put it in writing.",
+          "body": [
+            "In Mississippi, an agent gives you a short form called Working With a Real Estate Broker early on. It explains whether the agent represents you, the seller or both.",
+            "Under current rules for agents who use the MLS, you'll sign a written buyer agreement before you tour homes with an agent. It spells out what the agent does for you and how they're paid. Agent pay is not set by law and can be negotiated. Read it, ask questions, and only sign what you're comfortable with."
+          ],
+          "socialPost": "Buying a home? Before you tour with an agent, you'll sign a written buyer agreement that explains what they'll do for you and how they're paid. Agent pay isn't set by law and is negotiable. Ask questions until it makes sense."
+        },
+        {
+          "id": "search",
+          "title": "Find the right town and home",
+          "summary": "Compare towns, commutes and elevation, not just the house.",
+          "body": [
+            "The Mississippi coastline runs about 60 miles, from Waveland and Bay St. Louis in the west to Ocean Springs and Pascagoula in the east. Each town has its own prices, taxes and character. Think about your commute, how close you want to be to the water, and what you need in a yard or garage.",
+            "For each home, check the flood zone and ask whether there's an elevation certificate. Look at the roof's age, the drainage around the house, and how high the home sits compared with the street."
+          ],
+          "local": "My neighborhood guides cover homes for sale, typical prices, public schools, commutes and the places to know in seven Coast towns.",
+          "socialPost": "House hunting on the Gulf Coast? Look beyond the house: check the flood zone, ask for an elevation certificate, and see how the lot drains. Two similar homes a few blocks apart can have very different insurance costs.",
+          "links": [
+            {
+              "href": "neighborhoods.html",
+              "label": "Neighborhood guides"
+            },
+            {
+              "href": "listings.html",
+              "label": "Homes for sale"
+            }
+          ]
+        },
+        {
+          "id": "offer",
+          "title": "Make an offer",
+          "summary": "Price, terms and timelines all matter, and so does the seller's disclosure.",
+          "body": [
+            "Your offer covers more than price: earnest money, how you're paying, the closing date, and how many days you'll have for inspections and insurance quotes. Your agent can show you what similar homes sold for, and the market update shows how fast homes are selling right now.",
+            "Ask for the seller's Property Condition Disclosure Statement and read every page. It asks whether the home is in a FEMA flood hazard zone, whether it has ever flooded from rising water, whether flood insurance is required and what the premium is, and about any water or storm damage. Under Mississippi law, if you get the disclosure after your offer is accepted, you have 3 days after it's handed to you (or 5 days after it's mailed) to end the contract by written notice.",
+            "The disclosure shares what the seller knows. It is not a substitute for your own inspections."
+          ],
+          "socialPost": "Making an offer on a Mississippi home? Read the seller's Property Condition Disclosure Statement closely. It covers flood zones, past flooding, flood insurance premiums and water or storm damage. It's what the seller knows, so still get your own inspection.",
+          "links": [
+            {
+              "href": "market.html",
+              "label": "Gulf Coast market update"
+            }
+          ]
+        },
+        {
+          "id": "inspect",
+          "title": "Inspect the home",
+          "summary": "Use your inspection days well. They go fast.",
+          "body": [
+            "Hire a licensed home inspector to look at the roof, structure, plumbing, electrical, heating and cooling. Most buyers here also get a termite (wood-destroying insect) inspection, and many loans require one. Ask whether the seller has a termite bond that can transfer to you.",
+            "For older homes, consider a sewer line camera inspection. Homes built before 1978 come with a lead-based paint disclosure, and you have the right to a lead paint inspection. A survey shows the property lines and any easements.",
+            "Use these same days to firm up your insurance quotes. If an inspection or a quote turns up a problem, you can ask the seller for repairs, a credit or a lower price, within the terms of your contract."
+          ],
+          "local": "Ask your inspector about the roof's age and how it's attached, signs of past water in the walls or crawl space, and how water drains away from the house. These are the things insurers on the Coast ask about too.",
+          "socialPost": "Under contract on a Gulf Coast home? Use your inspection days for a full home inspection, a termite inspection, and firm insurance quotes. Ask the inspector about roof age, past water damage and drainage, the same things insurers ask about."
+        },
+        {
+          "id": "loan",
+          "title": "Finish the loan, appraisal and insurance",
+          "summary": "Line up coverage early so it doesn't hold up closing.",
+          "body": [
+            "Your lender orders an appraisal to confirm the home's value, and needs proof of homeowners insurance (and flood insurance, if required) before closing.",
+            "New flood policies through the National Flood Insurance Program usually have a 30-day waiting period, but the wait generally doesn't apply when the coverage is required for a new loan. Ask whether the seller's current flood policy can be transferred to you, since that can sometimes keep the current pricing."
+          ],
+          "socialPost": "Closing on a Coast home? Your lender needs proof of homeowners insurance, and flood insurance if the home is in a high-risk zone. Ask whether the seller's flood policy can be transferred to you. It can sometimes keep the current pricing."
+        },
+        {
+          "id": "close",
+          "title": "Close and get your keys",
+          "summary": "Walk through the home, sign, and stay alert for wire fraud.",
+          "body": [
+            "On the Mississippi Gulf Coast, a real estate attorney or title company usually handles the closing, checks the title and records your deed. Your lender's closing disclosure, sent at least three business days before closing, shows your final costs. Compare it with your loan estimate.",
+            "Do a final walk-through to make sure the home is in the condition you agreed to and any promised repairs are done.",
+            "Before you wire any money, call your closing office at a phone number you already know is real to confirm the instructions. Scammers send fake wiring emails that look real. Closing offices don't change wiring instructions by email."
+          ],
+          "socialPost": "About to close on a home? Never wire money based on an email alone. Call your closing attorney or title company at a number you already know is real to confirm the instructions. Real closing offices don't change wiring instructions by email."
+        },
+        {
+          "id": "after",
+          "title": "After you move in",
+          "summary": "File for homestead, and get ready for storm season.",
+          "body": [
+            "If the home is your main residence, file for Mississippi's homestead exemption to lower your property taxes. You must own and live in the home on January 1, and you apply at the county Tax Assessor's office between January 1 and April 1. Bring your closing papers.",
+            "Keep your insurance policies, closing papers and any elevation or roof certificates somewhere safe, with copies online. Before hurricane season starts on June 1, make a photo or video inventory of your home and belongings."
+          ],
+          "links": [
+            {
+              "href": "https://www.dor.ms.gov/county-services/homestead-exemption",
+              "label": "Homestead exemption (Mississippi Department of Revenue)"
+            }
+          ],
+          "socialPost": "Bought a home in Mississippi this year? If it's your main home, file for homestead exemption at your county Tax Assessor's office between January 1 and April 1. It lowers your property taxes, and missing the deadline means waiting another year."
+        }
+      ]
+    },
+    {
+      "slug": "selling",
+      "title": "Selling a Home on the Mississippi Gulf Coast",
+      "short": "Seller guide",
+      "description": "A step-by-step guide to selling a home on the Mississippi Gulf Coast: pricing, the paperwork buyers and insurers ask for, Mississippi's Property Condition Disclosure Statement, offers and closing.",
+      "heading": "Selling a home on the Gulf Coast",
+      "lede": "From pricing to closing day, here's how selling works on the Mississippi Gulf Coast, and the paperwork that helps buyers say yes faster.",
+      "billsTake": "After 15 years as an investor, I look at a house the way buyers, inspectors and insurers will. I'll help you put your money into the fixes that change the sale price, and have your flood, wind and roof paperwork ready before a buyer asks for it.",
+      "card": "Pricing, paperwork, the Mississippi disclosure form, offers and closing, with the Gulf Coast details explained.",
+      "steps": [
+        {
+          "id": "value",
+          "title": "Find out what your home is worth",
+          "summary": "Start with real sales near you and what you'll walk away with.",
+          "body": [
+            "Online estimates are a starting point, but they can't see inside your home. A local comparison looks at recent sales of similar homes nearby, homes for sale now, and your home's condition and updates.",
+            "Ask for an estimated net sheet too. It subtracts your mortgage payoff, closing costs and other expenses from the sale price, so you can see what you'd actually take home."
+          ],
+          "socialPost": "Thinking about selling on the Mississippi Gulf Coast? Start with what your home would really sell for, based on recent sales near you, and an estimated net sheet that shows what you'd walk away with after payoff and costs.",
+          "links": [
+            {
+              "href": "home-value.html",
+              "label": "Get my free home value"
+            },
+            {
+              "href": "market.html",
+              "label": "Gulf Coast market update"
+            }
+          ]
+        },
+        {
+          "id": "paperwork",
+          "title": "Gather your paperwork",
+          "summary": "On the Coast, buyers and their insurers ask for more documents.",
+          "body": [
+            "Pull together what buyers will want to see. Having it ready can save days once you're under contract and helps buyers get insurance quotes quickly."
+          ],
+          "checklist": [
+            "Elevation certificate, if you have one",
+            "Flood insurance policy and current premium",
+            "Homeowners and wind policy information",
+            "FORTIFIED roof certificate or wind mitigation report",
+            "Roof age, permits and warranty",
+            "Termite bond and inspection history",
+            "Receipts for major repairs and upgrades",
+            "Survey, and HOA documents and dues if you have an HOA",
+            "Utility costs for the past year"
+          ],
+          "local": "If your home has an elevation certificate, a FORTIFIED roof or a transferable flood policy, say so in the listing. Those can make the home easier and cheaper to insure, and buyers notice.",
+          "socialPost": "Selling on the Gulf Coast? Get your paperwork ready before you list: elevation certificate, flood policy and premium, roof age and any FORTIFIED certificate, termite bond, and repair receipts. Buyers and their insurers will ask."
+        },
+        {
+          "id": "disclosure",
+          "title": "Fill out the seller's disclosure",
+          "summary": "Mississippi's Property Condition Disclosure Statement, answered honestly and completely.",
+          "body": [
+            "Mississippi law requires most sellers of homes with one to four units to give buyers a Property Condition Disclosure Statement. You fill it out yourself, based on what you know. It asks about the roof, structure, systems, water damage, past flooding from rising water, whether the home is in a FEMA flood hazard zone, whether flood insurance is required and what you pay, and damage from storms.",
+            "The law says to give the buyer the disclosure as soon as practicable, before an offer is accepted. If it's delivered later, the buyer has 3 days after it's handed to them (or 5 days after it's mailed) to end the contract by written notice. So it's best to have it done before you list.",
+            "Some transfers are exempt, such as court-ordered sales, foreclosures, and transfers between co-owners or to a spouse or children. If you think yours might be exempt, check with a real estate attorney. Homes built before 1978 also need the federal lead-based paint disclosure.",
+            "Your agent can give you the form and explain what each question means, but can't answer it for you. When in doubt, disclose."
+          ],
+          "links": [
+            {
+              "href": "https://www.mrec.ms.gov/",
+              "label": "Mississippi Real Estate Commission forms"
+            }
+          ],
+          "socialPost": "Selling a home in Mississippi? Most sellers must give buyers a Property Condition Disclosure Statement covering the roof, water damage, past flooding and flood zone. Fill it out honestly before you list. If it's late, the buyer gets a few days to walk away."
+        },
+        {
+          "id": "prep",
+          "title": "Get the house ready",
+          "summary": "Fix what inspectors and insurers will flag, then make it shine.",
+          "body": [
+            "Start with the things that can stall a sale: roof leaks, signs of water, plumbing or electrical problems, and an old heating and cooling system. Some sellers get a pre-listing inspection so there are no surprises.",
+            "Then focus on first impressions. Declutter, clean, touch up paint, fix small things and tidy the yard. Fresh mulch, a clean porch and good lighting make photos and showings better."
+          ],
+          "socialPost": "Getting ready to sell? Fix what an inspector or insurer will flag first, like roof leaks, signs of water and old systems. Then declutter, clean and tidy the yard. Big cosmetic projects rarely pay back as much as people hope."
+        },
+        {
+          "id": "list",
+          "title": "Price it and go live",
+          "summary": "The right price, great photos and video, and the MLS.",
+          "body": [
+            "Pricing right from the start matters. Homes priced well tend to get the most attention in their first couple of weeks. Your agent should show you the comparable sales behind the price.",
+            "You'll sign a listing agreement that covers the price, how long the listing lasts, what the agent will do, and how they're paid. Agent pay is negotiable. Then come professional photos, video, the MLS listing and showings."
+          ],
+          "local": "I shoot drone video along the Coast. Aerial footage shows buyers how close a home is to the water, the harbor or the beach in a way photos can't.",
+          "socialPost": "Listing your home? Price it right from day one. Homes get the most attention in their first couple of weeks. Ask your agent to show you the comparable sales behind the price, and make sure the photos and video do the house justice.",
+          "links": [
+            {
+              "href": "market.html",
+              "label": "How fast homes are selling now"
+            }
+          ]
+        },
+        {
+          "id": "offers",
+          "title": "Compare offers",
+          "summary": "The highest price isn't always the best offer.",
+          "body": [
+            "Look at the whole offer: price, type of financing, earnest money, inspection and insurance timelines, closing date, and any requests for help with closing costs or repairs.",
+            "Ask your agent for a side-by-side net sheet. An offer with strong financing and a shorter inspection period can be worth more than a slightly higher price."
+          ],
+          "socialPost": "Got more than one offer on your home? Compare the whole package: price, financing, earnest money, inspection timeline, closing date and any requests for credits. The highest number isn't always the one that closes."
+        },
+        {
+          "id": "inspection",
+          "title": "Work through inspections",
+          "summary": "Expect a request list. You have options.",
+          "body": [
+            "After the buyer's inspections, they may ask for repairs, a credit at closing or a lower price. You can agree, offer something different or say no, within the terms of your contract.",
+            "Insurance can come up here too. If a buyer's quote is high because of the roof or a flood zone, your elevation certificate, roof paperwork or a transferable flood policy can help."
+          ],
+          "socialPost": "Under contract as a seller? After inspections, the buyer may ask for repairs, a credit or a lower price. You can agree, counter or decline. Having your roof paperwork and elevation certificate ready can keep the deal moving."
+        },
+        {
+          "id": "close",
+          "title": "Close the sale",
+          "summary": "Appraisal, final walk-through, signing day.",
+          "body": [
+            "The buyer's lender orders an appraisal. If it comes in below the price, the buyer and seller can talk about options depending on the contract.",
+            "A real estate attorney or title company handles the closing. Before closing day, leave the home in the agreed condition, and gather keys, garage door openers and any manuals and warranties.",
+            "Keep your homeowners and flood insurance in force until the sale has closed. Ask your agent and the closing office before canceling anything. If the buyer is taking over your flood policy, the closing office can help with the transfer."
+          ],
+          "socialPost": "Selling your home? Keep your homeowners and flood insurance in force until the sale actually closes. If the buyer is taking over your flood policy, the closing office can help with the transfer."
+        },
+        {
+          "id": "after",
+          "title": "After the sale",
+          "summary": "Keep your closing papers, and talk to a tax professional.",
+          "body": [
+            "Save your closing statement and records of improvements you made to the home. Many people who sell their main home can exclude some or all of the gain from federal income tax if they meet the rules, but everyone's situation is different. A tax professional can tell you what applies to you.",
+            "Update your address with the post office, your bank and your insurance companies, and cancel or transfer your utilities."
+          ],
+          "socialPost": "Just sold your home? Save your closing statement and improvement receipts, and talk to a tax professional about the federal home-sale exclusion. Many sellers of a main home can exclude some or all of the gain if they meet the rules."
+        }
+      ]
+    }
+  ]
+}
