@@ -20,6 +20,8 @@ const SITE = {
     ["index.html", "Home"],
     ["index.html#about", "Meet Bill"],
     ["listings.html", "Homes for Sale"],
+    ["home-value.html", "Home Value"],
+    ["market.html", "Market"],
     ["forms.html", "Forms"],
     ["index.html#contact", "Contact"],
   ];

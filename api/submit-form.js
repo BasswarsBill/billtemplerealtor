@@ -38,7 +38,7 @@ module.exports = async function handler(req, res) {
     return res.status(200).json({ ok: true });
   }
 
-  const kind = body.kind === "request" ? "request" : body.kind === "signed" ? "signed" : null;
+  const kind = ["request", "signed", "lead"].includes(body.kind) ? body.kind : null;
   const formTitle = clean(body.formTitle, 200);
   const formId = clean(body.formId, 100).replace(/[^a-z0-9-]/gi, "");
   if (!kind || !formTitle || !formId || !Array.isArray(body.answers)) {
@@ -80,7 +80,7 @@ module.exports = async function handler(req, res) {
   ];
 
   const who = signerName || (answers.find((a) => /name/i.test(a.label)) || {}).value || "a client";
-  const subject = (kind === "request" ? `Form request: ${formTitle} from ${who}` : `Signed form: ${formTitle} from ${who}`)
+  const subject = (kind === "lead" ? `${formTitle} from ${who}` : kind === "request" ? `Form request: ${formTitle} from ${who}` : `Signed form: ${formTitle} from ${who}`)
     .replace(/[\r\n]+/g, " ")
     .slice(0, 250);
 
@@ -147,7 +147,9 @@ function renderEmail({ kind, formTitle, answers, signerName, audit }) {
     .join("");
 
   const intro =
-    kind === "request"
+    kind === "lead"
+      ? `<p>A new <b>${esc(formTitle)}</b> came in from the website. Reply to this email to reach them.</p>`
+      : kind === "request"
       ? `<p>Someone asked you to send them the <b>${esc(formTitle)}</b> to sign. Reply to this email to reach them.</p>`
       : `<p><b>${esc(signerName)}</b> filled out and signed the <b>${esc(formTitle)}</b>. The signed PDF is attached. Reply to this email to reach them.</p>`;
 

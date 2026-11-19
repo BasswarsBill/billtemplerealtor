@@ -1,0 +1,42 @@
+# Refreshes the Gulf Coast market numbers (data/market.json) every week.
+# When the numbers change it commits the new file, and Vercel republishes the site.
+# To run it right away: GitHub > Actions > "Update market data" > Run workflow.
+name: Update market data
+
+on:
+  schedule:
+    - cron: "0 19 * * 4" # Thursdays around 2 PM Central, after Freddie Mac posts the weekly rates
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/update-market.mjs
+      - .github/workflows/update-market.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-market
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/update-market.mjs
+      - name: Save new numbers
+        run: |
+          if git diff --quiet -- data/market.json; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "market-data-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/market.json
+          git commit -m "Update Gulf Coast market data"
+          git push

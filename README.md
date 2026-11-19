@@ -7,6 +7,8 @@ Plain static site (HTML, CSS, vanilla JavaScript). No build step. Deploys to Ver
 - `listings.html` search and filter homes for sale
 - `listing.html?id=...` one home's details
 - `forms.html` client forms (built separately in `forms/`)
+- `home-value.html` "What's my home worth?" form. Emails Bill through `api/submit-form.js` (same Resend setup as the forms).
+- `market.html` Gulf Coast market update (prices, homes for sale, days on market, mortgage rates, by county)
 
 ## Listings
 All pages load houses through `js/listings-data.js`. Right now it reads sample data from
@@ -37,3 +39,12 @@ replace `media/brokerage-logo.png` with the new brokerage's logo. Every page and
 The Vercel project `bill-temple-realtor` is linked to this repo. Any change merged into the
 default branch (`claude/project-thread-r7mqe8`) goes live automatically within a minute or two.
 No more uploads from a PC are needed.
+
+## Market update (updates itself)
+`market.html` and the home page snapshot read `data/market.json`. Every Thursday a GitHub Action
+(`.github/workflows/update-market.yml`) runs `scripts/update-market.mjs`, which pulls free public data
+(Realtor.com Economic Research listing data for the Gulfport-Biloxi metro and its counties, and Freddie Mac
+mortgage rates from FRED), and commits the file if the numbers changed. Vercel then republishes the site.
+To refresh right away: GitHub > Actions > Update market data > Run workflow.
+`data/market.json` also holds ready-made plain-English `headlines` and a `socialPost`, for reuse in Facebook posts later.
+To add a personal comment on the market page, type it inside `<p class="market-take" id="mk-take"></p>` in `market.html`.

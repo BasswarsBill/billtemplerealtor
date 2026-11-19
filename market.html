@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gulf Coast Market Update | Bill Temple, Realtor</title>
+  <meta name="description" content="Monthly Mississippi Gulf Coast housing market update: typical list prices, homes for sale, days on market and mortgage rates for Harrison, Hancock, Jackson and Stone counties.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="market">
+    <section class="market-top">
+      <div class="container">
+        <p class="eyebrow" id="mk-eyebrow">Market update</p>
+        <h1>Mississippi Gulf Coast housing market</h1>
+        <p class="market-lede">What homes are listing for, how many are for sale, how fast they're going, and what it costs to borrow. Covers Harrison, Hancock, Jackson and Stone counties. This page updates itself every week from public data.</p>
+        <p class="market-updated" id="mk-updated"></p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="stats" id="mk-stats" aria-live="polite"></div>
+    </div>
+
+    <section>
+      <div class="container market-cols">
+        <div>
+          <p class="eyebrow">In plain English</p>
+          <h2>This month at a glance</h2>
+          <ul class="market-headlines" id="mk-headlines"></ul>
+          <!-- Bill's take: add a sentence or two here in your own words if you like, for example
+               what you're seeing with buyers and sellers. Leave it empty to hide it. -->
+          <p class="market-take" id="mk-take"></p>
+        </div>
+        <div class="market-cta">
+          <p class="eyebrow">Selling?</p>
+          <h3>What is your home worth in this market?</h3>
+          <p>Averages only tell part of the story. Tell me about your home and I'll send you a personal estimate based on recent sales near you.</p>
+          <a class="btn" href="home-value.html">Get my home value</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <p class="eyebrow">Trends</p>
+        <h2>The last 12 months</h2>
+        <div class="chart-grid">
+          <figure class="chart" id="ch-price"></figure>
+          <figure class="chart" id="ch-active"></figure>
+          <figure class="chart" id="ch-rate"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <p class="eyebrow">By county</p>
+        <h2>Around the coast</h2>
+        <div class="table-wrap">
+          <table class="mk-table" id="mk-counties">
+            <thead><tr><th scope="col">County</th><th scope="col">Typical list price</th><th scope="col">vs last year</th><th scope="col">Homes for sale</th><th scope="col">Days on market</th><th scope="col">Price per sq ft</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container market-sources">
+        <h2>Where these numbers come from</h2>
+        <ul id="mk-sources"></ul>
+        <p>Listing numbers are for homes listed for sale (asking prices), not final sale prices, and are for the Gulfport-Biloxi metro area unless a county is named. "Typical" means the median: half of homes are above it and half below. Mortgage rates are the national weekly average for borrowers with strong credit; your rate may differ. Information is deemed reliable but not guaranteed.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/site.js"></script>
+  <script src="js/market.js"></script>
+</body>
+</html>
