@@ -1,4 +1,6 @@
-// "Ask Bill" question form at the end of the buyer and seller guides (built by scripts/build-guides.mjs).
+// "Ask Bill" question form at the end of the buyer and seller guides (built by scripts/build-guides.mjs)
+// and the Investor Corner (scripts/build-investors.mjs). The form can set data-form-id and data-form-title,
+// and any extra field with a data-ask-label attribute is sent along too.
 // Sends the question to Bill through the same email function as the other forms (api/submit-form.js).
 (function () {
   var form = document.getElementById("ask-form");
@@ -15,12 +17,16 @@
 
     var topic = form.getAttribute("data-topic") || "Guides";
     var answers = [
-      ["Question", "Guide they were reading", topic + " (" + location.pathname + ")"],
+      ["Question", "Page they were reading", topic + " (" + location.pathname + ")"],
       ["Question", "Their question", form.elements.message.value],
       ["Contact", "Name", form.elements.name.value],
       ["Contact", "Email", form.elements.email.value],
       ["Contact", "Phone", form.elements.phone.value],
-    ].map(function (a) { return { section: a[0], label: a[1], value: String(a[2] || "").trim() }; });
+    ];
+    Array.prototype.forEach.call(form.querySelectorAll("[data-ask-label]"), function (el) {
+      if (el.value.trim()) answers.splice(answers.length - 3, 0, ["Question", el.getAttribute("data-ask-label"), el.value]);
+    });
+    answers = answers.map(function (a) { return { section: a[0], label: a[1], value: String(a[2] || "").trim() }; });
 
     var button = form.querySelector("button[type=submit]");
     var label = button.textContent;
@@ -32,8 +38,8 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         kind: "lead",
-        formId: "guide-question",
-        formTitle: "Question from the " + topic.toLowerCase(),
+        formId: form.getAttribute("data-form-id") || "guide-question",
+        formTitle: form.getAttribute("data-form-title") || "Question from the " + topic.toLowerCase(),
         answers: answers,
         replyTo: form.elements.email.value.trim(),
         _hp: form.elements.hp_check.value,

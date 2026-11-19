@@ -1,0 +1,62 @@
+{
+  "_readme": "Built by scripts/build-investors.mjs from data/investors.json. One ready-made Facebook post per Investor Corner section.",
+  "reviewed": "2026-11-19",
+  "posts": [
+    {
+      "id": "investors-why-the-coast",
+      "section": 1,
+      "title": "Why investors look at the Coast",
+      "url": "https://www.billtemplerealtor.com/investors.html#why-the-coast",
+      "socialPost": "Why do investors look at the Mississippi Gulf Coast? Steady military renters near Keesler and the Seabee base, year-round visitors, and prices below many beach markets. The catch: insurance. Good Coast deals price it in from day one.\n\nMore in my Investor Corner: https://www.billtemplerealtor.com/investors.html#why-the-coast"
+    },
+    {
+      "id": "investors-long-term-rentals",
+      "section": 2,
+      "title": "Long-term rentals",
+      "url": "https://www.billtemplerealtor.com/investors.html#long-term-rentals",
+      "socialPost": "Buying a rental on the Coast? The tax bill on the listing is often the seller's homestead bill. Rentals don't get the homestead exemption in Mississippi, so your taxes can be noticeably higher. Get the real number before you make an offer.\n\nMore in my Investor Corner: https://www.billtemplerealtor.com/investors.html#long-term-rentals"
+    },
+    {
+      "id": "investors-vacation-rentals",
+      "section": 3,
+      "title": "Vacation and short-term rentals",
+      "url": "https://www.billtemplerealtor.com/investors.html#vacation-rentals",
+      "socialPost": "Thinking about an Airbnb on the Mississippi Gulf Coast? Check the city's short-term rental rules and the HOA rules before you buy, not after. And remember the busy summer season overlaps hurricane season, so line up insurance early.\n\nMore in my Investor Corner: https://www.billtemplerealtor.com/investors.html#vacation-rentals"
+    },
+    {
+      "id": "investors-flips",
+      "section": 4,
+      "title": "Fix and flip",
+      "url": "https://www.billtemplerealtor.com/investors.html#flips",
+      "socialPost": "Flipping a house on the Gulf Coast? If it's in a high-risk flood zone and the repairs are about half the building's value or more, you may have to bring it up to current flood rules, even elevate it. Check with the building department before you buy.\n\nMore in my Investor Corner: https://www.billtemplerealtor.com/investors.html#flips"
+    },
+    {
+      "id": "investors-deal-math",
+      "section": 5,
+      "title": "How to size up a deal",
+      "url": "https://www.billtemplerealtor.com/investors.html#deal-math",
+      "socialPost": "Investor math in plain English: cap rate compares properties as if you paid cash. Cash-on-cash tells you what YOUR money earns. The 1% rule is a quick screen, not a verdict. On the Gulf Coast, always run the numbers with a real insurance quote.\n\nMore in my Investor Corner: https://www.billtemplerealtor.com/investors.html#deal-math"
+    },
+    {
+      "id": "investors-coast-costs",
+      "section": 6,
+      "title": "Coast costs: flood, wind and taxes",
+      "url": "https://www.billtemplerealtor.com/investors.html#coast-costs",
+      "socialPost": "Three costs that make or break a Gulf Coast rental: wind coverage (and the hurricane deductible), flood insurance, and property taxes without the homestead exemption. Get real quotes during your inspection period, before your earnest money is at risk.\n\nMore in my Investor Corner: https://www.billtemplerealtor.com/investors.html#coast-costs"
+    },
+    {
+      "id": "investors-financing",
+      "section": 7,
+      "title": "Financing an investment property",
+      "url": "https://www.billtemplerealtor.com/investors.html#financing",
+      "socialPost": "Financing a rental is different from buying your own home: usually more down, a slightly higher rate, and reserves in the bank. DSCR loans qualify on the property's rent. Living in one side of a duplex can open other options. Talk to a lender before you shop.\n\nMore in my Investor Corner: https://www.billtemplerealtor.com/investors.html#financing"
+    },
+    {
+      "id": "investors-working-with-bill",
+      "section": 8,
+      "title": "Working with an investor-agent",
+      "url": "https://www.billtemplerealtor.com/investors.html#working-with-bill",
+      "socialPost": "Investing on the Mississippi Gulf Coast? I've been a real estate investor for 15 years. I'll help you run real rent, insurance and repair numbers before you commit. Send me a property and I'll take a look.\n\nMore in my Investor Corner: https://www.billtemplerealtor.com/investors.html#working-with-bill"
+    }
+  ]
+}
