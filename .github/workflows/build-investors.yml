@@ -1,0 +1,45 @@
+# Rebuilds the Investor Corner (investors.html, data/investors-posts.json) whenever data/investors.json
+# changes, and every Thursday after the market and neighborhood updates so the calculator's starting
+# mortgage rate and the rents-by-town table stay current. Commits the page so Vercel republishes the site.
+# To run it right away: GitHub > Actions > "Build investor corner" > Run workflow.
+name: Build investor corner
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 20 * * 4" # Thursdays 20:15 UTC, after update-market (19:00) and update-neighborhoods (19:30)
+  push:
+    paths:
+      - data/investors.json
+      - scripts/build-investors.mjs
+      - .github/workflows/build-investors.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-investors
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/build-investors.mjs
+      - name: Save rebuilt investor corner
+        run: |
+          git add -A investors.html data/investors-posts.json
+          if git diff --cached --quiet; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "market-data-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Rebuild investor corner"
+          git pull --rebase
+          git push

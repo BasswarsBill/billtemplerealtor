@@ -1,0 +1,177 @@
+{
+  "_readme": "Words for the Investor Corner (investors.html). Edit them here, not in the page. Saving this file on GitHub rebuilds the page in a couple of minutes (scripts/build-investors.mjs). Every section needs id, title, summary, body and socialPost. 'billsTake' is a DRAFT in Bill's voice for Bill to edit. Never add sales numbers or promised returns.",
+  "reviewed": "2026-11-19",
+  "page": {
+    "title": "Investor Corner: Rentals, Flips and Deal Math on the Mississippi Gulf Coast",
+    "description": "Plain-English help for real estate investors on the Mississippi Gulf Coast: long-term and vacation rentals, flips, cap rate, cash-on-cash, the 1% and 70% rules, flood and wind insurance, plus a free deal calculator.",
+    "eyebrow": "Investor corner",
+    "heading": "Investing on the Gulf Coast, by the numbers",
+    "lede": "Rentals and flips can work well on the Mississippi Gulf Coast, but the deals that look great on paper are often the ones where nobody priced the insurance. This corner covers how investors here size up a property, what's different about the Coast, and a calculator to run your own numbers.",
+    "billsTake": "I've been a real estate investor for 15 years, long before I got my license. I've bought, fixed and rented property, and I've learned the hard way which costs sneak up on you. When you bring me a deal, I'll look at it the way I'd look at my own money: real rent, real insurance quotes, and a plan if things go sideways."
+  },
+  "sections": [
+    {
+      "id": "why-the-coast",
+      "title": "Why investors look at the Coast",
+      "summary": "Steady renter demand, tourism, and prices well below many beach markets.",
+      "body": [
+        "The Mississippi Gulf Coast has a few things investors like. Keesler Air Force Base in Biloxi and the Naval Construction Battalion Center (the Seabee base) in Gulfport bring a steady flow of military families who rent. The casinos, the beach, the harbors and events bring visitors year round. Ingalls Shipbuilding in Pascagoula, the Port of Gulfport and the hospitals add civilian jobs.",
+        "Home prices here are also lower than in many Gulf and Atlantic beach towns, so the purchase price of a rental can be more reachable. The catch is that insurance and storm risk are higher than in most inland markets. Good Coast deals price that in from day one."
+      ],
+      "local": "Military renters are paid a monthly housing allowance (BAH) that's set by the Department of Defense for each area and rank. It's public, and it's a useful check on what a rental near Keesler or the Seabee base can realistically charge.",
+      "links": [
+        { "href": "https://www.travel.dod.mil/Allowances/Basic-Allowance-for-Housing/BAH-Rate-Lookup/", "label": "Look up military housing allowance (BAH)" },
+        { "href": "market.html", "label": "This week's market update" }
+      ],
+      "socialPost": "Why do investors look at the Mississippi Gulf Coast? Steady military renters near Keesler and the Seabee base, year-round visitors, and prices below many beach markets. The catch: insurance. Good Coast deals price it in from day one."
+    },
+    {
+      "id": "long-term-rentals",
+      "title": "Long-term rentals",
+      "summary": "A 12-month lease, a dependable tenant, and numbers that still work after insurance and repairs.",
+      "body": [
+        "A long-term rental is the most common way to start: buy a house, duplex or small apartment building and rent it on a yearly lease. You won't get rich in a month, but rent tends to rise over time, the loan gets paid down, and a good tenant can stay for years.",
+        "Start with what similar homes actually rent for, not what you hope they rent for. Then subtract everything: property taxes, insurance, flood coverage if needed, repairs, an allowance for big-ticket items like a roof or AC, months it sits empty, and a property manager if you won't manage it yourself. What's left, after the mortgage, is your cash flow."
+      ],
+      "checklist": [
+        "Rent comps from the last few months",
+        "Real insurance quote, including wind",
+        "Flood zone and flood quote",
+        "Property tax at the non-homestead rate",
+        "Age of roof, AC, water heater",
+        "Vacancy and management allowance"
+      ],
+      "local": "In Mississippi, the homestead exemption only applies to a home you live in. A rental is taxed at a higher assessment rate, so the tax bill you see on a listing (often the current owner's homestead bill) can be well below what you'll pay. Ask the county tax assessor or tax collector for an estimate at the rental rate.",
+      "links": [
+        { "href": "https://www.dor.ms.gov/county-services/homestead-exemption", "label": "Mississippi homestead exemption" },
+        { "href": "neighborhoods.html", "label": "Rents and home values by town" }
+      ],
+      "socialPost": "Buying a rental on the Coast? The tax bill on the listing is often the seller's homestead bill. Rentals don't get the homestead exemption in Mississippi, so your taxes can be noticeably higher. Get the real number before you make an offer."
+    },
+    {
+      "id": "vacation-rentals",
+      "title": "Vacation and short-term rentals",
+      "summary": "Higher income potential, more work, more rules, and a busy season that overlaps hurricane season.",
+      "body": [
+        "A short-term rental (Airbnb, VRBO and similar) can bring in more than a yearly lease, especially near the beach, the casinos or downtown Bay St. Louis and Ocean Springs. It also costs more to run: furniture, cleaning between guests, utilities, internet, supplies, platform fees, and usually a manager who takes a bigger cut than a long-term manager does.",
+        "Plan for seasons. Summer and event weekends can be strong, while some winter weeks are quiet. Run your numbers at a realistic average occupancy for the whole year, not your best month.",
+        "Rules matter as much as numbers. Coast cities and counties handle short-term rentals differently. Some require a permit or business license, some limit them to certain zones, and many HOAs and condo associations restrict or ban them. Short stays are also generally subject to state sales tax and local lodging taxes."
+      ],
+      "checklist": [
+        "City or county short-term rental rules",
+        "HOA or condo rules in writing",
+        "Lodging and sales tax registration",
+        "Realistic year-round occupancy",
+        "Furnishing and setup budget",
+        "Cleaning and management costs"
+      ],
+      "local": "Hurricane season runs June 1 through November 30, which overlaps the busy summer months. Insurance companies usually won't write a new policy while a named storm is threatening the Coast, so a closing can be pushed back. Get your insurance lined up early, and budget for cancelled bookings in a storm year.",
+      "links": [
+        { "href": "https://www.dor.ms.gov/", "label": "Mississippi Department of Revenue" }
+      ],
+      "socialPost": "Thinking about an Airbnb on the Mississippi Gulf Coast? Check the city's short-term rental rules and the HOA rules before you buy, not after. And remember the busy summer season overlaps hurricane season, so line up insurance early."
+    },
+    {
+      "id": "flips",
+      "title": "Fix and flip",
+      "summary": "Buy right, fix smart, sell fast. Most of the profit is made on the purchase price.",
+      "body": [
+        "A flip means buying a home that needs work, fixing it, and selling it. It starts with the after-repair value (ARV): what the home should sell for once it's fixed, based on recent sales of similar updated homes nearby.",
+        "From there, work backwards. Subtract the repairs, the costs to buy, the costs to hold the house while you work (loan payments, taxes, insurance, utilities), the costs to sell (commission and closing costs), and the profit you need to make the risk worth it. What's left is the most you should pay. Repairs almost always cost more and take longer than the first estimate, so build in a cushion."
+      ],
+      "local": "On the Coast, flood rules can change a flip. If a home is in a high-risk flood zone and the repairs are a large share of the building's value (often 50% or more, called a substantial improvement), the city or county may require you to bring the whole house up to current flood rules, which can mean elevating it. Call the local floodplain manager or building department before you buy a major rehab in a flood zone.",
+      "links": [
+        { "href": "https://msc.fema.gov/portal/search", "label": "Look up a flood zone on FEMA's map" },
+        { "href": "investors.html#calculator", "label": "Run flip numbers in the calculator" }
+      ],
+      "socialPost": "Flipping a house on the Gulf Coast? If it's in a high-risk flood zone and the repairs are about half the building's value or more, you may have to bring it up to current flood rules, even elevate it. Check with the building department before you buy."
+    },
+    {
+      "id": "deal-math",
+      "title": "How to size up a deal",
+      "summary": "Five quick numbers investors use, what each one tells you, and where each one can fool you.",
+      "body": [
+        "None of these numbers decides a deal on its own. They're quick ways to compare properties and spot the ones worth a closer look. Use the calculator below to run them on a real property."
+      ],
+      "terms": [
+        {
+          "term": "Net operating income (NOI)",
+          "formula": "Rent collected minus operating costs (taxes, insurance, repairs, management, vacancy). Not the mortgage.",
+          "example": "$19,800 a year in rent, less $8,800 in costs, is $11,000 NOI."
+        },
+        {
+          "term": "Cap rate",
+          "formula": "NOI ÷ purchase price (plus repairs)",
+          "example": "$11,000 NOI on a $160,000 home is a 6.9% cap rate. It compares properties as if you paid cash, so it ignores your loan."
+        },
+        {
+          "term": "Cash-on-cash return",
+          "formula": "Yearly cash flow after the mortgage ÷ the cash you put in (down payment, closing costs, repairs)",
+          "example": "$2,400 a year of cash flow on $50,000 of your cash is 4.8%. This is the number that tells you what your own money is earning."
+        },
+        {
+          "term": "The 1% rule",
+          "formula": "Monthly rent ÷ purchase price. Many investors look for 1% or more.",
+          "example": "A $160,000 home renting for $1,600 a month meets it. It's a quick screen, not a verdict: on the Coast, insurance can sink a deal that passes."
+        },
+        {
+          "term": "The 70% rule (flips)",
+          "formula": "Most you should pay = ARV × 70%, minus repairs",
+          "example": "ARV $250,000 × 70% = $175,000, minus $40,000 of repairs = $135,000 maximum offer. The other 30% covers buying, holding and selling costs plus your profit."
+        },
+        {
+          "term": "Debt coverage (DSCR)",
+          "formula": "NOI ÷ yearly mortgage payments",
+          "example": "$11,000 NOI ÷ $10,000 of payments = 1.10. Many investor loans want 1.0 to 1.25 or higher."
+        }
+      ],
+      "socialPost": "Investor math in plain English: cap rate compares properties as if you paid cash. Cash-on-cash tells you what YOUR money earns. The 1% rule is a quick screen, not a verdict. On the Gulf Coast, always run the numbers with a real insurance quote."
+    },
+    {
+      "id": "coast-costs",
+      "title": "Coast costs: flood, wind and taxes",
+      "summary": "The three line items that separate a Coast deal from an inland one.",
+      "body": [
+        "Wind and hurricane coverage. Many policies near the water carry a separate named-storm deductible, often a percentage of the insured value rather than a flat amount. When private companies won't cover wind, the Mississippi Windstorm Underwriting Association (the state wind pool) offers wind and hail coverage in the coastal counties. Ask what the deductible would be in a storm, not just what the premium is.",
+        "Flood. A regular policy doesn't cover rising water. In a high-risk zone with a federally backed loan, flood insurance is required, and it's smart to price it even outside those zones. Elevation, the age of the building and past claims can move the price a lot. Ask the seller for an elevation certificate and whether there's a current flood policy that could transfer.",
+        "Property taxes. A rental or second home doesn't get the homestead exemption, so expect a higher bill than an owner-occupant pays. Budget it at the non-homestead rate from the start."
+      ],
+      "local": "Get insurance quotes during your inspection period, before your earnest money is at risk. An insurance agent who writes a lot of Coast policies can tell you quickly whether a house is easy or hard to insure.",
+      "links": [
+        { "href": "https://www.floodsmart.gov/", "label": "FloodSmart (National Flood Insurance Program)" },
+        { "href": "https://www.mid.ms.gov/", "label": "Mississippi Insurance Department" }
+      ],
+      "socialPost": "Three costs that make or break a Gulf Coast rental: wind coverage (and the hurricane deductible), flood insurance, and property taxes without the homestead exemption. Get real quotes during your inspection period, before your earnest money is at risk."
+    },
+    {
+      "id": "financing",
+      "title": "Financing an investment property",
+      "summary": "More down, a slightly higher rate, and a few loan types built for investors.",
+      "body": [
+        "Loans for rentals usually need a bigger down payment than a home you live in, often 15% to 25% or more, and the rate is often a bit higher. Lenders also look at reserves: money left in the bank after closing.",
+        "Investors also use DSCR loans, which qualify mostly on the property's rent instead of your personal income, and short-term rehab loans (often called hard money) for flips, which cost more but close fast. Another route is buying a duplex, triplex or fourplex, living in one unit and renting the others, which can open owner-occupant loan options.",
+        "Talk with a lender who does a lot of investor loans before you shop, so you know what you'll need. And talk with a tax professional about depreciation and, if you're selling one investment to buy another, a 1031 exchange."
+      ],
+      "socialPost": "Financing a rental is different from buying your own home: usually more down, a slightly higher rate, and reserves in the bank. DSCR loans qualify on the property's rent. Living in one side of a duplex can open other options. Talk to a lender before you shop."
+    },
+    {
+      "id": "working-with-bill",
+      "title": "Working with an investor-agent",
+      "summary": "An agent who has owned rentals reads a deal differently.",
+      "body": [
+        "I've been investing in real estate for 15 years, and I bring that to every investor client. When we look at a property, I'll help you pull rent comps, get flood and wind quotes early, look for repair issues that change the numbers, and think through the exit: rent it, sell it, or refinance it.",
+        "I can also set up a search for the kind of property you're after (price, area, number of units, condition) so you hear about new listings quickly. Tell me what you're looking for below."
+      ],
+      "socialPost": "Investing on the Mississippi Gulf Coast? I've been a real estate investor for 15 years. I'll help you run real rent, insurance and repair numbers before you commit. Send me a property and I'll take a look."
+    }
+  ],
+  "calculator": {
+    "heading": "Deal calculator",
+    "lede": "Plug in a property and see the cash flow, cap rate, cash-on-cash return and the quick rules of thumb. Everything stays on your device until you choose to send it to me.",
+    "rateNote": "The starting interest rate is this week's average 30-year rate plus 0.75%, since loans for investment properties usually cost a little more. Ask your lender for your actual rate."
+  },
+  "towns": {
+    "heading": "Rents and home values by town",
+    "lede": "A quick look at the rent-to-value ratio in each Coast town, from U.S. Census Bureau survey medians. These cover all homes and rentals in each town, not just ones for sale, so use them as a starting point and check real rent comps for any property."
+  }
+}

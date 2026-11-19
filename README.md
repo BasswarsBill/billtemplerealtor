@@ -10,6 +10,7 @@ Plain static site (HTML, CSS, vanilla JavaScript). No build step. Deploys to Ver
 - `home-value.html` "What's my home worth?" form. Emails Bill through `api/submit-form.js` (same Resend setup as the forms).
 - `market.html` Gulf Coast market update (prices, homes for sale, days on market, mortgage rates, by county)
 - `guides.html`, `guides/buying.html`, `guides/selling.html` buyer and seller guides (see below)
+- `investors.html` Investor Corner with a deal calculator (see below)
 
 ## Listings
 All pages load houses through `js/listings-data.js`. Right now it reads sample data from
@@ -78,3 +79,15 @@ They are built by `scripts/build-guides.mjs`, so don't edit them by hand:
 - The "Ask Bill" form at the bottom of each guide emails Bill through `api/submit-form.js` (subject "Question from the buyer guide" and so on).
 - Keep it general information, not legal, tax or insurance advice, and update `reviewed` in `data/guides.json` when you check the facts again
   (Mississippi disclosure law and form, FEMA/NFIP rules, homestead exemption, wind pool).
+
+## Investor Corner
+`investors.html` covers long-term and vacation rentals, flips, deal math (cap rate, cash-on-cash, the 1% and 70% rules,
+DSCR) and Coast costs like flood and wind insurance, with a deal calculator (`js/deal-calculator.js`) and an
+"Ask Bill about an investment" form that emails Bill as a lead (same `api/submit-form.js`). The calculator's
+"Send these numbers to Bill" button copies the visitor's numbers into that form.
+- The words are in `data/investors.json`. Edit them there; the page is built by `scripts/build-investors.mjs`.
+  "Bill's take" at the top is a draft for Bill to edit. Don't add sales numbers or promised returns.
+- The starting interest rate (this week's 30-year average plus 0.75%) comes from `data/market.json`, and the
+  rents-by-town table from `data/neighborhoods.json`. `.github/workflows/build-investors.yml` rebuilds the page
+  when `data/investors.json` changes and every Thursday after the market and neighborhood updates.
+- `data/investors-posts.json` has one ready-made Facebook post per section, for auto-posting later.

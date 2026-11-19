@@ -25,6 +25,7 @@ const SITE = {
     ["listings.html", "Homes for Sale"],
     ["neighborhoods.html", "Neighborhoods"],
     ["guides.html", "Guides"],
+    ["investors.html", "Investors"],
     ["home-value.html", "Home Value"],
     ["market.html", "Market"],
     ["forms.html", "Forms"],
