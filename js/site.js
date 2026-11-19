@@ -16,10 +16,11 @@ const SITE = {
   email: "bill@billtemplerealtor.com",
   license: "61942", // Mississippi license number
 
-  // For Google: the site's main address and the towns Bill serves.
+  // For Google: the site's main address, the towns Bill focuses on, and the state he works in.
   siteUrl: "https://www.billtemplerealtor.com",
   photo: "media/bill.jpg",
   areaServed: ["Gulfport", "Biloxi", "Long Beach", "Pass Christian", "Bay St. Louis", "Ocean Springs", "D'Iberville"],
+  areaServedState: "Mississippi",
 
   // Homes for sale. Leave this false until the MLS feed (Flexmls / Spark API) is connected.
   // While false, the site shows no homes at all: "Homes for Sale" pages send visitors to the
@@ -101,7 +102,10 @@ SITE.brokerageAddress = `${SITE.brokerageStreet}, ${SITE.brokerageCity}, ${SITE.
         postalCode: SITE.brokerageZip,
         addressCountry: "US",
       },
-      areaServed: SITE.areaServed.map((name) => ({ "@type": "City", name: `${name}, ${SITE.brokerageState}` })),
+      areaServed: [
+        ...SITE.areaServed.map((name) => ({ "@type": "City", name: `${name}, ${SITE.brokerageState}` })),
+        { "@type": "State", name: SITE.areaServedState },
+      ],
       parentOrganization: {
         "@type": "RealEstateAgent",
         name: SITE.brokerage,
